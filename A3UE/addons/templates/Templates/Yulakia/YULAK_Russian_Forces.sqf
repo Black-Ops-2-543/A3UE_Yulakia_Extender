@@ -852,15 +852,15 @@ _militiaLoadoutData set ["sidearms", [
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; 
-_crewLoadoutData set ["uniforms", []];
-_crewLoadoutData set ["vests", []];
-_crewLoadoutData set ["helmets", []];
+_crewLoadoutData set ["uniforms", ["Aegis_U_O_CombatFatigues_oli_F"]];
+_crewLoadoutData set ["vests", ["min_rf_combat_belt_green"]];
+_crewLoadoutData set ["helmets", ["H_HelmetCrew_B_oli_F"]];
 
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_pilotLoadoutData set ["uniforms", []];
-_pilotLoadoutData set ["vests", []];
-_pilotLoadoutData set ["helmets", []];
+_pilotLoadoutData set ["uniforms", ["RUS_Pilot_overall_blue"]];
+_pilotLoadoutData set ["vests", ["V_Rangemaster_belt_blk"]];
+_pilotLoadoutData set ["helmets", ["min_rf_helmet_ace"]];
 
 /////////////////////////////////
 //    Unit Type Definitions    //
