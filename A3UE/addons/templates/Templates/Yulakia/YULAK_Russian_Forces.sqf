@@ -179,7 +179,13 @@ if (_hasContact) then {
 
 ["voices", _languages] call _fnc_saveToTemplate;
 
-["insignia", []] call _fnc_saveToTemplate;
+if (_hasContact) then {
+    private _insignia = ["EAF_5thRegiment"]
+} else {
+    private _insignia = ["Spetsnaz545thRegiment"]
+};
+
+["insignia", _insignia] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
