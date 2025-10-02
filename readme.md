@@ -1,7 +1,38 @@
-# A3UE
-This is an extender of [Antistasi Ultimate](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate) based on the map [Yulakia](https://steamcommunity.com/sharedfiles/filedetails/?id=2950257727&searchtext=yulakia). I wanted to make an A3UE about this map as soon as I saw it, as I believe it has wonderful terrain and a lovely camoflauge for its faction. Inside this A3UE are four different factions: the invading "Russian Forces", the occupying "Yulakian Provisional Government", the rebel "Yulakian Liberation Front", and the rival "Spetsnaz". There are no modifications to the Yulakian map or the already-made Antistasi Ultimate scenario for Yulakia. This is created primarily by one developer, and I appreciate good and thorough work. I try to make this mod as in-depth as possible with as many features as I can figure out how to implement.
+# A3UE Information
+This is an extender of [Antistasi Ultimate](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate) based on the map [Yulakia](https://steamcommunity.com/sharedfiles/filedetails/?id=2950257727&searchtext=yulakia). I wanted to make an A3UE about this map as soon as I saw it, as I believe it has wonderful terrain and a lovely camoflauge for its faction. Inside this A3UE are four different factions: the invading `Russian Forces`, the occupying `Yulakian Provisional Government`, the rebel `Yulakian Liberation Front`, and the rival `Spetsnaz`. There are no modifications to the Yulakian map or the already-made Antistasi Ultimate scenario for Yulakia. This is created primarily by one developer, and I appreciate good and thorough work. I try to make this mod as in-depth as possible with as many features as I can figure out how to implement.
 ## Assistance with Development
 I am currently not looking for additional developers. If you are unsatisfied with the production time of this A3UE, feel free to reach out; I may be able to provide you with reasonings, or I may have questions that need answers. If anybody is very curious as to my scheduled roadmap, please look [here](https://docs.google.com/drawings/d/1hYLtHaA73X2bw29I9xtMmoYN2PxAwZB4SB_myNKK238/edit?usp=sharing). The green boxes indicate the version is good to go. The yellow boxes indicate this version is being worked on. The red boxes indicate I am not yet at that stage. I plan to release a beta version of this A3UE once Version 0.8 is pushed. A full release will be made with Version 1.0. Once Version 1.1 is pushed, I will likely cease development of this A3UE.
+## Other Mods
+### Dependencies
+This A3UE currently relies on the following mods and DLC:
+- Apex
+- Western Sahara
+- RHSUSAF
+- RHSAFRF
+- RHSGREF
+- RHSSAF
+- CBA_A3
+- RHS Vehicle Expansion Pack
+- [2035: Russian Armed Forces](https://steamcommunity.com/sharedfiles/filedetails/?id=543460260)
+- [Modern Armed Forces of Russian Federation](https://steamcommunity.com/sharedfiles/filedetails/?id=3352497264)
+- [BMP2-M](https://steamcommunity.com/sharedfiles/filedetails/?id=3299277816)
+- [Russian Tank Series](https://steamcommunity.com/sharedfiles/filedetails/?id=3418145558)
+- [Aegis](https://steamcommunity.com/sharedfiles/filedetails/?id=949252631)
+- [Ukrainian Military Technics](https://steamcommunity.com/sharedfiles/filedetails/?id=3158623183)
+- [Leopard 1A5](https://steamcommunity.com/sharedfiles/filedetails/?id=3271647663&searchtext=leopard+1)
+- [RHS Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3299910335&searchtext=rhs+plsu)
+- [RACS SLA](https://steamcommunity.com/sharedfiles/filedetails/?id=2955691343&searchtext=racs+sla)
+- [Orion UAV](https://steamcommunity.com/sharedfiles/filedetails/?id=3093850989)
+- [Yulakia](https://steamcommunity.com/sharedfiles/filedetails/?id=2950257727&searchtext=yulakia)
+### Compatability
+Additionally, I wish to include support for all the remaining Arma III DLC and the following mods, where applicable:
+- [NIArms](https://steamcommunity.com/sharedfiles/filedetails/?id=2595680138&searchtext=niarms)
+- JointCom Armory
+  - [Infantry Arsenal](https://steamcommunity.com/sharedfiles/filedetails/?id=3333302397&searchtext=jca)
+  - [Infantry Equipment](https://steamcommunity.com/sharedfiles/filedetails/?id=3473383676&searchtext=jca)
+- [Tier One Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2268351256&searchtext=tier+one+weapons)
+### Concerns
+The mod `RHS Vehicle Expansion Pack` has been repeatedly removed from the Steam Workshop and Nexus Mods. I currently possess a file that I am working from, but it seems untenable to keep in this A3UE. I will likely have to remove it and its vehicles unless I can safely integrate them directly into this A3UE. Removing its data would be a significant let-down for me, as I have really enjoyed the T-80BVM and three Kurganets IFVs it adds to Arma. If anybody has any information on the mod or can find another mod that contains similar vehicles, I will be extremely thankful. Feel free to fork this to add it if I do not reply.
 
 # Worldbuilding
 ## Russian Cornerstone
@@ -26,7 +57,7 @@ Russia is a major power in the world; while they may not be contributing their w
 ### Motives
 Russia wishes to teach the people of Yulakia a lesson. They will slaughter whole villages with the intent of pushing the fear of Russia deep into the hearts and minds of each Yulakian. At the end of it all, they will re-seize complete control of Yulakia and attempt to incorporate it into the Federation proper.
 ### Forces
-The Russian military is significantly more modernized than that of the YPG. With significant quantities of tanks such as the T-90 and T-14, it is a struggle to attempt to repel an armored spearhead. To support their infantry, they deploy newly-produced BTR-T and BTR-100 models of IFVs. However, even though they do possess strong modern vehicles, they still rely a lot on older T-80s or BMP-2s.
+The Russian military is significantly more modernized than that of the YPG. With significant quantities of tanks such as the T-90 and T-14, it is a struggle to attempt to repel an armored spearhead. To support their infantry, they deploy newly-produced BMP-T and BTR-100 models of IFVs. However, even though they do possess strong modern vehicles, they still rely a lot on older T-80s or BMP-2s.
 
 ## Rebels: The Yulakian Liberation Front
 The YLF—formed out of desparation to return Yulakia to a free and fair nation—is a rag-tag group of rebels who took up arms against a corrupt government.
@@ -34,3 +65,10 @@ The YLF—formed out of desparation to return Yulakia to a free and fair nation�
 The YLF seeks to cripple the Russian assault and topple the authoritarian YPG. Do to this, they attempt to win the hearts and minds of the great people of Yulakia. They seek to slowly grow their power through guerilla tactics and smart strategy. They have no problem attacking either other faction.
 ### Forces
 The YLF has very little materiel or capital. Each fighter must work with what they can acquire—primarily bolt-action rifles and shotguns used for hunting in the abundant forests of Yulakia. Along the way, however, the Front may find and capture equipment from the Russians or YPG to then turn against them.
+
+## Rivals: Spetsnaz
+A branch of Russian special forces meant to disrupt hostile assets in Yulakia.
+### Motives
+The Spetsnaz share the same motives as the Russian Federation.
+### Forces
+The Spetsnaz have some of the best vehicles, weapons, and gear in Yulakia. They also use unorthodox units like drone crews to accomplish their objectives. The Spetsnaz often partake in clandestine operations and rarely make their presence known. Eliminating them will be difficult.
