@@ -292,19 +292,19 @@ if (_hasContact) then {
 //////////////////////////
 
 private _loadoutData = call _fnc_createLoadoutData;
-_loadoutData set ["maps", ["ItemMap"]];
-_loadoutData set ["watches", ["ItemWatch"]];
-_loadoutData set ["compasses", ["ItemCompass"]];
-_loadoutData set ["binoculars", ["Binocular"]];
+_loadoutData set ["maps",       ["ItemMap"]];
+_loadoutData set ["watches",    ["ItemWatch"]];
+_loadoutData set ["compasses",  ["ItemCompass"]];
+_loadoutData set ["binoculars", ["VTN_B8"]];
 
 _loadoutData set ["uniforms", _rebUniforms];
 
 _loadoutData set ["facewear", []];
 
-_loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
+_loadoutData set ["items_medical_basic",    ["BASIC"]    call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
-_loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalSupplies];
-_loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
+_loadoutData set ["items_medical_medic",    ["MEDIC"]    call A3A_fnc_itemset_medicalSupplies];
+_loadoutData set ["items_miscEssentials",   []           call A3A_fnc_itemset_miscEssentials];
 
 ////////////////////////
 //  Rebel Unit Types  //

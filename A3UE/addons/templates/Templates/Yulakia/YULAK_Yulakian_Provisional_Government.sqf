@@ -249,7 +249,7 @@ _loadoutData set ["helmets", []];
 
 _loadoutData set ["facewear", ["min_rf_scarf_desert", "min_rf_scarf_olive", "FaceWear_Balaclava", "G_Headset_light", "G_Balaclava_blk", "G_Balaclava_oli", "G_Bandanna_blk", "G_Bandanna_khk", "G_Bandanna_oli", "G_Bandanna_tan", "Aegis_G_Headset_black_F", "Aegis_G_Headset_Olive_F", "fleece_scarf"]];
 
-//Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
+//Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied. TODO
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalSupplies];

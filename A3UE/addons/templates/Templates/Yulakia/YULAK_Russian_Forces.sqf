@@ -271,10 +271,27 @@ _loadoutData set ["goggles", _goggles];
 _loadoutData set ["covering", _balaclavas];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
-_loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];                           //this line defines the basic medical loadout for vanilla
-_loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];                     //this line defines the standard medical loadout for vanilla
-_loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalSupplies];                           //this line defines the medic medical loadout for vanilla
-_loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
+if(A3A_hasACE) then {
+    /*
+    Basic Medical: 3 Bandages
+    Standard Medical: 5 Bandages, 2 Tourniquets
+    Squad Lead Medical: 6 Bandages, 4 Tourniquets, 1 Splint
+    Doctor Medical: 12 Bandages, 2 Tourniquets, 2 Splints, 4 Morphine, 2 Epinephrine, 1 PAK
+    */
+    _loadoutData set ["items_medical_basic", ["ACE_fieldDressing", "ACE_fieldDressing", "ACE_fieldDressing"] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_standard", ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet"] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_leader", ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_splint"] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_medic", ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_quikclot", "ACE_quikclot", "ACE_quikclot", "ACE_tourniquet", "ACE_tourniquet", "ACE_splint", "ACE_splint", "ACE_morphine", "ACE_morphine", "ACE_morphine", "ACE_morphine", "ACE_epinephrine", "ACE_epinephrine", "ACE_personalAidKit"] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_miscEssentials", ["ACE_IR_Strobe_Item", "ACE_EntrenchingTool"] call A3A_fnc_itemset_miscEssentials];
+} else {
+    /*
+    TODO
+    */
+    _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
+};
 
 //Unit type specific item sets. Add or remove these, depending on the unit types in use.
 private   _squadLeaderItems = ["MineDetector"];
@@ -699,7 +716,6 @@ _militaryLoadoutData set ["machineGuns",[
     ["Aegis_arifle_RPK12_545_F", "", "rhs_acc_perst3",       "rhsusf_acc_su230_mrds",    ["Aegis_60Rnd_545x39_Mag_Green_F"], [], ""],
     ["Aegis_arifle_RPK12_545_F", "", "rhs_acc_perst3",       "optic_min_rf_pkm_a",       ["Aegis_60Rnd_545x39_Mag_Green_F"], [], ""],
 
-
     //ratio of pkp to rpk is 3:1
     ["rhs_weap_pkp", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
     ["rhs_weap_pkp", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
@@ -886,7 +902,7 @@ private _squadLeaderTemplate = {
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
 
-    ["items_medical_standard"] call _fnc_addItemSet;
+    ["items_medical_leader"] call _fnc_addItemSet;
     ["items_squadLeader_extras"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
     ["antiInfantryGrenades", 2] call _fnc_addItem;
@@ -1106,7 +1122,7 @@ private _latTemplate = {
 
 private _atTemplate = {
     ["helmets"] call _fnc_setHelmet;
-    [selectRandomWeighted [[], 2, "glasses", 0.75, "goggles", 0.5]] call _fnc_setFacewear;
+    [selectRandomWeighted [[], 8, "glasses", 3, "goggles", 2]] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
