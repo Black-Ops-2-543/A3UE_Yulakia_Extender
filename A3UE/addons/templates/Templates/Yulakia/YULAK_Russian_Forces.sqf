@@ -268,7 +268,7 @@ if (_hasApex) then {
 
 _loadoutData set ["glasses", ["G_Tactical_Clear"]];
 _loadoutData set ["goggles", _goggles];
-_loadoutData set ["covering", _balaclavas];
+_loadoutData set ["covering", _balaclavas]; // TODO
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
 if(A3A_hasACE) then {
@@ -278,22 +278,24 @@ if(A3A_hasACE) then {
     Squad Lead Medical: 6 Bandages, 4 Tourniquets, 1 Splint
     Doctor Medical: 12 Bandages, 2 Tourniquets, 2 Splints, 4 Morphine, 2 Epinephrine, 1 PAK
     */
-    _loadoutData set ["items_medical_basic", ["ACE_fieldDressing", "ACE_fieldDressing", "ACE_fieldDressing"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_standard", ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_leader", ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_splint"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_medic", ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_quikclot", "ACE_quikclot", "ACE_quikclot", "ACE_tourniquet", "ACE_tourniquet", "ACE_splint", "ACE_splint", "ACE_morphine", "ACE_morphine", "ACE_morphine", "ACE_morphine", "ACE_epinephrine", "ACE_epinephrine", "ACE_personalAidKit"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_miscEssentials", ["ACE_IR_Strobe_Item", "ACE_EntrenchingTool"] call A3A_fnc_itemset_miscEssentials];
+    _loadoutData set ["items_medical_basic",    ["ACE_fieldDressing", "ACE_fieldDressing", "ACE_fieldDressing"]                                                                                                                                                                                                                                                                                                                                                                                     call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_standard", ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet"]                                                                                                                                                                                                                                                                                                  call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_leader",   ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_splint"]                                                                                                                                                                                                                          call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_medic",    ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_quikclot", "ACE_quikclot", "ACE_quikclot", "ACE_tourniquet", "ACE_tourniquet", "ACE_splint", "ACE_splint", "ACE_morphine", "ACE_morphine", "ACE_morphine", "ACE_morphine", "ACE_epinephrine", "ACE_epinephrine", "ACE_personalAidKit"]  call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_miscEssentials",   ["ACE_IR_Strobe_Item", "ACE_EntrenchingTool", "ACE_Flashlight_XL50"]                                                                                                                                                                                                                                                                                                                                                                                                       call A3A_fnc_itemset_miscEssentials ];
 } else {
     /*
     TODO
     */
-    _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_basic",    ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
     _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
+    _loadoutData set ["items_medical_leader",   [""] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_medical_medic",    ["MEDIC"] call A3A_fnc_itemset_medicalSupplies];
+    _loadoutData set ["items_miscEssentials",   [""] call A3A_fnc_itemset_miscEssentials];
 };
 
-//Unit type specific item sets. Add or remove these, depending on the unit types in use.
+// No single item should exist in every single array. Use "items_miscEssentials" for those.
+// No medical item should exist in any array. Use the medical itemsets for those.
 private   _squadLeaderItems = ["MineDetector"];
 private      _riflemanItems = [];
 private         _medicItems = [];
@@ -311,20 +313,20 @@ private          _crewItems = [];
 private       _unarmedItems = [];
 
 if (A3A_hasACE) then {
-      _squadLeaderItems append ["ACE_Flashlight_XL50", "ACE_EntrenchingTool", "ACE_IR_Strobe_Item", "ACE_Clacker"];
-         _riflemanItems append ["ACE_Flashlight_XL50"];
-            _medicItems append ["ACE_Flashlight_XL50", "ACE_bloodIV_500", "ACE_bloodIV_500", "ACE_personalAidKit", "ACE_splint", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_quikclot", "ACE_quikclot", "ACE_quikclot", "ACE_quikclot", "ACE_quikclot", "ACE_quikclot"];
-        _grenadierItems append ["ACE_Flashlight_XL50", "ACE_Clacker"];
-             _demoItems append ["ACE_Flashlight_XL50", "ACE_DefusalKit", "ACE_M26_Clacker"];
-         _engineerItems append ["ACE_Flashlight_XL50", "ACE_EntrenchingTool", "ACE_DefusalKit"];
-    _lightAntiTankItems append ["ACE_Flashlight_XL50"];
-         _antiTankItems append ["ACE_Flashlight_XL50"];
-          _antiAirItems append ["ACE_Flashlight_XL50"];
-    _machineGunnerItems append ["ACE_Flashlight_XL50", "ACE_SpareBarrel", "ACE_Tripod"];
-         _marksmanItems append ["ACE_Flashlight_XL50"];
-           _sniperItems append ["ACE_Flashlight_XL50", "ACE_ATragMX", "ACE_SpottingScope", "ACE_Kestrel4500"];
-           _policeItems append ["ACE_Flashlight_XL50"];
-             _crewItems append ["ACE_IR_Strobe_Item"];
+      _squadLeaderItems append [];
+         _riflemanItems append [];
+            _medicItems append [];
+        _grenadierItems append [];
+             _demoItems append [];
+         _engineerItems append [];
+    _lightAntiTankItems append [];
+         _antiTankItems append [];
+          _antiAirItems append [];
+    _machineGunnerItems append [];
+         _marksmanItems append [];
+           _sniperItems append [];
+           _policeItems append [];
+             _crewItems append [];
           _unarmedItems append [];
 };
 
@@ -1028,7 +1030,7 @@ private _grenadierTemplate = {
 
 private _explosivesExpertTemplate = {
     ["helmets"] call _fnc_setHelmet;
-    [selectRandomWeighted [[], 2, "glasses", 0.75, "goggles", 0.5]] call _fnc_setFacewear;
+    [selectRandomWeighted [[], 8, "glasses", 3, "goggles", 2]] call _fnc_setFacewear;
     [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
