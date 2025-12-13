@@ -6,7 +6,7 @@
     
 # Adding things to the Arms Dealer.
 
-- When referencing `my_extension`, this can be whatever you want to (or have) called it. Keep it short and simple!
+- When referencing `my_extension`, this can be whatever you want to (or have) called it. Keep it short and simple! (`YULAK_A3UE`)
 
 - When referencing `something_mod`, this will be the name of the mod that you're using to do something.
 

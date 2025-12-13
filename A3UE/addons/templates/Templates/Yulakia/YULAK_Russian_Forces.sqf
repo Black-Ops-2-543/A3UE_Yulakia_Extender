@@ -344,8 +344,6 @@ _loadoutData set ["items_police_extras",           _policeItems       ];
 _loadoutData set ["items_crew_extras",             _crewItems         ];
 _loadoutData set ["items_unarmed_extras",          _unarmedItems      ];
 
-//TODO - ACE overrides for misc essentials, medical and engineer gear
-
 ///////////////////////////////////////
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
