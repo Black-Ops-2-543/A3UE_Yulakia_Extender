@@ -56,26 +56,6 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["breachingExplosivesAPC", ["SatchelCharge_Remote_Mag", "rhsusf_m112x4_mag", "rhsusf_m112_mag", "rhs_charge_M2tet_x2_mag", "rhssaf_tm500_mag", "rhs_ec400_sand_mag", "rhs_ec400_mag", "rhssaf_tm200_mag", "rhs_ec200_mag", "rhs_ec200_sand_mag"]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", ["SatchelCharge_Remote_Mag", "rhsusf_m112x4_mag", "rhsusf_m112_mag", "rhs_charge_M2tet_x2_mag", "rhssaf_tm500_mag", "rhs_ec400_sand_mag", "rhs_ec400_mag"]] call _fnc_saveToTemplate;
 
-//////////////////////////////////////
-//       Antistasi Plus Stuff       //
-//////////////////////////////////////
-
-["lootCrate", ""] call _fnc_saveToTemplate;
-["rallyPoint", ""] call _fnc_saveToTemplate;
-
-//animation sources - camo nets, slat cages, decals etc, digit is probability of appearance
-["animations", [
-    ["vehClass", ["animsource_example_1", 0.25, "animsource_example_2", 0.3]]
-]] call _fnc_saveToTemplate;
-
-//vehicle skins
-["variants", [
-    ["vehClass", ["paint", 1]]
-]] call _fnc_saveToTemplate;
-
-
-//Enter #include "Modset_Reb_Vehicle_Attributes.sqf" here
-
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////

@@ -31,71 +31,69 @@ private _hasEF = "ef" in A3A_enabledDLC;
 //       Vehicles       //
 //////////////////////////
 
-["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate; 	                                                //Don't touch or you die a sad and lonely death!
-["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate;                                               //Changeing this from default will require you to define logistics attachement offset for the box type
-["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate;                                               //Changeing this from default will require you to define logistics attachement offset for the box type
+["ammobox", "B_supplyCrate_F"]       call _fnc_saveToTemplate; 	                                            //Don't touch or you die a sad and lonely death!
+["surrenderCrate", "Box_IND_Wps_F"]  call _fnc_saveToTemplate;                                              //Changeing this from default will require you to define logistics attachement offset for the box type
+["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate;                                              //Changeing this from default will require you to define logistics attachement offset for the box type
 
-["vehiclesBasic", ["O_R_LSV_02_unarmed_F"]] call _fnc_saveToTemplate; 			                                //this line determines basic vehicles, the lightest kind available. -- Example: ["vehiclesBasic", ["B_Quadbike_01_F"]] -- Array, can contain multiple assets
-["vehiclesLightUnarmed", ["RUS_VDV_kamaz4386", "rhs_tigr_m_vmf", "Kraz_Spartan"]] call _fnc_saveToTemplate; 		                                //this line determines light and unarmed vehicles. -- Example: ["vehiclesLightUnarmed", ["B_MRAP_01_F"]] -- Array, can contain multiple assets
-["vehiclesLightArmed",["O_R_LSV_02_AT_F", "RHS_GRU_asn233115sts", "Kraz_Spartan_dshk"]] call _fnc_saveToTemplate; 		            //this line determines light and armed vehicles -- Example: ["vehiclesLightArmed",["B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F"]] -- Array, can contain multiple assets
-["vehiclesTrucks", ["O_R_Truck_03_covered_F", "RUS_GRU_ural63095"]] call _fnc_saveToTemplate; 			//this line determines the trucks -- Example: ["vehiclesTrucks", ["B_Truck_01_transport_F", "B_Truck_01_covered_F"]] -- Array, can contain multiple assets
-["vehiclesCargoTrucks", ["rhs_kamaz5350_flatbed_cover_vmf"]] call _fnc_saveToTemplate; 		//this line determines cargo trucks -- Example: ["vehiclesCargoTrucks", ["B_Truck_01_transport_F", "B_Truck_01_covered_F"]] -- Array, can contain multiple assets
-["vehiclesAmmoTrucks", ["O_R_Truck_03_ammo_F"]] call _fnc_saveToTemplate; 		                            //this line determines ammo trucks -- Example: ["vehiclesAmmoTrucks", ["B_Truck_01_ammo_F"]] -- Array, can contain multiple assets
-["vehiclesRepairTrucks", ["O_R_Truck_03_repair_F"]] call _fnc_saveToTemplate; 		                            //this line determines repair trucks -- Example: ["vehiclesRepairTrucks", ["B_Truck_01_Repair_F"]] -- Array, can contain multiple assets
-["vehiclesFuelTrucks", ["O_R_Truck_03_fuel_F"]] call _fnc_saveToTemplate;		                                //this line determines fuel trucks -- Array, can contain multiple assets
-["vehiclesMedical", ["O_R_Truck_03_medical_F", "O_R_Truck_02_medical_F"]] call _fnc_saveToTemplate;			                            //this line determines medical vehicles -- Array, can contain multiple assets
-["vehiclesLightAPCs", ["red_k16_r", "RUS_MSV_btr82a"]] call _fnc_saveToTemplate;		
-["vehiclesAPCs", ["red_k18_r", "red_k17_r", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]] call _fnc_saveToTemplate; 		//this line determines APCs -- Example: ["vehiclesAPCs", ["B_APC_Tracked_01_rcws_F", "B_APC_Tracked_01_CRV_F"]] -- Array, can contain multiple assets
-["vehiclesAirborne", ["RUS_VDV_bmd4m"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "O_BMPT", "rhs_bmp3mera_msv", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m"]] call _fnc_saveToTemplate;				                                                //this line determines IFVs
-["vehiclesTanks", ["rhs_t14_tv", "RUS_MSV_t90m", "rhs_t90sab_tv", "rhs_t90saa_tv", "rhs_tv_t80bvm", "RUS_MSV_t72b3m"]] call _fnc_saveToTemplate; 			                                //this line determines tanks -- Example: ["vehiclesTanks", ["B_MBT_01_cannon_F", "B_MBT_01_TUSK_F"]] -- Array, can contain multiple assets
-["vehiclesLightTanks", ["rhs_sprut_vdv"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["mkk_sa22m_pantsir_r", "mkk_2s6m_tunguska"]] call _fnc_saveToTemplate; 				                                    //this line determines AA vehicles -- Example: ["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] -- Array, can contain multiple assets
+["vehiclesBasic", ["O_R_LSV_02_unarmed_F"]]                                                                                        call _fnc_saveToTemplate; // Basic, unarmed vehicles. No armor.
+["vehiclesLightUnarmed", ["RUS_VDV_kamaz4386", "rhs_tigr_m_vmf", "Kraz_Spartan"]]                                                  call _fnc_saveToTemplate; // Basic vehicles with minimal armor and no weapons.
+["vehiclesLightArmed",["O_R_LSV_02_AT_F", "RHS_GRU_asn233115sts", "Kraz_Spartan_dshk"]]                                            call _fnc_saveToTemplate; // Basic vehicles with minimal armor and light weapons.
+["vehiclesTrucks", ["O_R_Truck_03_covered_F", "RUS_GRU_ural63095"]]                                                                call _fnc_saveToTemplate; // Infantry transport trucks
+["vehiclesCargoTrucks", ["rhs_kamaz5350_flatbed_cover_vmf"]]                                                                       call _fnc_saveToTemplate; // Cargo transport trucks
+["vehiclesAmmoTrucks", ["O_R_Truck_03_ammo_F"]]                                                                                    call _fnc_saveToTemplate; // Ammo trucks
+["vehiclesRepairTrucks", ["O_R_Truck_03_repair_F"]]                                                                                call _fnc_saveToTemplate; // Repair trucks
+["vehiclesFuelTrucks", ["O_R_Truck_03_fuel_F"]]                                                                                    call _fnc_saveToTemplate; // Fuel trucks
+["vehiclesMedical", ["O_R_Truck_03_medical_F", "O_R_Truck_02_medical_F"]]                                                          call _fnc_saveToTemplate; // Medical trucks
+["vehiclesLightAPCs", ["red_k16_r", "RUS_MSV_btr82a"]]                                                                             call _fnc_saveToTemplate; // Armored cars; lightly-armed APCs
+["vehiclesAPCs", ["red_k18_r", "red_k17_r", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]]                                   call _fnc_saveToTemplate; // Moderate armament and decent passenger cap
+["vehiclesAirborne", ["RUS_VDV_bmd4m"]]                                                                                            call _fnc_saveToTemplate; // Parachute-deployable armored vehicles
+["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "O_BMPT", "rhs_bmp3mera_msv", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m"]] call _fnc_saveToTemplate; // Heavier armament with infantry capacity
+["vehiclesTanks", ["rhs_t14_tv", "RUS_MSV_t90m", "rhs_t90sab_tv", "rhs_t90saa_tv", "rhs_tv_t80bvm", "RUS_MSV_t72b3m"]]             call _fnc_saveToTemplate; // Tanks
+["vehiclesLightTanks", ["rhs_sprut_vdv"]]                                                                                          call _fnc_saveToTemplate; // Lesser armament and/or less armor
+["vehiclesAA", ["mkk_sa22m_pantsir_r", "mkk_2s6m_tunguska"]]                                                                       call _fnc_saveToTemplate; // SPAA
 
-["vehiclesTransportBoats", ["O_R_Boat_Transport_01_ard_F"]] call _fnc_saveToTemplate; 	                                                        //this line determines transport boats -- Example: ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] -- Array, can contain multiple assets
-["vehiclesGunBoats", ["O_R_Boat_Armed_01_hmg_ard_F"]] call _fnc_saveToTemplate; 			                                                    //this line determines gun boats -- Example: ["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F"]] -- Array, can contain multiple assets
-["vehiclesAmphibious", ["rhs_bmp3mera_msv"]] call _fnc_saveToTemplate; 		//this line determines amphibious vehicles  -- Example: ["vehiclesAmphibious", ["B_APC_Wheeled_01_cannon_F"]] -- Array, can contain multiple assets
+["vehiclesTransportBoats", ["O_R_Boat_Transport_01_ard_F"]] call _fnc_saveToTemplate; // Little-to-no armament
+["vehiclesGunBoats", ["O_R_Boat_Armed_01_hmg_ard_F"]]       call _fnc_saveToTemplate; // Armed boats
+["vehiclesAmphibious", ["rhs_bmp3mera_msv"]]                call _fnc_saveToTemplate; // APC, IFV, etc. with amphibious capabilities
 
-["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]] call _fnc_saveToTemplate; 		                                            //this line determines CAS planes -- Example: ["vehiclesPlanesCAS", ["B_Plane_CAS_01_dynamicLoadout_F"]] -- Array, can contain multiple assets
-["vehiclesPlanesAA", ["rhs_mig29sm_vmf", "RHS_VKS_su57"]] call _fnc_saveToTemplate; 			                                                        //this line determines air supperiority planes -- Example: ["vehiclesPlanesAA", ["B_Plane_Fighter_01_F"]] -- Array, can contain multiple assets
-["vehiclesPlanesTransport", ["RHS_Mi8mt_Cargo_vvs"]] call _fnc_saveToTemplate; 	                                                                                //this line determines transport planes -- Example: ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_F"]] -- Array, can contain multiple assets
+["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]]                   call _fnc_saveToTemplate; // Planes focused on anti-ground roles
+["vehiclesPlanesAA", ["rhs_mig29sm_vmf", "RHS_VKS_su57"]]   call _fnc_saveToTemplate; // Planes focused on air superiority
+["vehiclesPlanesTransport", ["RHS_Mi8mt_Cargo_vvs"]]        call _fnc_saveToTemplate; // Planes available to paradrop infantry
 
-["vehiclesHelisLight", ["RHS_Mi8T_vvs", "RHS_Mi8mt_vvs"]] call _fnc_saveToTemplate; 		                                                    //this line determines light helis -- Example: ["vehiclesHelisLight", ["B_Heli_Light_01_F"]] -- Array, can contain multiple assets
-["vehiclesHelisTransport", ["RHS_Mi8T_vvs", "RHS_Mi8mt_vvs"]] call _fnc_saveToTemplate; 	                            //this line determines transport helis -- Example: ["vehiclesHelisTransport", ["B_Heli_Transport_01_F"]] -- Array, can contain multiple assets
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate;		                                        //this line determines light attack helicopters
-["vehiclesHelisAttack", ["LS_Ka52_F", "rhs_mi28n_vvs", "RHS_Mi24V_vvs"]] call _fnc_saveToTemplate; 		                                            //this line determines attack helis -- Example: ["vehiclesHelisAttack", ["B_Heli_Attack_01_F"]] -- Array, can contain multiple assets
+["vehiclesHelisLight", ["RHS_Mi8T_vvs", "RHS_Mi8mt_vvs"]]                  call _fnc_saveToTemplate; // Helicopters with little-to-no armament
+["vehiclesHelisTransport", ["RHS_Mi8T_vvs", "RHS_Mi8mt_vvs"]]              call _fnc_saveToTemplate; // Helicopters to transport infantry
+["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate; // Helicopters with light armament
+["vehiclesHelisAttack", ["LS_Ka52_F", "rhs_mi28n_vvs", "RHS_Mi24V_vvs"]]   call _fnc_saveToTemplate; // Helicopters designed to engage hostiles
 
-["vehiclesArtillery", ["RUS_MSV_2s19m1", "RUS_MSV_2b26"]] call _fnc_saveToTemplate;		                                            //this line determines SPAs
+["vehiclesArtillery", ["RUS_MSV_2s19m1", "RUS_MSV_2b26"]] call _fnc_saveToTemplate; // Self-propelled artillery pieces
 ["magazines", createHashMapFromArray [
-["RUS_MSV_2s19m1", ["rhs_mag_HE_2a33"]],
-["RUS_MSV_2b26",["VTN_9M522_40"]]
-]] call _fnc_saveToTemplate;			                                                                                                    //this line determines ammo to be used with specified SPA, hashMap makes sure that SPA gets proper ammo
+    ["RUS_MSV_2s19m1", ["rhs_mag_HE_2a33"]],
+    ["RUS_MSV_2b26", ["VTN_9M522_40"]]
+]] call _fnc_saveToTemplate; // All ammo that can be used by the above artillery
 
-["uavsAttack", ["orion_F_KORNET_OPF"]] call _fnc_saveToTemplate; 				                                                    //this line determines attack UAVs -- Example: ["uavsAttack", ["B_UAV_02_CAS_F"]] -- Array, can contain multiple assets
-["uavsPortable", ["O_R_UAV_01_F"]] call _fnc_saveToTemplate; 				                                                                    //this line determines portable UAVs -- Example: ["uavsPortable", ["B_UAV_01_F"]] -- Array, can contain multiple assets
+["uavsAttack", ["orion_F_KORNET_OPF"]] call _fnc_saveToTemplate; // Large UAVs equipped with weapons
+["uavsPortable", ["O_R_UAV_01_F"]]     call _fnc_saveToTemplate; // Small UAVs carried by infantry
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", ["rhs_tigr_sts_vv"]] call _fnc_saveToTemplate;        //this line determines lightly armed militia vehicles -- Example: ["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] -- Array, can contain multiple assets
-["vehiclesMilitiaTrucks", ["rhs_kamaz5350_vv"]] call _fnc_saveToTemplate; 	        //this line determines militia trucks (unarmed) -- Example: ["vehiclesMilitiaTrucks", ["B_G_Van_01_transport_F"]] -- Array, can contain multiple assets
-["vehiclesMilitiaCars", ["O_R_LSV_02_unarmed_F"]] call _fnc_saveToTemplate; 		//this line determines militia cars (unarmed) -- Example: ["vehiclesMilitiaCars", ["B_G_Offroad_01_F"]] -- Array, can contain multiple assets
-["vehiclesMilitiaAPCs", ["rhs_btr80_vv"]] call _fnc_saveToTemplate;				    //this line determines militia APCs
+["vehiclesMilitiaLightArmed", ["rhs_tigr_sts_vv"]] call _fnc_saveToTemplate; // Vehicles with minimal armor and light weapons
+["vehiclesMilitiaTrucks", ["rhs_kamaz5350_vv"]]    call _fnc_saveToTemplate; // Infantry transport trucks
+["vehiclesMilitiaCars", ["O_R_LSV_02_unarmed_F"]]  call _fnc_saveToTemplate; // Vehicles with minimal armor and no weapons
+["vehiclesMilitiaAPCs", ["rhs_btr80_vv"]]          call _fnc_saveToTemplate; // Light-moderate armament and passenger capacity
 
-["vehiclesPolice", ["rhs_tigr_vv"]] call _fnc_saveToTemplate; 			            //this line determines police cars -- Example: ["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] -- Array, can contain multiple assets
+["vehiclesPolice", ["rhs_tigr_vv"]] call _fnc_saveToTemplate; // Vehicles with minimal armor and no weapons for use by police
 
-["staticMGs", ["rhs_KORD_high_MSV"]] call _fnc_saveToTemplate; 					    //this line determines static MGs -- Example: ["staticMG", ["B_HMG_01_high_F"]] -- Array, can contain multiple assets
-["staticAT", ["rhs_Kornet_9M133_2_msv"]] call _fnc_saveToTemplate; 					//this line determinesstatic ATs -- Example: ["staticAT", ["B_static_AT_F"]] -- Array, can contain multiple assets
-["staticAA", ["rhs_Igla_AA_pod_msv"]] call _fnc_saveToTemplate; 					//this line determines static AAs -- Example: ["staticAA", ["B_static_AA_F"]] -- Array, can contain multiple assets
-["staticMortars", ["RUS_MSV_2b14"]] call _fnc_saveToTemplate; 				        //this line determines static mortars -- Example: ["staticMortars", ["B_Mortar_01_F"]] -- Array, can contain multiple assets
-["staticHowitzers", ["RUS_MSV_2a18m"]] call _fnc_saveToTemplate;					//this line determines static howitzers. Basically it's just a stronger mortar, use same syntax as above.
+["staticMGs", ["rhs_KORD_high_MSV"]]      call _fnc_saveToTemplate; // High MG tripod
+["staticAT", ["rhs_Kornet_9M133_2_msv"]]  call _fnc_saveToTemplate; // Mounted AT launcher
+["staticAA", ["rhs_Igla_AA_pod_msv"]]     call _fnc_saveToTemplate; // Mounted AA launcher
+["vehicleRadar", "O_R_Radar_System_02_F"] call _fnc_saveToTemplate; // RADAR "turret"
+["vehicleSam", "O_R_SAM_System_04_F"]     call _fnc_saveToTemplate; // SAM "turret"
+["staticMortars", ["RUS_MSV_2b14"]]       call _fnc_saveToTemplate; // Small-caliber static artillery
+["staticHowitzers", ["RUS_MSV_2a18m"]]    call _fnc_saveToTemplate; // Large-caliber static artillery
 
-["vehicleRadar", "O_R_Radar_System_02_F"] call _fnc_saveToTemplate;
-["vehicleSam", "O_R_SAM_System_04_F"] call _fnc_saveToTemplate;  
-
-["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate; 			    //this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
-["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate; 		//this line determines smoke-shells for the static mortar - !needs to be compatible with the mortar! -- Example: ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] - ENTER ONLY ONE OPTION
-["mortarMagazineFlare", "rhs_mag_3vs25m_10"] call _fnc_saveToTemplate;		//this line determines flare shells for the static mortar - !needs to be compatible with the mortar! -- Example: ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Flare_white"] - ENTER ONLY ONE OPTION
-
-["howitzerMagazineHE", "rhs_mag_3of56_10"] call _fnc_saveToTemplate;			                    //this line determines available HE-shells for the static howitzers - !needs to be compatible with the howitzer! -- same syntax as above - ENTER ONLY ONE OPTION
+["mortarMagazineHE", "rhs_mag_3vo18_10"]     call _fnc_saveToTemplate; // HE shells used in above staticMortar.     SINGLE CLASSNAME ONLY
+["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate; // Smoke shells used in above staticMortar.  SINGLE CLASSNAME ONLY
+["mortarMagazineFlare", "rhs_mag_3vs25m_10"] call _fnc_saveToTemplate; // Flare shells used in above staticMortar.  SINGLE CLASSNAME ONLY
+["howitzerMagazineHE", "rhs_mag_3of56_10"]   call _fnc_saveToTemplate; // HE shells used in above staticHowitzer.   SINGLE CLASSNAME ONLY
 
 //Minefield definition
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
