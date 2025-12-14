@@ -60,13 +60,103 @@ private _hasEF = "ef" in A3A_enabledDLC;
 //  Rebel Starting Gear  //
 ///////////////////////////
 
-private _initialRebelEquipment = [];
+private _initialPrimaryWeapons = [
+    "Opf_arifle_SKS_F",
+    "Opf_arifle_SKS_oak_F",
+    "ibr_crossbow_wood",
+    "rhs_weap_Izh18",
+    "rhs_weap_l1a1_wood",
+    "rhs_weap_m38"
+];
+private _initialSecondaryWeapons = [
+    "rhs_weap_6p53"
+];
+private _initialMagazines = [
+    "rhs_10Rnd_762x39mm",
+    "rhs_10Rnd_762x39mm_89",
+    "ibr_arrow_mag",
+    "rhsgref_1Rnd_00Buck",
+    "rhsgref_1Rnd_Slug",
+    "rhs_mag_20Rnd_762x51_m80_fnfal",
+    "rhs_mag_20Rnd_762x51_m61_fnfal",
+    "rhsgref_5Rnd_762x54_m38",
+    "rhs_18rnd_9x21mm_7N28",
+    "rhs_18rnd_9x21mm_7N29"
+    
+];
+private _initialVests = [
+    "min_rf_combat_belt_green",
+    "V_Rangemaster_belt",
+    "V_Rangemaster_belt_oli",
+    "V_Rangemaster_belt_cbr",
+    "V_Rangemaster_belt_blk",
+    "V_BandollierB_blk",
+    "V_BandollierB_cbr",
+    "V_BandollierB_khk",
+    "V_BandollierB_oli",
+    "V_BandollierB_rgr",
+    "V_ChestrigF_blk",
+    "V_ChestrigF_rgr",
+    "V_ChestrigF_oli"
+];
+private _initialBackpacks = [
+    "B_AssaultPack_blk",
+    "B_AssaultPack_rgr",
+    "B_AssaultPack_khk",
+    "B_AssaultPack_sgg",
+];
+private _initialInventoryItems = [
+    "Chemlight_blue",
+    "Chemlight_green",
+    "Chemlight_red",
+    "Chemlight_yellow",
+];
 
-if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
-if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
-if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
-if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155","TFAR_anprc155_coyote"]};
-_initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
+if (_hasContact) then {
+    _initialPrimaryWeapons append [
+        "sgun_HunterShotgun_01_F",
+        "sgun_HunterShotgun_01_sawedoff_F"
+    ];
+    _initialMagazines append [
+        "2Rnd_12Gauge_Pellets",
+        "2Rnd_12Gauge_Slug"
+    ];
+};
+if (_hasApex) then {
+    _initialSecondaryWeapons append [
+        "hgun_Pistol_01_F",
+        "hgun_P07_blk_F"
+    ];
+    _initialMagazines append [
+        "10Rnd_9x21_Mag",
+        "16Rnd_9x21_Mag_v2"
+    ];
+};
+if (has_LawsOfWar) then {
+    _initialVests append [
+        "V_LegStrapBag_black_F",
+        "V_LegStrapBag_olive_F",
+        "V_Pocketed_black_F",
+        "V_Pocketed_olive_F"
+    ];
+};
+if (A3A_hasACE){
+    _initialInventoryItems append [
+        "ACE_Cellphone",
+        "ACE_Flashlight_XL50",
+        "ACE_MapTools",
+        "ACE_EntrenchingTool",
+        "ACE_DefusalKit",
+        "ACE_CableTie",
+        "ACE_EarPlugs",
+        "ACE_Sandbag_empty",
+        "ACE_fieldDressing",
+        "ACE_wirecutter"
+    ];
+}
+
+// all equipment in the arsenal at game start
+private _initialRebelEquipment = _initialPrimaryWeapons + _initialSecondaryWeapons + _initialMagazines + _initialVests + _initialBackpacks + _initialInventoryItems;
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 // uniforms used by AI rebels
@@ -157,7 +247,7 @@ if (_hasApex) then {
         "U_C_Man_casual_5_F"
     ];
 };
-if(_hasRF) then {
+if (_hasRF) then {
     _rebUniforms append [
         "U_BG_Guerrilla_RF",
         "U_C_PilotJacket_black_RF",
@@ -168,7 +258,7 @@ if(_hasRF) then {
         "U_C_PilotJacket_open_lbrown_RF"
     ];
 };
-if(_hasWs) then {
+if (_hasWs) then {
     _rebUniforms append [
         "U_lxWS_ION_Casual_4"
     ];
@@ -176,7 +266,7 @@ if(_hasWs) then {
         "U_lxWS_ION_Casual_3"
     ];
 };
-if(_hasLawsOfWar) then {
+if (_hasLawsOfWar) then {
     _unarmoredHeadgear append [
         "H_Hat_Safari_olive_F"
     ];
@@ -271,6 +361,42 @@ if (_hasContact) then {
 //       Loadouts       //
 //////////////////////////
 
+private _facewear = [
+    "G_aviator",
+    "G_Bandanna_aviator",
+    "G_Bandanna_blk",
+    "G_Bandanna_khk",
+    "G_Bandanna_oli",
+    "G_Bandanna_tan",
+    "G_Cigarette",
+    "G_Shemag_khk",
+    "G_Shemag_oli",
+    "G_Shemag_shades",
+    "rhs_scarf",
+    "rhsusf_shemagh_grn",
+    "rhsusf_shemagh_od",
+    "rhsusf_shemagh2_grn",
+    "rhsusf_shemagh2_od"
+];
+
+private _balaclavas = [
+    "RUS_Balaclava_black_1",
+    "RUS_Balaclava_black_2",
+    "RUS_Balaclava_green_3",
+    "RUS_Balaclava_green_4",
+    "RUS_Balaclava_olive_1",
+    "RUS_Balaclava_olive_2",
+    "RUS_Balaclava_VKPO_Green_1",
+    "RUS_Balaclava_VKPO_Green_2",
+    "RUS_Balaclava_VKPO_Winter_Green_1",
+    "RUS_Balaclava_VKPO_Winter_Green_2",
+    "rhs_balaclava",
+    "rhs_balaclava1_green",
+    "G_Balaclava_blk",
+    "G_Balaclava_oli"
+];
+
+
 private _loadoutData = call _fnc_createLoadoutData;
 _loadoutData set ["maps",       ["ItemMap"]];
 _loadoutData set ["watches",    ["ItemWatch"]];
@@ -279,7 +405,7 @@ _loadoutData set ["binoculars", ["VTN_B8"]];
 
 _loadoutData set ["uniforms", _rebUniforms];
 
-_loadoutData set ["facewear", []];
+_loadoutData set ["facewear", _facewear + _facewear + _balaclavas]; // increase chance of non-balaclava facewear
 
 _loadoutData set ["items_medical_basic",    ["BASIC"]    call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
@@ -288,7 +414,7 @@ _loadoutData set ["items_miscEssentials",   []           call A3A_fnc_itemset_mi
 
 ////////////////////////
 //  Rebel Unit Types  //
-///////////////////////.
+////////////////////////
 
 private _squadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
