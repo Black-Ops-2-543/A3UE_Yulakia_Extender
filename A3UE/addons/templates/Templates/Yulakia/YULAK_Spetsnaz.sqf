@@ -14,7 +14,7 @@ private _hasSOG = "vn" in A3A_enabledDLC;
 private _hasSPE = "spe" in A3A_enabledDLC;
 private _hasEF = "ef" in A3A_enabledDLC;
 
-#include "..\..\script_component.hpp"
+#include "..\..\script_component.hpp" // TAKE NOTE OF THIS. WITHOUT THIS, YOU CAN'T USE MACROS LIKE QPATHTOFOLDER.
 
 ////////////////////////////
 //   Rivals Information   //
@@ -44,7 +44,7 @@ if (_hasWs) then {
 ["vehiclesRivalsLightArmed", ["FP_Spetsnaz_Alpha_UAZ_Kord", "FP_Spetsnaz_Alpha_Tigr_Armed"]] call _fnc_saveToTemplate;
 ["vehiclesRivalsTrucks", ["O_R_Truck_03_covered_F"]] call _fnc_saveToTemplate;
 ["vehiclesRivalsCars", ["FP_Spetsnaz_Alpha_Tigr"]] call _fnc_saveToTemplate;
-["vehiclesRivalsAPCs", ["rhs_btr82a_vv", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]] call _fnc_saveToTemplate;
+["vehiclesRivalsAPCs", ["RUS_GRU_btr82a", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]] call _fnc_saveToTemplate;
 ["vehiclesRivalsTanks", ["rhs_t14_tv", "rhs_t90sm_tv"]] call _fnc_saveToTemplate;
 ["vehiclesRivalsHelis", ["RHS_Mi8mt_vvs"]] call _fnc_saveToTemplate;			
 ["vehiclesRivalsUavs", _UAVs] call _fnc_saveToTemplate;			
@@ -63,7 +63,7 @@ if (_hasWs) then {
 
 ["variants", [
     ["O_R_Truck_03_covered_F", ["WoodlandHex", 1]],
-	["rhs_btr82a_vv", ["tricolourhard", 1]],
+	["RUS_GRU_btr82a", ["tricolourhard", 1]],
 	["O_R_APC_Wheeled_04_cannon_ard_F", ["WoodlandHex", 1]]
 ]] call _fnc_saveToTemplate;
 
@@ -93,7 +93,7 @@ private _gls = [
 private _mgs = [
 	["", "", "", "", [], [], ""]
 ];
-private _marksmanRifles = [
+private _marksmanRifle= [
 	["", "", "", "", [], [], ""]
 ];
 private _lightATLaunchers = [
@@ -108,6 +108,12 @@ private _AALaunchers = [
 private _pistols = [
 	["", "", "", "", [], [], ""]
 ];
+private _nvgs = [""];
+if(A3A_hasACE) then {
+	_nvgs = [""];
+} else {
+	_nvgs = [""];
+};
 
 _loadoutData set ["rifles", _rifles];
 _loadoutData set ["tunedRifles", _tunedRifles];
@@ -158,7 +164,7 @@ _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", ["ItemGPS"]];
-_loadoutData set ["NVGs", [/* TODO */]];
+_loadoutData set ["NVGs", _nvgs];
 _loadoutData set ["binoculars", ["Binocular"]];
 _loadoutData set ["Rangefinder", ["Rangefinder"]];
 
