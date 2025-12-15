@@ -44,7 +44,7 @@ if (_hasWs) then {
 ["vehiclesRivalsLightArmed", ["FP_Spetsnaz_Alpha_UAZ_Kord", "FP_Spetsnaz_Alpha_Tigr_Armed"]] call _fnc_saveToTemplate;
 ["vehiclesRivalsTrucks", ["O_R_Truck_03_covered_F"]] call _fnc_saveToTemplate;
 ["vehiclesRivalsCars", ["FP_Spetsnaz_Alpha_Tigr"]] call _fnc_saveToTemplate;
-["vehiclesRivalsAPCs", ["rhs_btr80a_vv", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]] call _fnc_saveToTemplate;
+["vehiclesRivalsAPCs", ["rhs_btr82a_vv", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]] call _fnc_saveToTemplate;
 ["vehiclesRivalsTanks", ["rhs_t14_tv", "rhs_t90sm_tv"]] call _fnc_saveToTemplate;
 ["vehiclesRivalsHelis", ["RHS_Mi8mt_vvs"]] call _fnc_saveToTemplate;			
 ["vehiclesRivalsUavs", _UAVs] call _fnc_saveToTemplate;			
@@ -63,7 +63,7 @@ if (_hasWs) then {
 
 ["variants", [
     ["O_R_Truck_03_covered_F", ["WoodlandHex", 1]],
-	["rhs_btr80a_vv", ["tricolourhard", 1]],
+	["rhs_btr82a_vv", ["tricolourhard", 1]],
 	["O_R_APC_Wheeled_04_cannon_ard_F", ["WoodlandHex", 1]]
 ]] call _fnc_saveToTemplate;
 

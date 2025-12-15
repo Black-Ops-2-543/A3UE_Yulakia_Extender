@@ -44,7 +44,7 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["vehiclesRepairTrucks", ["O_R_Truck_03_repair_F"]]                                                                                call _fnc_saveToTemplate; // Repair trucks
 ["vehiclesFuelTrucks", ["O_R_Truck_03_fuel_F"]]                                                                                    call _fnc_saveToTemplate; // Fuel trucks
 ["vehiclesMedical", ["O_R_Truck_03_medical_F", "O_R_Truck_02_medical_F"]]                                                          call _fnc_saveToTemplate; // Medical trucks
-["vehiclesLightAPCs", ["red_k16_r", "RUS_MSV_btr82a"]]                                                                             call _fnc_saveToTemplate; // Armored cars; lightly-armed APCs
+["vehiclesLightAPCs", ["red_k16_r", "rhs_btr82a_vv"]]                                                                              call _fnc_saveToTemplate; // Armored cars; lightly-armed APCs
 ["vehiclesAPCs", ["red_k18_r", "red_k17_r", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]]                                   call _fnc_saveToTemplate; // Moderate armament and decent passenger cap
 ["vehiclesAirborne", ["RUS_VDV_bmd4m"]]                                                                                            call _fnc_saveToTemplate; // Parachute-deployable armored vehicles
 ["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "O_BMPT", "rhs_bmp3mera_msv", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m"]] call _fnc_saveToTemplate; // Heavier armament with infantry capacity
@@ -107,7 +107,7 @@ private _hasEF = "ef" in A3A_enabledDLC;
     ["RUS_MSV_t72b3m",       [   "hide_hull_slats", 0.20]],
     ["RUS_MSV_t90m",         [   "hide_hull_slats", 0.12,          "hide_log", 0.55]],
     ["rhs_t90sab_tv",        [   "hide_hull_slats", 0.12,          "hide_log", 0.55]],
-    ["RUS_MSV_btr82a",       [   "crate_l1_unhide", 0.50,   "crate_l2_unhide", 0.50,  "crate_r1_unhide", 0.50, "crate_r2_unhide", 0.50, "wheel_1_unhide", 0.65]],
+    ["rhs_btr82a_vv",        [   "crate_l1_unhide", 0.50,   "crate_l2_unhide", 0.50,  "crate_r1_unhide", 0.50, "crate_r2_unhide", 0.50, "wheel_1_unhide", 0.65]],
     ["rhs_btr80_vv",         [   "crate_l1_unhide", 0.50,   "crate_l2_unhide", 0.50,  "crate_r1_unhide", 0.50, "crate_r2_unhide", 0.50, "wheel_1_unhide", 0.65]],
     ["rhs_tv_t80bvm",        [   "armor_roof_hide", 0.75, "rudder_skirt_hide", 0.40, "fuel_barrel_hide", 0.40,   "wood_log_hide", 0.85,     "chain_hide", 0.30, "rudder_plate_hide", 0.20]]
 ]] call _fnc_saveToTemplate;
