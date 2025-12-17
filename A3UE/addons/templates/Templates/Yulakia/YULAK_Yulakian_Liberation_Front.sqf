@@ -94,6 +94,8 @@ if (_hasContact) then {
 ["breachingExplosivesAPC", ["SatchelCharge_Remote_Mag", "rhsusf_m112x4_mag", "rhsusf_m112_mag", "rhs_charge_M2tet_x2_mag", "rhssaf_tm500_mag", "rhs_ec400_sand_mag", "rhs_ec400_mag", "rhssaf_tm200_mag", "rhs_ec200_mag", "rhs_ec200_sand_mag"]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", ["SatchelCharge_Remote_Mag", "rhsusf_m112x4_mag", "rhsusf_m112_mag", "rhs_charge_M2tet_x2_mag", "rhssaf_tm500_mag", "rhs_ec400_sand_mag", "rhs_ec400_mag"]] call _fnc_saveToTemplate;
 
+#include "YULAK_Reb_Vehicle_Attributes.sqf"
+
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////
@@ -169,7 +171,7 @@ if (_hasApex) then {
         "16Rnd_9x21_Mag_v2"
     ];
 };
-if (has_LawsOfWar) then {
+if (_hasLawsOfWar) then {
     _initialVests append [
         "V_LegStrapBag_black_F",
         "V_LegStrapBag_olive_F",

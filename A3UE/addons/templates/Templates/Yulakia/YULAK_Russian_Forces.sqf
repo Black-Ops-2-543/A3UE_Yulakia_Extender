@@ -204,10 +204,9 @@ if (_hasContact) then {
 
 ["voices", _languages] call _fnc_saveToTemplate;
 
+private _insignia = ["Spetsnaz545thRegiment"];
 if (_hasContact) then {
-    private _insignia = ["EAF_5thRegiment"];
-} else {
-    private _insignia = ["Spetsnaz545thRegiment"];
+    _insignia = ["EAF_5thRegiment"];
 };
 
 ["insignia", _insignia] call _fnc_saveToTemplate;
