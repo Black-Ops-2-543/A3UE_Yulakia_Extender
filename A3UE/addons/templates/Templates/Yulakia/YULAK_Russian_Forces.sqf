@@ -43,25 +43,25 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["vehiclesAmmoTrucks", ["O_R_Truck_03_ammo_F"]]                                                                                    call _fnc_saveToTemplate; // Ammo trucks
 ["vehiclesRepairTrucks", ["O_R_Truck_03_repair_F"]]                                                                                call _fnc_saveToTemplate; // Repair trucks
 ["vehiclesFuelTrucks", ["O_R_Truck_03_fuel_F"]]                                                                                    call _fnc_saveToTemplate; // Fuel trucks
-["vehiclesMedical", ["O_R_Truck_03_medical_F", "O_R_Truck_02_medical_F"]]                                                          call _fnc_saveToTemplate; // Medical trucks
-["vehiclesLightAPCs", ["red_k16_r", "rhs_btr82a_vv"]]                                                                              call _fnc_saveToTemplate; // Armored cars; lightly-armed APCs
+["vehiclesMedical", ["O_R_Truck_03_medical_F"]]                                                                                    call _fnc_saveToTemplate; // Medical trucks
+["vehiclesLightAPCs", ["red_k16_r", "RUS_MSV_btr82a"]]                                                                             call _fnc_saveToTemplate; // Armored cars; lightly-armed APCs
 ["vehiclesAPCs", ["red_k18_r", "red_k17_r", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]]                                   call _fnc_saveToTemplate; // Moderate armament and decent passenger cap
 ["vehiclesAirborne", ["RUS_VDV_bmd4m"]]                                                                                            call _fnc_saveToTemplate; // Parachute-deployable armored vehicles
-["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "O_BMPT", "rhs_bmp3mera_msv", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m"]] call _fnc_saveToTemplate; // Heavier armament with infantry capacity
+["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "O_BMPT", "RUS_MSV_bmp3m", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m"]]    call _fnc_saveToTemplate; // Heavier armament with infantry capacity
 ["vehiclesTanks", ["rhs_t14_tv", "RUS_MSV_t90m", "rhs_t90sab_tv", "rhs_t90saa_tv", "rhs_tv_t80bvm", "RUS_MSV_t72b3m"]]             call _fnc_saveToTemplate; // Tanks
 ["vehiclesLightTanks", ["O_R_APC_Wheeled_04_cannon_v2_F"]]                                                                         call _fnc_saveToTemplate; // Lesser armament and/or less armor
 ["vehiclesAA", ["mkk_sa22m_pantsir_r", "mkk_2s6m_tunguska"]]                                                                       call _fnc_saveToTemplate; // SPAA
 
 ["vehiclesTransportBoats", ["O_R_Boat_Transport_01_ard_F"]] call _fnc_saveToTemplate; // Little-to-no armament
 ["vehiclesGunBoats", ["O_R_Boat_Armed_01_hmg_ard_F"]]       call _fnc_saveToTemplate; // Armed boats
-["vehiclesAmphibious", ["rhs_bmp3mera_msv"]]                call _fnc_saveToTemplate; // APC, IFV, etc. with amphibious capabilities
+["vehiclesAmphibious", ["RUS_MSV_bmp3m", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m", "RUS_MSV_btr82a"]]                call _fnc_saveToTemplate; // APC, IFV, etc. with amphibious capabilities
 
 ["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]]                   call _fnc_saveToTemplate; // Planes focused on anti-ground roles
-["vehiclesPlanesAA", ["rhs_mig29sm_vmf", "RHS_VKS_su57"]]   call _fnc_saveToTemplate; // Planes focused on air superiority
+["vehiclesPlanesAA", ["RUS_VKS_mig29smt", "RHS_VKS_su57"]]   call _fnc_saveToTemplate; // Planes focused on air superiority
 ["vehiclesPlanesTransport", ["RHS_Mi8mt_Cargo_vvs"]]        call _fnc_saveToTemplate; // Planes available to paradrop infantry
 
-["vehiclesHelisLight", ["RHS_Mi8T_vvs", "RHS_Mi8mt_vvs"]]                  call _fnc_saveToTemplate; // Helicopters with little-to-no armament
-["vehiclesHelisTransport", ["RHS_Mi8T_vvs", "RHS_Mi8mt_vvs"]]              call _fnc_saveToTemplate; // Helicopters to transport infantry
+["vehiclesHelisLight", ["RHS_Mi8mt_vvs"]]                  call _fnc_saveToTemplate; // Helicopters with little-to-no armament
+["vehiclesHelisTransport", ["RHS_Mi8mt_vvs"]]              call _fnc_saveToTemplate; // Helicopters to transport infantry
 ["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate; // Helicopters with light armament
 ["vehiclesHelisAttack", ["LS_Ka52_F", "rhs_mi28n_vvs", "RHS_Mi24V_vvs"]]   call _fnc_saveToTemplate; // Helicopters designed to engage hostiles
 
@@ -111,6 +111,11 @@ private _hasEF = "ef" in A3A_enabledDLC;
     ["rhs_btr80_vv",         [   "crate_l1_unhide", 0.50,   "crate_l2_unhide", 0.50,  "crate_r1_unhide", 0.50, "crate_r2_unhide", 0.50, "wheel_1_unhide", 0.65]],
     ["rhs_tv_t80bvm",        [   "armor_roof_hide", 0.75, "rudder_skirt_hide", 0.40, "fuel_barrel_hide", 0.40,   "wood_log_hide", 0.85,     "chain_hide", 0.30, "rudder_plate_hide", 0.20]]
 ]] call _fnc_saveToTemplate;
+
+["animations", [
+    
+]] call _fnc_saveToTemplate;
+
 
 ["variants", [
     ["rhs_mig29sm_vmf", ["Gray",     1]],

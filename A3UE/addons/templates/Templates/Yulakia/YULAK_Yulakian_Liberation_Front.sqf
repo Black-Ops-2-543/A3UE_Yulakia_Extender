@@ -27,14 +27,30 @@ private _basicVehicles = [
 ];
 
 private _lightUnarmedVehicles = [
-    "B_G_Offroad_01_F"
+    "B_G_Offroad_01_F",
+    "UAZ_05_transport_F",
+    "UAZ_04_transport_F",
+    "UAZ_03_transport_F",
+    "UAZ_02_transport_F",
+    "UAZ_01_transport_F"
 ];
 
 private _lightArmedVehicles = [
-    "B_G_Offroad_01_armed_F"
+    "B_G_Offroad_01_armed_F",
+    "UAZ_GunMG_Camo",
+    "UAZ_MG_Camo",
+    "UAZ_GunMG",
+    "UAZ_MG",
+    "UAZ_GunMG_PBL",
+    "UAZ_MG_PBL",
+    "UAZ_MG_PB",
+    "UAZ_GunMG_PB"
 ];
 
-private _truckVehicles = [];
+private _truckVehicles = [
+    "C_Truck_02_transport_F",
+    "C_Truck_02_covered_F"
+];
 
 private _boats = [
     "I_G_Boat_Transport_01_F"
@@ -53,7 +69,12 @@ private _planes = [
 
 private _civCars = [
     "C_Offroad_01_F",
-    "a3a_Van_02_black_transport_F"
+    "a3a_Van_02_black_transport_F",
+    "UAZ_pat",
+    "UAZ_04_transport_F",
+    "UAZ_03_transport_F",
+    "UAZ_02_transport_F",
+    "UAZ_01_transport_F"
 ];
 
 private _civTrucks = [];
@@ -86,6 +107,9 @@ if (_hasGM) then {
         "gm_dk_army_typ247_cargo",
         "gm_ge_army_w123_cargo",
         "gm_ge_civ_u1300l"
+    ];
+    _lightArmedVehicles append [ 
+        "gm_dk_army_u1300l_container"
     ];
     _truckVehicles append [
         "gm_gc_army_ural4320_cargo_noinsignia"
@@ -127,15 +151,14 @@ if (_hasGM) then {
     _staticMG append [
         "rhs_KORD_high_VDV"
     ];
+    _civCars append [
+        "C_Hatchback_01_F"
+    ];
 };
 
 if (_hasRF) then {
     _lightArmedVehicles append [
         "I_G_Pickup_hmg_rf"
-    ];
-    _atVehicles append [
-        "I_G_Pickup_Rocket_rf",
-        "I_Pickup_hmg_rf"
     ];
     _civCars append [
         "Aegis_C_Pickup_RF_Malden"
@@ -147,7 +170,8 @@ if (_hasCSLA) then {
         "CSLA_V3So_noinsignia"
     ];
     _civCars append [
-        "CSLA_CIV_Sakura1200"
+        "CSLA_CIV_Sakura1200",
+        "CSLA_CS_CATOR_noinsignia"
     ];
 } else {
     _truckVehicles append [
@@ -162,6 +186,14 @@ if (_hasSOG) then {
 };
 
 if (_hasWs) then {
+    _truckVehicles append [
+        "C_Truck_02_flatbed_lxWS",
+        "C_Truck_02_cargo_lxWS"
+    ];
+    _civTrucks append [
+        "C_Truck_02_flatbed_lxWS",
+        "C_Truck_02_cargo_lxWS"
+    ];
     _atVehicles append [
         "I_G_Offroad_01_armor_AT_lxWS",
         "I_G_Offroad_01_armor_armed_lxWS",
@@ -173,6 +205,7 @@ if (_hasWs) then {
         "I_Tura_Offroad_armor_AA_lxWS"
     ];
 };
+
 if (_hasApex) then {
     _planes append [
         "C_Plane_Civil_01_F"
@@ -499,7 +532,7 @@ private _voices = [
     "RHS_Male05CZ"
 ];
 
-if (_hasWS) then {
+if (_hasWs) then {
     _characters append [
         "lxWS_Gustavo_Head",
         "lxWS_Journalist_Head"
