@@ -1,10 +1,14 @@
 private _atLauncherCost = 250;
 private _aaGunCost = 300;
 private _mgCost = 150;
+private _mortarCost = 500;
 private _armorCost = 200;
 private _offroadCost = 400;
 private _truckCost = 550;
 private _civilianMultiplier = 1.25;
+private _newOffroadCost = _offroadCost * 1.125;
+private _oldOffroadCost = _offroadCost / 1.125;
+private _m60Cost = _mgCost * 0.8;
 
 ["attributesVehicles", [
 	["B_G_Quadbike_01_F", 				["rebcost",  250]],
@@ -35,5 +39,5 @@ private _civilianMultiplier = 1.25;
 	["I_G_HMG_02_high_F", 				["rebcost",  _mgCost]],
 	["rhsgref_ins_g_SPG9", 				["rebcost",  _atLauncherCost]],
 	["rhsgref_ins_g_ZU23", 				["rebcost",  _aaGunCost]],
-	["I_G_Mortar_01_F", 				["rebcost",  500]]
+	["I_G_Mortar_01_F", 				["rebcost",  _mortarCost]]
 ]] call _fnc_saveToTemplate;
