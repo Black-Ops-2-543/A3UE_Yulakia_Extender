@@ -76,6 +76,8 @@ private _mg3Cost = _mgCost * 0.8;
 	["CSLA_CS_CATOR_noinsignia",             ["rebcost", _offroadCost * _civilianMultiplier * 0.5]],
 	["gm_dk_army_u1300l_container",          ["rebcost", _oldOffroadCost + _mg3Cost]],
 	["B_G_Offroad_01_F",                     ["rebcost", _offroadCost]],
-	["C_Hatchback_01_F",                     ["rebcost", _offroadCost * _civilianCost]],
-	["Aegis_B_D_Pickup_RF",                  ["rebcost", _newOffroadCost * _civilianMultiplier]]
+	["C_Hatchback_01_F",                     ["rebcost", _offroadCost * _civilianMultiplier]],
+	["Aegis_B_D_Pickup_RF",                  ["rebcost", _newOffroadCost * _civilianMultiplier]],
+	["gm_ge_dbp_typ247",                     ["rebcost", _oldOffroadCost * _civilianMultiplier]],
+	["gm_ge_adak_bo105m_vbh_noinsignia",     ["rebcost", 1300 * _civilianMultiplier]]
 ]] call _fnc_saveToTemplate;

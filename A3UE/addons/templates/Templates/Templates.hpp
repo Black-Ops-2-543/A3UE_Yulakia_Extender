@@ -16,7 +16,8 @@ class Templates
         maps[] = {"yulakia"};                                                                           // If this template should be prioritized on any maps (case sensitive to worldName)
         climate[] = {"temperate"};                                                                      // The climate that the template can be selected on.
         logo = QPATHTOFOLDER(Pictures\a3ue_logo.paa);
-    }
+    };
+    
     class Yulakian_Provisional_Government : Yulak_Base
     {                                                 // The path to the folder the template is located in, this translates to "\x\A3AE\addons\templates\Templates\Vanilla"
         side = "Occ";                                                                                   // Inv, Occ, Reb, Riv, Civ
@@ -51,6 +52,15 @@ class Templates
         name = "YLF";                                                                                   // Name shown in the select menu.
         file = "YULAK_Yulakian_Liberation_Front";                                                       // The template file name - .sqf, that gets appended automatically.
         description = "Yulakian Liberation Front (YLF)\nPro-Western rebels fighting in Yulakia.";                                        // If this isn't included, no description will show (unless inherited from the base class.)
+    };
+
+    class Yulakian_Civilians : Yulak_Base
+    {
+        side = "Civ";
+        flagTexture = QPATHTOFOLDER(Pictures\flag_ypg_co.paa);                                 // Path to an icon to be displayed in the select menu.
+        name = "Yulakians";
+        file = "YULAK_Civilians";
+        description = "The civilians of Yulakia";
     };
     
 

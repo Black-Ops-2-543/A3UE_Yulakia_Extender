@@ -59,7 +59,10 @@ private _civCars = [
     "a3a_Van_02_black_transport_F"
 ];
 
-private _civTrucks = [];
+private _civTrucks = [
+    "Aegis_C_Truck_02_cargo_Malden_F",
+    "Aegis_C_Truck_02_flatbed_Malden_F"
+];
 
 private _civHelis = [
     "Aegis_C_Heli_Light_01_Civil_F_malden"
@@ -99,14 +102,16 @@ if (_hasGM) then {
     _civCars append [
         "gm_ge_civ_typ247",
         "gm_ge_civ_typ253",
-        "gm_ge_civ_typ251"
+        "gm_ge_civ_typ251",
+        "gm_ge_dbp_typ247"
     ];
     _civTrucks append [
         "gm_ge_civ_u1300l",
         "gm_gc_civ_ural375d_cargo"
     ];
     _civHelis append [
-        "gm_gc_civ_mi2p"
+        "gm_gc_civ_mi2p",
+        "gm_ge_adak_bo105m_vbh_noinsignia"
     ];
     _staticAT append [
         "gm_gc_army_spg9_tripod"
