@@ -35,9 +35,21 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["surrenderCrate", "Box_IND_Wps_F"]  call _fnc_saveToTemplate;                                              //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate;                                              //Changeing this from default will require you to define logistics attachement offset for the box type
 
+private _boats = [];
+
+if (_hasEF) then {
+    _boats append [
+        "EF_B_CombatBoat_HMG_NATO"
+    ];
+} else {
+    _boats append [
+        "O_R_Boat_Armed_01_hmg_ard_F"
+    ];
+};
+
 ["vehiclesBasic", ["O_R_LSV_02_unarmed_F"]]                                                                                        call _fnc_saveToTemplate; // Basic, unarmed vehicles. No armor.
 ["vehiclesLightUnarmed", ["RUS_VDV_kamaz4386", "rhs_tigr_m_vmf", "Kraz_Spartan"]]                                                  call _fnc_saveToTemplate; // Basic vehicles with minimal armor and no weapons.
-["vehiclesLightArmed",["O_R_LSV_02_AT_F", "RHS_GRU_asn233115sts", "Kraz_Spartan_dshk"]]                                            call _fnc_saveToTemplate; // Basic vehicles with minimal armor and light weapons.
+["vehiclesLightArmed",["O_R_LSV_02_AT_F", "RUS_GRU_asn233115sts", "Kraz_Spartan_dshk"]]                                            call _fnc_saveToTemplate; // Basic vehicles with minimal armor and light weapons.
 ["vehiclesTrucks", ["O_R_Truck_03_covered_F", "RUS_GRU_ural63095"]]                                                                call _fnc_saveToTemplate; // Infantry transport trucks
 ["vehiclesCargoTrucks", ["rhs_kamaz5350_flatbed_cover_vmf"]]                                                                       call _fnc_saveToTemplate; // Cargo transport trucks
 ["vehiclesAmmoTrucks", ["O_R_Truck_03_ammo_F"]]                                                                                    call _fnc_saveToTemplate; // Ammo trucks
@@ -53,11 +65,11 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["vehiclesAA", ["mkk_sa22m_pantsir_r", "mkk_2s6m_tunguska"]]                                                                       call _fnc_saveToTemplate; // SPAA
 
 ["vehiclesTransportBoats", ["O_R_Boat_Transport_01_ard_F"]] call _fnc_saveToTemplate; // Little-to-no armament
-["vehiclesGunBoats", ["O_R_Boat_Armed_01_hmg_ard_F"]]       call _fnc_saveToTemplate; // Armed boats
+["vehiclesGunBoats", _boats]       call _fnc_saveToTemplate; // Armed boats
 ["vehiclesAmphibious", ["RUS_MSV_bmp3m", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m", "RUS_MSV_btr82a"]]                call _fnc_saveToTemplate; // APC, IFV, etc. with amphibious capabilities
 
 ["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]]                   call _fnc_saveToTemplate; // Planes focused on anti-ground roles
-["vehiclesPlanesAA", ["RUS_VKS_mig29smt", "RHS_VKS_su57"]]   call _fnc_saveToTemplate; // Planes focused on air superiority
+["vehiclesPlanesAA", ["RUS_VKS_mig29smt", "RUS_VKS_su57"]]   call _fnc_saveToTemplate; // Planes focused on air superiority
 ["vehiclesPlanesTransport", ["RHS_Mi8mt_Cargo_vvs"]]        call _fnc_saveToTemplate; // Planes available to paradrop infantry
 
 ["vehiclesHelisLight", ["RHS_Mi8mt_vvs"]]                  call _fnc_saveToTemplate; // Helicopters with little-to-no armament
@@ -65,9 +77,9 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate; // Helicopters with light armament
 ["vehiclesHelisAttack", ["LS_Ka52_F", "rhs_mi28n_vvs", "RHS_Mi24V_vvs"]]   call _fnc_saveToTemplate; // Helicopters designed to engage hostiles
 
-["vehiclesArtillery", ["RUS_MSV_2s19m1", "RUS_MSV_2b26"]] call _fnc_saveToTemplate; // Self-propelled artillery pieces
+["vehiclesArtillery", ["red_2s19_r", "RUS_MSV_2b26"]] call _fnc_saveToTemplate; // Self-propelled artillery pieces
 ["magazines", createHashMapFromArray [
-    ["RUS_MSV_2s19m1", ["rhs_mag_HE_2a33"]],
+    ["red_2s19_r", ["rhs_mag_HE_2a33"]],
     ["RUS_MSV_2b26", ["VTN_9M522_40"]]
 ]] call _fnc_saveToTemplate; // All ammo that can be used by the above artillery
 
@@ -100,27 +112,76 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
 ["animations", [
-    ["O_R_LSV_02_unarmed_F", ["Unarmed_Doors_Hide", 0.25]],
-    ["O_R_LSV_02_AT_F",      ["Unarmed_Doors_Hide", 0.04]],
-    ["rhs_tigr_m_vmf",       [        "spare_hide", 0.12]],
-    ["rhs_t14_tv",           [         "Hide_Slat", 0.08]],
-    ["RUS_MSV_t72b3m",       [   "hide_hull_slats", 0.20]],
-    ["RUS_MSV_t90m",         [   "hide_hull_slats", 0.12,          "hide_log", 0.55]],
-    ["rhs_t90sab_tv",        [   "hide_hull_slats", 0.12,          "hide_log", 0.55]],
-    ["rhs_btr82a_vv",        [   "crate_l1_unhide", 0.50,   "crate_l2_unhide", 0.50,  "crate_r1_unhide", 0.50, "crate_r2_unhide", 0.50, "wheel_1_unhide", 0.65]],
-    ["rhs_btr80_vv",         [   "crate_l1_unhide", 0.50,   "crate_l2_unhide", 0.50,  "crate_r1_unhide", 0.50, "crate_r2_unhide", 0.50, "wheel_1_unhide", 0.65]],
-    ["rhs_tv_t80bvm",        [   "armor_roof_hide", 0.75, "rudder_skirt_hide", 0.40, "fuel_barrel_hide", 0.40,   "wood_log_hide", 0.85,     "chain_hide", 0.30, "rudder_plate_hide", 0.20]]
-]] call _fnc_saveToTemplate;
+    ["O_R_LSV_02_unarmed_F", ["Unarmed_Doors_Hide",0.25]],
+    ["rhs_tigr_m_vmf", ["spare_hide",0.5]],
+    ["O_R_LSV_02_AT_F", ["Unarmed_Doors_Hide",0.25]],
+    ["rhs_kamaz5350_flatbed_cover_vmf", ["Door_LF",0,"Door_RF",0,"Hatch",0,"spare_hide",0.25,"back_door",0,"cover_end_hide",0.5,"side_walls_hide",0.5]],
+    ["RUS_MSV_btr82a", ["crate_l0.25_unhide",0.25,"crate_l2_unhide",0.25,"crate_l3_unhide",0.25,"crate_l4_unhide",0.25,"crate_r0.25_unhide",0.25,"crate_r2_unhide",0.25,"crate_r3_unhide",0.25,"crate_r4_unhide",0.25,"water_0.25_unhide",0.25,"water_2_unhide",0.25,"wheel_0.25_unhide",0.25,"wheel_2_unhide",0.25]],
+    ["rhs_t15_tv", ["Hide_Skirts",0,"Hide_Turret_Armor",0,"Hide_Slat",0]],
+    ["rhs_t14_tv", ["Hide_Skirts",0,"Hide_Turret_Armor",0,"Hide_Slat",0]],
+    ["RUS_MSV_t90m", ["hide_hull_slats",0.25,"hide_log",0.5,"hide_sideskirts",0]],
+    ["rhs_t90sab_tv", ["hide_hull_slats",0.25,"hide_log",0.5,"hide_sideskirts",0]],
+    ["rhs_t90saa_tv", ["hide_sideskirts",0]],
+    ["rhs_tv_t80bvm", ["HidePlate",0,"showFeulTank",0,"armor_roof_hide",0.8,"rudder_skirt_hide",0.5,"fuel_barrel_hide",0.5,"wood_log_hide",0.3,"chain_hide",0.3,"rudder_plate_hide",0.6]],
+    ["RUS_MSV_t72b3m", ["hide_hull_slats",0.6,"unhide_tank_holders",0,"hide_sideskirts",0]],
+    ["EF_B_CombatBoat_HMG_NATO", ["armor_front",0.7,"armor_mid",0.7,"armor_rear",0.7,"mg2_turret_armor",0.7,"mg3_turret_armor",0.7,"mg4_turret_armor",0.7,"mg5_turret_armor",0.7]],
+    ["RUS_VKS_su57", ["antenna_hide",0,"sensors_hide",0]],
+    ["rhs_btr80_vv", ["crate_l1_unhide",0.5,"crate_l2_unhide",0.5,"crate_l3_unhide",0.5,"crate_l4_unhide",0.5,"crate_r1_unhide",0.5,"crate_r2_unhide",0.5,"crate_r3_unhide",0.5,"crate_r4_unhide",0.5,"water_1_unhide",0.5,"water_2_unhide",0.5,"wheel_1_unhide",0.5,"wheel_2_unhide",0.5]]
 
-["animations", [
-    
 ]] call _fnc_saveToTemplate;
 
 
 ["variants", [
-    ["rhs_mig29sm_vmf", ["Gray",     1]],
-    ["RUS_MSV_2s19m1",  ["green",    1]],
-    ["RUS_VDV_bmd4m",   ["standard", 1]]
+    ["O_R_LSV_02_unarmed_F", ["Green",1]],
+    ["RUS_VDV_kamaz4386", ["Green_Dirt",0.5,"Green",0.5]],
+    ["rhs_tigr_m_vmf", ["standard",1]],
+    ["O_R_LSV_02_AT_F", ["Green",1]],
+    ["RUS_GRU_asn233115sts", ["Camo_Army_Green_default",1]],
+    ["O_R_Truck_03_covered_F", ["Green",1]],
+    ["rhs_kamaz5350_flatbed_cover_vmf", ["standard",1]],
+    ["O_R_Truck_03_ammo_F", ["Green",1]],
+    ["O_R_Truck_03_repair_F", ["Green",1]],
+    ["O_R_Truck_03_fuel_F", ["Green",1]],
+    ["O_R_Truck_03_medical_F", ["Green",1]],
+    ["red_k16_r", ["Green",1,"Olive",1,"Russian",1]],
+    ["RUS_MSV_btr82a", ["standard",1]],
+    ["red_k18_r", ["Green",1,"Olive",1,"Russian",1]],
+    ["red_k17_r", ["Green",1,"Olive",1,"Russian",1]],
+    ["RUS_VDV_bmd4m", ["camo",1,"green",1,"worn_camo",1,"worn_green",1]],
+    ["TV_kgn25_2A92", ["Olive",1]],
+    ["TV_kgn25_2A42", ["Olive",1]],
+    ["O_BMPT", ["C1_F",1]],
+    ["RUS_MSV_bmp3m", ["bmp3_camo",1,"bmp3_green",1,"bmp3_worn_green",1]],
+    ["RUS_MSV_bmp2m", ["rus_bmp2m_green",1,"rus_bmp2m_parad",1]],
+    ["RUS_MSV_t90m", ["standard",1]],
+    ["rhs_t90sab_tv", ["standard",1]],
+    ["rhs_t90saa_tv", ["standard",1]],
+    ["rhs_tv_t80bvm", ["standard",1]],
+    ["RUS_MSV_t72b3m", ["standard",1]],
+    ["O_R_APC_Wheeled_04_cannon_v2_F", ["Green",1]],
+    ["mkk_sa22m_pantsir_r", ["green1",1,"green3",1,"russian",1]],
+    ["mkk_2s6m_tunguska", ["forest1",1,"olive",1,"russian",1]],
+    ["O_R_Boat_Transport_01_ard_F", ["Rus",1,"Black",1]],
+    ["O_R_Boat_Armed_01_hmg_ard_F", ["Rus",1]],
+    ["EF_B_CombatBoat_HMG_NATO", ["Spetsnaz",1,"Grey",1,"MJTF",1]],
+    ["RHS_Su25SM_vvs", ["standard2",1]],
+    ["RUS_VKS_mig29smt", ["Gray",1]],
+    ["RHS_Mi8mt_Cargo_vvs", ["standard",1]],
+    ["RHS_Mi8mt_vvs", ["standard",1]],
+    ["RHS_Mi8MTV3_vvs", ["standard",1]],
+    ["RHS_Mi8MTV3_heavy_vvs", ["standard",1]],
+    ["LS_Ka52_F", ["Gray_camo",1]],
+    ["rhs_mi28n_vvs", ["standard",1]],
+    ["RHS_Mi24V_vvs", ["standard",1]],
+    ["red_2s19_r", ["green",1,"olive",1,"russian",1]],
+    ["orion_F_KORNET_OPF", ["Russian_DCamo",1]],
+    ["O_R_UAV_01_F", ["Rus",1]],
+    ["rhs_kamaz5350_vv", ["standard",1]],
+    ["rhs_btr80_vv", ["standard",1]],
+    ["rhs_tigr_vv", ["standard",1]],
+    ["O_R_Radar_System_02_F", ["Green",1]],
+    ["O_R_SAM_System_04_F", ["Green",1]]
+
 ]] call _fnc_saveToTemplate;
 
 /////////////////////
@@ -157,7 +218,7 @@ private _characters = [
     "Vissim"
 ];
 
-if (_hasWS) then {
+if (_hasWs) then {
     _characters append [
         "lxWS_Gustavo_Head",
         "lxWS_Journalist_Head"
@@ -286,7 +347,7 @@ _loadoutData set ["longRangeRadios", ["Radio_Russia"]];
 _loadoutData set ["helmets", []];					//don't fill this line - this is only to set the variable
 
 private _balaclavas = ["rhs_balaclava", "RUS_Balaclava_black_1", "RUS_Balaclava_Green_3", "RUS_Balaclava_Green_4", "G_Balaclava_oli", "rhs_balaclava1_olive", "min_rf_balaclava_goggles_olive", "G_Balaclava_light_blk_F"];
-if (_hasWS) then {
+if (_hasWs) then {
     _balaclavas append ["G_Balaclava_oli_lxWS", "G_Balaclava_blk_lxWS"];
 };
 
