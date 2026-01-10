@@ -20,7 +20,7 @@ private _hasEF = "ef" in A3A_enabledDLC;
 //   Side Information   //
 //////////////////////////
 
-["name", "Russian"] call _fnc_saveToTemplate; 						                                        //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
+["name", "Russia"] call _fnc_saveToTemplate; 						                                        //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
 ["spawnMarkerName", "Russian Support Corridor"] call _fnc_saveToTemplate; 			                        //this line determines the name tag for the "carrier" on the map -- Example: ["spawnMarkerName", "NATO support corridor"] - ENTER ONLY ONE OPTION. Format and localize function can be used for translation
 
 ["flag", "Flag_AAF_F"] call _fnc_saveToTemplate; 						                                    //this line determines the flag -- Example: ["flag", "Flag_NATO_F"] - ENTER ONLY ONE OPTION
@@ -111,164 +111,13 @@ if (_hasEF) then {
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
-["animations", [
-    ["O_R_LSV_02_unarmed_F", ["Unarmed_Doors_Hide",0.25]],
-    ["rhs_tigr_m_vmf", ["spare_hide",0.5]],
-    ["O_R_LSV_02_AT_F", ["Unarmed_Doors_Hide",0.25]],
-    ["rhs_kamaz5350_flatbed_cover_vmf", ["Door_LF",0,"Door_RF",0,"Hatch",0,"spare_hide",0.25,"back_door",0,"cover_end_hide",0.5,"side_walls_hide",0.5]],
-    ["RUS_MSV_btr82a", ["crate_l0.25_unhide",0.25,"crate_l2_unhide",0.25,"crate_l3_unhide",0.25,"crate_l4_unhide",0.25,"crate_r0.25_unhide",0.25,"crate_r2_unhide",0.25,"crate_r3_unhide",0.25,"crate_r4_unhide",0.25,"water_0.25_unhide",0.25,"water_2_unhide",0.25,"wheel_0.25_unhide",0.25,"wheel_2_unhide",0.25]],
-    ["rhs_t15_tv", ["Hide_Skirts",0,"Hide_Turret_Armor",0,"Hide_Slat",0]],
-    ["rhs_t14_tv", ["Hide_Skirts",0,"Hide_Turret_Armor",0,"Hide_Slat",0]],
-    ["RUS_MSV_t90m", ["hide_hull_slats",0.25,"hide_log",0.5,"hide_sideskirts",0]],
-    ["rhs_t90sab_tv", ["hide_hull_slats",0.25,"hide_log",0.5,"hide_sideskirts",0]],
-    ["rhs_t90saa_tv", ["hide_sideskirts",0]],
-    ["rhs_tv_t80bvm", ["HidePlate",0,"showFeulTank",0,"armor_roof_hide",0.8,"rudder_skirt_hide",0.5,"fuel_barrel_hide",0.5,"wood_log_hide",0.3,"chain_hide",0.3,"rudder_plate_hide",0.6]],
-    ["RUS_MSV_t72b3m", ["hide_hull_slats",0.6,"unhide_tank_holders",0,"hide_sideskirts",0]],
-    ["EF_B_CombatBoat_HMG_NATO", ["armor_front",0.7,"armor_mid",0.7,"armor_rear",0.7,"mg2_turret_armor",0.7,"mg3_turret_armor",0.7,"mg4_turret_armor",0.7,"mg5_turret_armor",0.7]],
-    ["RUS_VKS_su57", ["antenna_hide",0,"sensors_hide",0]],
-    ["rhs_btr80_vv", ["crate_l1_unhide",0.5,"crate_l2_unhide",0.5,"crate_l3_unhide",0.5,"crate_l4_unhide",0.5,"crate_r1_unhide",0.5,"crate_r2_unhide",0.5,"crate_r3_unhide",0.5,"crate_r4_unhide",0.5,"water_1_unhide",0.5,"water_2_unhide",0.5,"wheel_1_unhide",0.5,"wheel_2_unhide",0.5]]
-
-]] call _fnc_saveToTemplate;
-
-
-["variants", [
-    ["O_R_LSV_02_unarmed_F", ["Green",1]],
-    ["RUS_VDV_kamaz4386", ["Green_Dirt",0.5,"Green",0.5]],
-    ["rhs_tigr_m_vmf", ["standard",1]],
-    ["O_R_LSV_02_AT_F", ["Green",1]],
-    ["RUS_GRU_asn233115sts", ["Camo_Army_Green_default",1]],
-    ["O_R_Truck_03_covered_F", ["Green",1]],
-    ["rhs_kamaz5350_flatbed_cover_vmf", ["standard",1]],
-    ["O_R_Truck_03_ammo_F", ["Green",1]],
-    ["O_R_Truck_03_repair_F", ["Green",1]],
-    ["O_R_Truck_03_fuel_F", ["Green",1]],
-    ["O_R_Truck_03_medical_F", ["Green",1]],
-    ["red_k16_r", ["Green",1,"Olive",1,"Russian",1]],
-    ["RUS_MSV_btr82a", ["standard",1]],
-    ["red_k18_r", ["Green",1,"Olive",1,"Russian",1]],
-    ["red_k17_r", ["Green",1,"Olive",1,"Russian",1]],
-    ["RUS_VDV_bmd4m", ["camo",1,"green",1,"worn_camo",1,"worn_green",1]],
-    ["TV_kgn25_2A92", ["Olive",1]],
-    ["TV_kgn25_2A42", ["Olive",1]],
-    ["O_BMPT", ["C1_F",1]],
-    ["RUS_MSV_bmp3m", ["bmp3_camo",1,"bmp3_green",1,"bmp3_worn_green",1]],
-    ["RUS_MSV_bmp2m", ["rus_bmp2m_green",1,"rus_bmp2m_parad",1]],
-    ["RUS_MSV_t90m", ["standard",1]],
-    ["rhs_t90sab_tv", ["standard",1]],
-    ["rhs_t90saa_tv", ["standard",1]],
-    ["rhs_tv_t80bvm", ["standard",1]],
-    ["RUS_MSV_t72b3m", ["standard",1]],
-    ["O_R_APC_Wheeled_04_cannon_v2_F", ["Green",1]],
-    ["mkk_sa22m_pantsir_r", ["green1",1,"green3",1,"russian",1]],
-    ["mkk_2s6m_tunguska", ["forest1",1,"olive",1,"russian",1]],
-    ["O_R_Boat_Transport_01_ard_F", ["Rus",1,"Black",1]],
-    ["O_R_Boat_Armed_01_hmg_ard_F", ["Rus",1]],
-    ["EF_B_CombatBoat_HMG_NATO", ["Spetsnaz",1,"Grey",1,"MJTF",1]],
-    ["RHS_Su25SM_vvs", ["standard2",1]],
-    ["RUS_VKS_mig29smt", ["Gray",1]],
-    ["RHS_Mi8mt_Cargo_vvs", ["standard",1]],
-    ["RHS_Mi8mt_vvs", ["standard",1]],
-    ["RHS_Mi8MTV3_vvs", ["standard",1]],
-    ["RHS_Mi8MTV3_heavy_vvs", ["standard",1]],
-    ["LS_Ka52_F", ["Gray_camo",1]],
-    ["rhs_mi28n_vvs", ["standard",1]],
-    ["RHS_Mi24V_vvs", ["standard",1]],
-    ["red_2s19_r", ["green",1,"olive",1,"russian",1]],
-    ["orion_F_KORNET_OPF", ["Russian_DCamo",1]],
-    ["O_R_UAV_01_F", ["Rus",1]],
-    ["rhs_kamaz5350_vv", ["standard",1]],
-    ["rhs_btr80_vv", ["standard",1]],
-    ["rhs_tigr_vv", ["standard",1]],
-    ["O_R_Radar_System_02_F", ["Green",1]],
-    ["O_R_SAM_System_04_F", ["Green",1]]
-
-]] call _fnc_saveToTemplate;
+#include "VehicleData\YULAK_RUS_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
 /////////////////////
 
-private _characters = [
-    "WhiteHead_02",
-    "WhiteHead_18",
-    "WhiteHead_04",
-    "WhiteHead_07",
-    "WhiteHead_08",
-    "Ivan",
-    "WhiteHead_16",
-    "WhiteHead_11",
-    "WhiteHead_22_l",
-    "WhiteHead_17",
-    "WhiteHead_21",
-    "WhiteHead_12",
-    "WhiteHead_14",
-    "WhiteHead_20",
-    "WhiteHead_33",
-    "RuHead_00",
-    "RuHead_02",
-    "RuHead_03",
-    "RuHead_04",
-    "RuHead_05",
-    "RuHead_06",
-    "RuHead_07",
-    "RuHead_08",
-    "RuHead_09",
-    "RuHead_11",
-    "RuHead_12",
-    "Vissim"
-];
-
-if (_hasWs) then {
-    _characters append [
-        "lxWS_Gustavo_Head",
-        "lxWS_Journalist_Head"
-    ];
-};
-if (_hasLawsOfWar) then {
-    _characters append [
-        "WhiteHead_23"
-    ];
-};
-if (_hasContact) then {
-    _characters append [
-        "WhiteHead_24",
-        "RussianHead_4",
-        "LivonianHead_5",
-        "WhiteHead_25",
-        "LivonianHead_2",
-        "RussianHead_1",
-        "WhiteHead_27",
-        "WhiteHead_28",
-        "LivonianHead_3",
-        "RussianHead_3",
-        "RussianHead_2",
-        "LivonianHead_10",
-        "WhiteHead_32",
-        "WhiteHead_30",
-        "LivonianHead_8",
-        "LivonianHead_4",
-        "LivonianHead_9"
-    ];
-};
-
-["faces", _characters] call _fnc_saveToTemplate;
-
-private _languages = [
-    "RHS_Male01RUS",
-    "RHS_Male02RUS",
-    "RHS_Male03RUS",
-    "RHS_Male04RUS",
-    "RHS_Male05RUS"
-];
-if (_hasContact) then {
-    _languages append [
-        "Male01RUS",
-        "Male02RUS",
-        "Male03RUS"
-    ];
-};
-
-["voices", _languages] call _fnc_saveToTemplate;
+#include "CharacterData\YULAK_Eastern_Identities.sqf"
 
 private _insignia = ["Spetsnaz545thRegiment"];
 if (_hasContact) then {

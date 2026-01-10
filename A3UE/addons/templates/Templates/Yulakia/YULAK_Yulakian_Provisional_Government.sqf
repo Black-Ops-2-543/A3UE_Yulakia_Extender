@@ -35,61 +35,425 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["surrenderCrate", "Box_IND_Wps_F"]    call _fnc_saveToTemplate; 
 ["equipmentBox",   "Box_AAF_Equip_F"] call _fnc_saveToTemplate;
 
+private _basicVehicles             = [];
+private _unarmedLightVehicles      = ["rhs_tigr_m_3camo_msv"];
+private _armedLightVehicles        = ["rhs_tigr_sts_3camo_msv"];
+private _transportTrucks           = ["O_R_Truck_02_F"];
+private _cargoTrucks               = ["O_R_Truck_02_cargo_F"];
+private _ammoTrucks                = ["O_R_Truck_02_Ammo_F"];
+private _repairTrucks              = ["O_R_Truck_02_box_F"];
+private _fuelTrucks                = ["O_R_Truck_02_fuel_F"];
+private _medicalTrucks             = ["O_R_Truck_02_medical_F"];
+private _lightAPCs                 = ["rhs_btr80_msv"];
+private _APCs                      = ["rhs_btr80a_msv"];
+private _airborneVehicles          = ["rhs_bmd2"];
+private _IFVs                      = ["RUS_MSV_bmp3", "rhs_bmp2d_msv", "rhs_bmp2_msv"];
+private _tanks                     = ["rhs_t90_tv", "mkk_t80bv_r", "rhs_t80a", "rhs_t72bc_tv", "rhs_t72bb_tv"];
+private _lightTanks                = ["rhs_sprut_vdv"];
+private _SPAA                      = ["mkk_zsu_23_4m4", "TSB_BRDM2_ZU23_r", "Aegis_O_R_Truck_02_aa_F"];
+private _transportBoats            = ["O_R_Boat_Transport_01_ard_F"];
+private _armedBoats                = [];
+private _amphibiousVehicles        = ["rhs_bmp2_msv", "rhs_btr80_msv"];
+private _casPlanes                 = ["PRACS_SLA_SU22"];
+private _asPlanes                  = ["PRACS_SLA_MiG23", "PRACS_SLA_MiG21"];
+private _transportPlanes           = ["PRACS_AN12B"];
+private _lightHelicopters          = [];
+private _transportHelicopters      = ["RHS_Mi8mt_vvsc", "RHS_Mi8mt_vvsc"];
+private _armedHelicopters          = ["RHS_Mi8MTV3_vvsc", "RHS_Mi8MTV3_vvsc"];
+private _gunshipHelicopters        = ["RHS_Mi24V_vvsc", "RHS_Mi24P_vvsc"];
+private _SPGs                      = ["RUS_MSV_2s3m1", "RUS_MSV_2b26"];
+private _portableUAVs              = ["O_R_UAV_01_F"];
+private _armedLightMilitiaVehicles = ["rhs_tigr_m_3camo_msv"];
+private _transportMilitiaTrucks    = [];
+private _unarmedMilitiaCars        = [];
+private _militiaAPCs               = [];
+private _policeVehicles            = [];
+private _staticMGs                 = ["I_G_HMG_02_high_F", "rhs_KORD_high_VDV", "rhs_KORD_high_VDV"];
+private _staticATs                 = ["RHS_TOW_TriPod_WD", "rhs_Kornet_9M133_2_vdv", "rhs_Kornet_9M133_2_vdv", "rhs_SPG9M_VDV"];
+private _staticAAs                 = ["rhs_Igla_AA_pod", "rhs_ZU23_VDV", "rhs_Igla_AA_pod"];
+private _mortars                   = [];
+private _howitzers                 = [];
 
-[       "vehiclesBasic", ["rhs_uaz_open_MSV_01"]]                                           call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["rhs_uaz_open_MSV_01", "RHS_UAZ_MSV_01", "Gaz_tigr_ua"]]          call _fnc_saveToTemplate;	
-[  "vehiclesLightArmed", ["Gas_tigr_sts_ua",     "Gas_tigr_m_ua",  "rhsgref_BRDM2_HQ_msv"]] call _fnc_saveToTemplate; 
+switch (true) do {
+    case (!_hasGM && !_hasCSLA && !_hasSOG): { // Neither GM, CSLA, nor SOG
+        _basicVehicles             append ["rhs_uaz_open_MSV_01"];
+        _unarmedLightVehicles      append ["RHS_UAZ_MSV_01"];
+        _armedLightVehicles        append ["TSB_BRDM2_r"];
+        _transportTrucks           append [];
+        _cargoTrucks               append [];
+        _ammoTrucks                append [];
+        _repairTrucks              append [];
+        _fuelTrucks                append [];
+        _medicalTrucks             append [];
+        _lightAPCs                 append ["rhsusf_m113_usarmy_M2_90"];
+        _APCs                      append [];
+        _airborneVehicles          append ["rhsusf_m113_usarmy_M2_90"];
+        _IFVs                      append ["rhs_bmp1p_msv"];
+        _tanks                     append ["leopard1_b"];
+        _lightTanks                append [];
+        _SPAA                      append [];
+        _transportBoats            append [];
+        _armedBoats                append ["O_R_Boat_Armed_01_hmg_ard_F"];
+        _amphibiousVehicles        append ["rhsusf_m113_usarmy_M2_90"];
+        _casPlanes                 append [];
+        _asPlanes                  append [];
+        _transportPlanes           append [];
+        _lightHelicopters          append ["rhs_uh1h_hidf"];
+        _transportHelicopters      append ["rhs_uh1h_hidf"];
+        _armedHelicopters          append ["rhs_uh1h_hidf_gunship"];
+        _gunshipHelicopters        append [];
+        _SPGs                      append [];
+        _portableUAVs              append [];
+        _armedLightMilitiaVehicles append ["rhsgref_BRDM2_msv"];
+        _transportMilitiaTrucks    append ["RUS_MP_ural432031"];
+        _unarmedMilitiaCars        append ["rhs_uaz_open_MSV_01", "RHS_UAZ_MSV_01"];
+        _militiaAPCs               append ["rhsusf_m113_usarmy_M2_90"];
+        _policeVehicles            append ["rhs_tigr_msv"];
+        _staticMGs                 append [];
+        _staticATs                 append [];
+        _staticAAs                 append [];
+        _mortars                   append ["RUS_MSV_2b14"];
+        _howitzers                 append ["RUS_MSV_2a18m"];
+    };
+    case (_hasGM && !_hasCSLA && !_hasSOG): { // GM only
+        _basicVehicles             append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_ge_army_iltis_cargo"];
+        _unarmedLightVehicles      append ["gm_gc_army_uaz469_cargo_noinsignia", "gm_ge_army_iltis_cargo"];
+        _armedLightVehicles        append ["gm_gc_army_brdm2_noinsignia", "gm_ge_army_iltis_mg3", "gm_ge_army_iltis_milan", "gm_gc_army_uaz469_dshkm_noinsignia"];
+        _transportTrucks           append ["gm_ge_army_u1300l_cargo", "gm_ge_army_kat1_451_cargo", "gm_gc_army_ural4320_cargo_noinsignia"];
+        _cargoTrucks               append ["gm_ge_army_kat1_454_cargo", "gm_ge_army_kat1_451_container", "gm_gc_army_ural375d_cargo_noinsignia"];
+        _ammoTrucks                append ["gm_ge_army_kat1_454_reammo", "gm_ge_army_kat1_451_reammo", "gm_gc_army_ural_4320_reammo_noinsignia"];
+        _repairTrucks              append ["gm_ge_army_u1300l_repair", "gm_gc_army_ural4320_repair_noinsignia"];
+        _fuelTrucks                append ["gm_ge_army_kat1_451_refuel", "gm_gc_army_ural375d_refuel_noinsignia"];
+        _medicalTrucks             append ["gm_ge_army_u1300l_medic", "gm_gc_army_ural375d_medic_noinsignia"];
+        _lightAPCs                 append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_ge_army_fuchsa0_engineer_noinsignia"];
+        _APCs                      append ["gm_ge_army_fuchsa0_reconnaissance"];
+        _airborneVehicles          append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia"];
+        _IFVs                      append ["gm_gc_army_bmp1p_noinsignia", "gm_ge_army_marder1a1plus_noinsignia"];
+        _tanks                     append ["gm_ge_army_Leopard1a3a1_noinsignia", "gm_ge_army_Leopard1a1a2_noinsignia", "gm_ge_army_Leopard1a1a1_noinsignia", "gm_ge_army_Leopard1a1_noinsignia", "gm_gc_army_t55ak_noinsignia"];
+        _lightTanks                append ["gm_ge_army_m113a1g_apc_milan_noinsignia", "gm_ge_army_luchsa1_noinsignia", "gm_gc_army_pt76b_noinsignia"];
+        _SPAA                      append ["gm_ge_army_gepard1a1_noinsignia"];
+        _transportBoats            append [];
+        _armedBoats                append ["O_R_Boat_Armed_01_hmg_ard_F"];
+        _amphibiousVehicles        append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_ge_army_luchsa1_noinsignia"];
+        _casPlanes                 append [];
+        _asPlanes                  append [];
+        _transportPlanes           append [];
+        _lightHelicopters          append ["rhs_uh1h_hidf", "gm_gc_airforce_mi2t_noinsignia", "gm_gc_airforce_mi2t_noinsignia", "gm_ge_army_bo105p1m_vbh_noinsignia"];
+        _transportHelicopters      append ["rhs_uh1h_hidf", "gm_ge_army_bo105p1m_vbh_swooper_noinsignia"];
+        _armedHelicopters          append ["rhs_uh1h_hidf_gunship", "gm_ge_army_bo105p_pah1a1_noinsignia"];
+        _gunshipHelicopters        append [];
+        _SPGs                      append ["gm_ge_army_m109g_noinsignia", "gm_ge_army_m113a1g_mortar_noinsignia"];
+        _portableUAVs              append [];
+        _armedLightMilitiaVehicles append ["gm_gc_army_brdm2_noinsignia", "gm_gc_army_uaz469_spg9_noinsignia", "gm_gc_army_uaz469_dshkm_noinsignia"];
+        _transportMilitiaTrucks    append ["gm_gc_army_ural4320_cargo_noinsignia"];
+        _unarmedMilitiaCars        append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_gc_army_uaz469_cargo_noinsignia"];
+        _militiaAPCs               append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_gc_army_btr60pa_dshkm_noinsignia"];
+        _policeVehicles            append ["gm_ge_bgs_w123_cargo", "gm_ge_army_typ253_cargo"];
+        _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw"];
+        _staticATs                 append [];
+        _staticAAs                 append [];
+        _mortars                   append [];
+        _howitzers                 append [];
+    };
+    case (!_hasGM && _hasCSLA && !_hasSOG): { // CSLA only
+        _basicVehicles             append ["CSLA_AZU_para_noinsignia"];
+        _unarmedLightVehicles      append ["CSLA_AZU_noinsignia", "CSLA_AZU_R2_noinsignia"];
+        _armedLightVehicles        append ["TSB_BRDM2_r", "CSLA_OT65A_noinsignia"];
+        _transportTrucks           append ["CSLA_V3S_noinsignia", "CSLA_F813_noinsignia"];
+        _cargoTrucks               append ["CSLA_V3So_noinsignia", "CSLA_F813o_noinsignia"];
+        _ammoTrucks                append ["CSLA_V3Sa_noinsignia"];
+        _repairTrucks              append ["US85_M113_DTP", "CSLA_DTP90_noinsignia"];
+        _fuelTrucks                append ["CSLA_V3Sf_noinsignia"];
+        _medicalTrucks             append [];
+        _lightAPCs                 append ["US85_M113", "CSLA_OT62D_noinsignia", "CSLA_OT64C_noinsignia"];
+        _APCs                      append [];
+        _airborneVehicles          append ["US85_M113"];
+        _IFVs                      append ["rhs_bmp1p_msv"];
+        _tanks                     append ["leopard1_b", "CSLA_T72M1_noinsignia"];
+        _lightTanks                append ["US85_M113A1_TOW"];
+        _SPAA                      append ["CSLA_PLdvK59V3S_noinsignia"];
+        _transportBoats            append [];
+        _armedBoats                append ["O_R_Boat_Armed_01_hmg_ard_F"];
+        _amphibiousVehicles        append ["US85_M113"];
+        _casPlanes                 append [];
+        _asPlanes                  append [];
+        _transportPlanes           append [];
+        _lightHelicopters          append ["rhs_uh1h_hidf"];
+        _transportHelicopters      append ["rhs_uh1h_hidf"];
+        _armedHelicopters          append ["rhs_uh1h_hidf_gunship"];
+        _gunshipHelicopters        append [];
+        _SPGs                      append [];
+        _portableUAVs              append [];
+        _armedLightMilitiaVehicles append ["rhsgref_BRDM2_msv"];
+        _transportMilitiaTrucks    append ["CSLA_V3S_noinsignia"];
+        _unarmedMilitiaCars        append ["CSLA_AZU_para_noinsignia", "CSLA_AZU_noinsignia"];
+        _militiaAPCs               append ["US85_M113", "CSLA_OT62_noinsignia"];
+        _policeVehicles            append ["rhs_tigr_msv"];
+        _staticMGs                 append ["CSLA_DShKM_h_Stat"];
+        _staticATs                 append [];
+        _staticAAs                 append ["CSLA_PLdvK59_Stat"];
+        _mortars                   append [];
+        _howitzers                 append [];
+    };
+    case (!_hasGM && !_hasCSLA && _hasSOG): { // SOG only
+        _basicVehicles             append ["rhs_uaz_open_MSV_01", "vn_b_wheeled_m151_01_noinsignia"];
+        _unarmedLightVehicles      append ["RHS_UAZ_MSV_01"];
+        _armedLightVehicles        append ["TSB_BRDM2_r"];
+        _transportTrucks           append [];
+        _cargoTrucks               append [];
+        _ammoTrucks                append [];
+        _repairTrucks              append [];
+        _fuelTrucks                append [];
+        _medicalTrucks             append [];
+        _lightAPCs                 append ["vn_b_armor_m113_01_noinsignia"];
+        _APCs                      append ["vn_b_armor_m113_acav_06"];
+        _airborneVehicles          append ["vn_b_armor_m113_01_noinsignia"];
+        _IFVs                      append ["rhs_bmp1p_msv"];
+        _tanks                     append ["leopard1_b"];
+        _lightTanks                append ["vn_o_armor_pt76a_01_nva65"];
+        _SPAA                      append [];
+        _transportBoats            append ["vn_b_boat_10_01"];
+        _armedBoats                append ["vn_b_boat_12_02"];
+        _amphibiousVehicles        append ["vn_b_armor_m113_01_noinsignia"];
+        _casPlanes                 append [];
+        _asPlanes                  append [];
+        _transportPlanes           append [];
+        _lightHelicopters          append ["vn_b_air_uh1c_07_01_noinsignia"];
+        _transportHelicopters      append ["vn_b_air_uh1d_02_01_noinsignia", "vn_b_air_ch34_03_01_noinsignia"];
+        _armedHelicopters          append ["vn_b_air_uh1c_01_01_noinsignia", "vn_b_air_ch34_04_02_noinsignia"];
+        _gunshipHelicopters        append [];
+        _SPGs                      append ["vn_b_armor_m125_01"];
+        _portableUAVs              append [];
+        _armedLightMilitiaVehicles append ["rhsgref_BRDM2_msv"];
+        _transportMilitiaTrucks    append ["RUS_MP_ural432031"];
+        _unarmedMilitiaCars        append ["rhs_uaz_open_MSV_01", "RHS_UAZ_MSV_01"];
+        _militiaAPCs               append ["vn_b_armor_m113_01_noinsignia"];
+        _policeVehicles            append ["rhs_tigr_msv"];
+        _staticMGs                 append [];
+        _staticATs                 append [];
+        _staticAAs                 append [];
+        _mortars                   append [];
+        _howitzers                 append [];
+    };
+    case (_hasGM && _hasCSLA && !_hasSOG): { // GM + CSLA
+        _basicVehicles             append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_ge_army_iltis_cargo"];
+        _unarmedLightVehicles      append ["gm_gc_army_uaz469_cargo_noinsignia", "gm_ge_army_iltis_cargo"];
+        _armedLightVehicles        append ["gm_gc_army_brdm2_noinsignia", "gm_ge_army_iltis_mg3", "gm_ge_army_iltis_milan", "gm_gc_army_uaz469_dshkm_noinsignia", "CSLA_OT65A_noinsignia"];
+        _transportTrucks           append ["gm_ge_army_u1300l_cargo", "gm_ge_army_kat1_451_cargo", "gm_gc_army_ural4320_cargo_noinsignia", "CSLA_V3S_noinsignia", "CSLA_F813_noinsignia"];
+        _cargoTrucks               append ["gm_ge_army_kat1_454_cargo", "gm_ge_army_kat1_451_container", "gm_gc_army_ural375d_cargo_noinsignia", "CSLA_V3So_noinsignia", "CSLA_F813o_noinsignia"];
+        _ammoTrucks                append ["gm_ge_army_kat1_454_reammo", "gm_ge_army_kat1_451_reammo", "gm_gc_army_ural_4320_reammo_noinsignia", "CSLA_V3Sa_noinsignia"];
+        _repairTrucks              append ["gm_ge_army_u1300l_repair", "gm_gc_army_ural4320_repair_noinsignia", "US85_M113_DTP", "CSLA_DTP90_noinsignia"];
+        _fuelTrucks                append ["gm_ge_army_kat1_451_refuel", "gm_gc_army_ural375d_refuel_noinsignia", "CSLA_V3Sf_noinsignia"];
+        _medicalTrucks             append ["gm_ge_army_u1300l_medic", "gm_gc_army_ural375d_medic_noinsignia"];
+        _lightAPCs                 append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_ge_army_fuchsa0_engineer_noinsignia", "CSLA_OT62D_noinsignia", "CSLA_OT64C_noinsignia"];
+        _APCs                      append ["gm_ge_army_fuchsa0_reconnaissance"];
+        _airborneVehicles          append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia"];
+        _IFVs                      append ["gm_gc_army_bmp1p_noinsignia", "gm_ge_army_marder1a1plus_noinsignia"];
+        _tanks                     append ["gm_ge_army_Leopard1a3a1_noinsignia", "gm_ge_army_Leopard1a1a2_noinsignia", "gm_ge_army_Leopard1a1a1_noinsignia", "gm_ge_army_Leopard1a1_noinsignia", "gm_gc_army_t55ak_noinsignia", "CSLA_T72M1_noinsignia"];
+        _lightTanks                append ["gm_ge_army_m113a1g_apc_milan_noinsignia", "gm_ge_army_luchsa1_noinsignia", "gm_gc_army_pt76b_noinsignia"];
+        _SPAA                      append ["gm_ge_army_gepard1a1_noinsignia", "CSLA_PLdvK59V3S_noinsignia"];
+        _transportBoats            append [];
+        _armedBoats                append ["O_R_Boat_Armed_01_hmg_ard_F"];
+        _amphibiousVehicles        append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_ge_army_luchsa1_noinsignia"];
+        _casPlanes                 append [];
+        _asPlanes                  append [];
+        _transportPlanes           append [];
+        _lightHelicopters          append ["rhs_uh1h_hidf", "gm_gc_airforce_mi2t_noinsignia", "gm_gc_airforce_mi2t_noinsignia", "gm_ge_army_bo105p1m_vbh_noinsignia"];
+        _transportHelicopters      append ["rhs_uh1h_hidf", "gm_ge_army_bo105p1m_vbh_swooper_noinsignia"];
+        _armedHelicopters          append ["rhs_uh1h_hidf_gunship", "gm_ge_army_bo105p_pah1a1_noinsignia"];
+        _gunshipHelicopters        append [];
+        _SPGs                      append ["gm_ge_army_m109g_noinsignia", "gm_ge_army_m113a1g_mortar_noinsignia"];
+        _portableUAVs              append [];
+        _armedLightMilitiaVehicles append ["gm_gc_army_brdm2_noinsignia", "gm_gc_army_uaz469_spg9_noinsignia", "gm_gc_army_uaz469_dshkm_noinsignia"];
+        _transportMilitiaTrucks    append ["gm_gc_army_ural4320_cargo_noinsignia", "CSLA_V3S_noinsignia"];
+        _unarmedMilitiaCars        append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_gc_army_uaz469_cargo_noinsignia"];
+        _militiaAPCs               append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_gc_army_btr60pa_dshkm_noinsignia", "CSLA_OT62_noinsignia"];
+        _policeVehicles            append ["gm_ge_bgs_w123_cargo", "gm_ge_army_typ253_cargo"];
+        _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw", "CSLA_DShKM_h_Stat"];
+        _staticATs                 append [];
+        _staticAAs                 append ["CSLA_PLdvK59_Stat"];
+        _mortars                   append [];
+        _howitzers                 append [];        
+    };
+    case (_hasGM && !_hasCSLA && _hasSOG): { // GM + SOG
+        _basicVehicles             append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_ge_army_iltis_cargo", "vn_b_wheeled_m151_01_noinsignia"];
+        _unarmedLightVehicles      append ["gm_gc_army_uaz469_cargo_noinsignia", "gm_ge_army_iltis_cargo"];
+        _armedLightVehicles        append ["gm_gc_army_brdm2_noinsignia", "gm_ge_army_iltis_mg3", "gm_ge_army_iltis_milan", "gm_gc_army_uaz469_dshkm_noinsignia"];
+        _transportTrucks           append ["gm_ge_army_u1300l_cargo", "gm_ge_army_kat1_451_cargo", "gm_gc_army_ural4320_cargo_noinsignia"];
+        _cargoTrucks               append ["gm_ge_army_kat1_454_cargo", "gm_ge_army_kat1_451_container", "gm_gc_army_ural375d_cargo_noinsignia"];
+        _ammoTrucks                append ["gm_ge_army_kat1_454_reammo", "gm_ge_army_kat1_451_reammo", "gm_gc_army_ural_4320_reammo_noinsignia"];
+        _repairTrucks              append ["gm_ge_army_u1300l_repair", "gm_gc_army_ural4320_repair_noinsignia"];
+        _fuelTrucks                append ["gm_ge_army_kat1_451_refuel", "gm_gc_army_ural375d_refuel_noinsignia"];
+        _medicalTrucks             append ["gm_ge_army_u1300l_medic", "gm_gc_army_ural375d_medic_noinsignia"];
+        _lightAPCs                 append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_ge_army_fuchsa0_engineer_noinsignia"];
+        _APCs                      append ["gm_ge_army_fuchsa0_reconnaissance", "vn_b_armor_m113_acav_06"];
+        _airborneVehicles          append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia"];
+        _IFVs                      append ["gm_gc_army_bmp1p_noinsignia", "gm_ge_army_marder1a1plus_noinsignia"];
+        _tanks                     append ["gm_ge_army_Leopard1a3a1_noinsignia", "gm_ge_army_Leopard1a1a2_noinsignia", "gm_ge_army_Leopard1a1a1_noinsignia", "gm_ge_army_Leopard1a1_noinsignia", "gm_gc_army_t55ak_noinsignia"];
+        _lightTanks                append ["gm_ge_army_m113a1g_apc_milan_noinsignia", "gm_ge_army_luchsa1_noinsignia", "gm_gc_army_pt76b_noinsignia"];
+        _SPAA                      append ["gm_ge_army_gepard1a1_noinsignia"];
+        _transportBoats            append ["vn_b_boat_10_01"];
+        _armedBoats                append ["vn_b_boat_12_02"];
+        _amphibiousVehicles        append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_ge_army_luchsa1_noinsignia"];
+        _casPlanes                 append [];
+        _asPlanes                  append [];
+        _transportPlanes           append [];
+        _lightHelicopters          append ["vn_b_air_uh1c_07_01_noinsignia", "gm_gc_airforce_mi2t_noinsignia", "gm_gc_airforce_mi2t_noinsignia", "gm_ge_army_bo105p1m_vbh_noinsignia"];
+        _transportHelicopters      append ["vn_b_air_uh1d_02_01_noinsignia", "vn_b_air_ch34_03_01_noinsignia", "gm_ge_army_bo105p1m_vbh_swooper_noinsignia"];
+        _armedHelicopters          append ["vn_b_air_uh1c_01_01_noinsignia", "vn_b_air_ch34_04_02_noinsignia", "gm_ge_army_bo105p_pah1a1_noinsignia"];
+        _gunshipHelicopters        append [];
+        _SPGs                      append ["gm_ge_army_m109g_noinsignia", "gm_ge_army_m113a1g_mortar_noinsignia"];
+        _portableUAVs              append [];
+        _armedLightMilitiaVehicles append ["gm_gc_army_brdm2_noinsignia", "gm_gc_army_uaz469_spg9_noinsignia", "gm_gc_army_uaz469_dshkm_noinsignia"];
+        _transportMilitiaTrucks    append ["gm_gc_army_ural4320_cargo_noinsignia"];
+        _unarmedMilitiaCars        append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_gc_army_uaz469_cargo_noinsignia"];
+        _militiaAPCs               append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_gc_army_btr60pa_dshkm_noinsignia"];
+        _policeVehicles            append ["gm_ge_bgs_w123_cargo", "gm_ge_army_typ253_cargo"];
+        _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw"];
+        _staticATs                 append [];
+        _staticAAs                 append [];
+        _mortars                   append [];
+        _howitzers                 append [];        
+    };
+    case (!_hasGM && _hasCSLA && _hasSOG): { // CSLA + SOG
+        _basicVehicles             append ["CSLA_AZU_para_noinsignia", "vn_b_wheeled_m151_01_noinsignia"];
+        _unarmedLightVehicles      append ["CSLA_AZU_noinsignia", "CSLA_AZU_R2_noinsignia"];
+        _armedLightVehicles        append ["TSB_BRDM2_r", "CSLA_OT65A_noinsignia"];
+        _transportTrucks           append ["CSLA_V3S_noinsignia", "CSLA_F813_noinsignia"];
+        _cargoTrucks               append ["CSLA_V3So_noinsignia", "CSLA_F813o_noinsignia"];
+        _ammoTrucks                append ["CSLA_V3Sa_noinsignia"];
+        _repairTrucks              append ["US85_M113_DTP", "CSLA_DTP90_noinsignia"];
+        _fuelTrucks                append ["CSLA_V3Sf_noinsignia"];
+        _medicalTrucks             append [];
+        _lightAPCs                 append ["US85_M113", "CSLA_OT62D_noinsignia", "CSLA_OT64C_noinsignia"];
+        _APCs                      append ["vn_b_armor_m113_acav_06"];
+        _airborneVehicles          append ["US85_M113"];
+        _IFVs                      append ["rhs_bmp1p_msv"];
+        _tanks                     append ["leopard1_b", "CSLA_T72M1_noinsignia"];
+        _lightTanks                append ["US85_M113A1_TOW", "vn_o_armor_pt76a_01_nva65"];
+        _SPAA                      append ["CSLA_PLdvK59V3S_noinsignia"];
+        _transportBoats            append ["vn_b_boat_10_01"];
+        _armedBoats                append ["vn_b_boat_12_02"];
+        _amphibiousVehicles        append ["US85_M113"];
+        _casPlanes                 append [];
+        _asPlanes                  append [];
+        _transportPlanes           append [];
+        _lightHelicopters          append ["vn_b_air_uh1c_07_01_noinsignia"];
+        _transportHelicopters      append ["vn_b_air_uh1d_02_01_noinsignia", "vn_b_air_ch34_03_01_noinsignia"];
+        _armedHelicopters          append ["vn_b_air_uh1c_01_01_noinsignia", "vn_b_air_ch34_04_02_noinsignia"];
+        _gunshipHelicopters        append [];
+        _SPGs                      append ["vn_b_armor_m125_01"];
+        _portableUAVs              append [];
+        _armedLightMilitiaVehicles append ["rhsgref_BRDM2_msv"];
+        _transportMilitiaTrucks    append ["CSLA_V3S_noinsignia"];
+        _unarmedMilitiaCars        append ["CSLA_AZU_para_noinsignia", "CSLA_AZU_noinsignia"];
+        _militiaAPCs               append ["US85_M113", "CSLA_OT62_noinsignia"];
+        _policeVehicles            append ["rhs_tigr_msv"];
+        _staticMGs                 append ["CSLA_DShKM_h_Stat"];
+        _staticATs                 append [];
+        _staticAAs                 append ["CSLA_PLdvK59_Stat"];
+        _mortars                   append [];
+        _howitzers                 append [];        
+    };
+    case (_hasGM && _hasCSLA && _hasSOG): { // GM + CSLA + SOG
+        _basicVehicles             append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_ge_army_iltis_cargo", "vn_b_wheeled_m151_01_noinsignia"];
+        _unarmedLightVehicles      append ["gm_gc_army_uaz469_cargo_noinsignia", "gm_ge_army_iltis_cargo"];
+        _armedLightVehicles        append ["gm_gc_army_brdm2_noinsignia", "gm_ge_army_iltis_mg3", "gm_ge_army_iltis_milan", "gm_gc_army_uaz469_dshkm_noinsignia", "CSLA_OT65A_noinsignia"];
+        _transportTrucks           append ["gm_ge_army_u1300l_cargo", "gm_ge_army_kat1_451_cargo", "gm_gc_army_ural4320_cargo_noinsignia", "CSLA_V3S_noinsignia", "CSLA_F813_noinsignia"];
+        _cargoTrucks               append ["gm_ge_army_kat1_454_cargo", "gm_ge_army_kat1_451_container", "gm_gc_army_ural375d_cargo_noinsignia", "CSLA_V3So_noinsignia", "CSLA_F813o_noinsignia"];
+        _ammoTrucks                append ["gm_ge_army_kat1_454_reammo", "gm_ge_army_kat1_451_reammo", "gm_gc_army_ural_4320_reammo_noinsignia", "CSLA_V3Sa_noinsignia"];
+        _repairTrucks              append ["gm_ge_army_u1300l_repair", "gm_gc_army_ural4320_repair_noinsignia", "US85_M113_DTP", "CSLA_DTP90_noinsignia"];
+        _fuelTrucks                append ["gm_ge_army_kat1_451_refuel", "gm_gc_army_ural375d_refuel_noinsignia", "CSLA_V3Sf_noinsignia"];
+        _medicalTrucks             append ["gm_ge_army_u1300l_medic", "gm_gc_army_ural375d_medic_noinsignia"];
+        _lightAPCs                 append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_ge_army_fuchsa0_engineer_noinsignia", "CSLA_OT62D_noinsignia", "CSLA_OT64C_noinsignia"];
+        _APCs                      append ["gm_ge_army_fuchsa0_reconnaissance", "vn_b_armor_m113_acav_06"];
+        _airborneVehicles          append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia"];
+        _IFVs                      append ["gm_gc_army_bmp1p_noinsignia", "gm_ge_army_marder1a1plus_noinsignia"];
+        _tanks                     append ["gm_ge_army_Leopard1a3a1_noinsignia", "gm_ge_army_Leopard1a1a2_noinsignia", "gm_ge_army_Leopard1a1a1_noinsignia", "gm_ge_army_Leopard1a1_noinsignia", "gm_gc_army_t55ak_noinsignia", "CSLA_T72M1_noinsignia"];
+        _lightTanks                append ["gm_ge_army_m113a1g_apc_milan_noinsignia", "gm_ge_army_luchsa1_noinsignia", "gm_gc_army_pt76b_noinsignia"];
+        _SPAA                      append ["gm_ge_army_gepard1a1_noinsignia", "CSLA_PLdvK59V3S_noinsignia"];
+        _transportBoats            append ["vn_b_boat_10_01"];
+        _armedBoats                append ["vn_b_boat_12_02"];
+        _amphibiousVehicles        append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_ge_army_luchsa1_noinsignia"];
+        _casPlanes                 append [];
+        _asPlanes                  append [];
+        _transportPlanes           append [];
+        _lightHelicopters          append ["vn_b_air_uh1c_07_01_noinsignia", "gm_gc_airforce_mi2t_noinsignia", "gm_gc_airforce_mi2t_noinsignia", "gm_ge_army_bo105p1m_vbh_noinsignia"];
+        _transportHelicopters      append ["vn_b_air_uh1d_02_01_noinsignia", "vn_b_air_ch34_03_01_noinsignia", "gm_ge_army_bo105p1m_vbh_swooper_noinsignia"];
+        _armedHelicopters          append ["vn_b_air_uh1c_01_01_noinsignia", "vn_b_air_ch34_04_02_noinsignia", "gm_ge_army_bo105p_pah1a1_noinsignia"];
+        _gunshipHelicopters        append [];
+        _SPGs                      append ["gm_ge_army_m109g_noinsignia", "gm_ge_army_m113a1g_mortar_noinsignia"];
+        _portableUAVs              append [];
+        _armedLightMilitiaVehicles append ["gm_gc_army_brdm2_noinsignia", "gm_gc_army_uaz469_spg9_noinsignia", "gm_gc_army_uaz469_dshkm_noinsignia"];
+        _transportMilitiaTrucks    append ["gm_gc_army_ural4320_cargo_noinsignia", "CSLA_V3S_noinsignia"];
+        _unarmedMilitiaCars        append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_gc_army_uaz469_cargo_noinsignia"];
+        _militiaAPCs               append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_gc_army_btr60pa_dshkm_noinsignia", "CSLA_OT62_noinsignia"];
+        _policeVehicles            append ["gm_ge_bgs_w123_cargo", "gm_ge_army_typ253_cargo"];
+        _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw", "CSLA_DShKM_h_Stat"];
+        _staticATs                 append [];
+        _staticAAs                 append ["CSLA_PLdvK59_Stat"];
+        _mortars                   append [];
+        _howitzers                 append [];        
+    };
+};
 
-[      "vehiclesTrucks", ["O_R_Truck_02_F"]]         call _fnc_saveToTemplate;		    
-[ "vehiclesCargoTrucks", ["O_R_Truck_02_cargo_F"]]   call _fnc_saveToTemplate;	
-[  "vehiclesAmmoTrucks", ["O_R_Truck_02_Ammo_F"]]    call _fnc_saveToTemplate;	
-["vehiclesRepairTrucks", ["O_R_Truck_02_box_F"]]     call _fnc_saveToTemplate;	
-[  "vehiclesFuelTrucks", ["O_R_Truck_02_fuel_F"]]    call _fnc_saveToTemplate;	
-[     "vehiclesMedical", ["O_R_Truck_02_medical_F"]] call _fnc_saveToTemplate;
 
-[   "vehiclesLightAPCs", ["FP_UAF_M113_HMG", "TSB_BRDM2_r", "rhs_btr80_msv"]]                                                                                           call _fnc_saveToTemplate;
-[        "vehiclesAPCs", ["rhs_btr80a_vdv"]]                                                                                                                            call _fnc_saveToTemplate;              
-[    "vehiclesAirborne", ["RUS_VDV_bmd2",    "FP_UAF_M113_HMG"]]                                                                                                        call _fnc_saveToTemplate;
-[        "vehiclesIFVs", ["RUS_MSV_bmp3",    "rhs_bmp2d_msv",    "rhs_bmp2_msv",            "rhs_bmp1p_msv"]]                                                           call _fnc_saveToTemplate; 
-[       "vehiclesTanks", ["rhs_t90_tv",      "mkk_t80_ue1_r",    "mkk_t80bv_r",             "rhs_t80a",      "rhs_t80a", "rhs_t72bc_tv", "rhs_t72bb_tv", "leopard1_b"]] call _fnc_saveToTemplate;             
-[          "vehiclesAA", ["mkk_zsu_23_4m4",  "TSB_BRDM2_ZU23_r", "Aegis_O_R_Truck_02_aa_F"]]                                                                            call _fnc_saveToTemplate;                                                             
+[       "vehiclesBasic", _basicVehicles] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", _unarmedLightVehicles] call _fnc_saveToTemplate;	
+[  "vehiclesLightArmed", _armedLightVehicles] call _fnc_saveToTemplate; 
 
-["vehiclesTransportBoats", ["O_R_Boat_Transport_01_ard_F"]]                                  call _fnc_saveToTemplate;	                      
-[      "vehiclesGunBoats", ["O_R_Boat_Armed_01_hmg_ard_F"]]                                  call _fnc_saveToTemplate;                               
-[    "vehiclesAmphibious", ["FP_UAF_M113_HMG",             "rhs_bmp2_msv", "rhs_btr80_msv"]] call _fnc_saveToTemplate;       
+[      "vehiclesTrucks", _transportTrucks] call _fnc_saveToTemplate;		    
+[ "vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;	
+[  "vehiclesAmmoTrucks", _ammoTrucks] call _fnc_saveToTemplate;	
+["vehiclesRepairTrucks", _repairTrucks] call _fnc_saveToTemplate;	
+[  "vehiclesFuelTrucks", _fuelTrucks] call _fnc_saveToTemplate;	
+[     "vehiclesMedical", _medicalTrucks] call _fnc_saveToTemplate;
 
-[      "vehiclesPlanesCAS", ["PRACS_SLA_SU22"]]                     call _fnc_saveToTemplate;                                          
-[       "vehiclesPlanesAA", ["PRACS_SLA_MiG23", "PRACS_SLA_MiG21"]] call _fnc_saveToTemplate;                       
-["vehiclesPlanesTransport", ["PRACS_AN12B"]]                        call _fnc_saveToTemplate;	                                     
+[   "vehiclesLightAPCs", _lightAPCs] call _fnc_saveToTemplate;
+[        "vehiclesAPCs", _APCs] call _fnc_saveToTemplate;              
+[    "vehiclesAirborne", _airborneVehicles] call _fnc_saveToTemplate;
+[        "vehiclesIFVs", _IFVs] call _fnc_saveToTemplate; 
+[       "vehiclesTanks", _tanks] call _fnc_saveToTemplate;
+[  "vehiclesLightTanks", _lightTanks] call _fnc_saveToTemplate;
+[          "vehiclesAA", _SPAA] call _fnc_saveToTemplate;                                                             
 
-[      "vehiclesHelisLight", ["RHS_Mi8mt_vvsc", "RHS_Mi8T_vvsc"]]   call _fnc_saveToTemplate;    
-[  "vehiclesHelisTransport", ["RHS_Mi8mt_vvsc", "RHS_Mi8T_vvsc"]]   call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvsc"]]                  call _fnc_saveToTemplate;             
-[     "vehiclesHelisAttack", ["RHS_Mi24V_vvsc", "RHS_Mi24P_vvsc"]]  call _fnc_saveToTemplate;  
+["vehiclesTransportBoats", _transportBoats] call _fnc_saveToTemplate;	                      
+[      "vehiclesGunBoats", _armedBoats] call _fnc_saveToTemplate;                               
+[    "vehiclesAmphibious", _amphibiousVehicles] call _fnc_saveToTemplate;       
 
-["vehiclesArtillery", ["RUS_MSV_2s3m1", "RUS_MSV_2b26"]]            call _fnc_saveToTemplate;		 
+[      "vehiclesPlanesCAS", _casPlanes] call _fnc_saveToTemplate;                                          
+[       "vehiclesPlanesAA", _asPlanes] call _fnc_saveToTemplate;                       
+["vehiclesPlanesTransport", _transportPlanes] call _fnc_saveToTemplate;	                                     
+
+[      "vehiclesHelisLight", _lightHelicopters] call _fnc_saveToTemplate;    
+[  "vehiclesHelisTransport", _transportHelicopters] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", _armedHelicopters] call _fnc_saveToTemplate;             
+[     "vehiclesHelisAttack", _gunshipHelicopters] call _fnc_saveToTemplate;  
+
+["vehiclesArtillery", _SPGs] call _fnc_saveToTemplate;		 
 ["magazines", createHashMapFromArray [
 ["RUS_MSV_2s3m1", ["rhs_mag_HE_2a33"]],
 ["RUS_MSV_2b26",["VTN_9M522_40"]]
 ]] call _fnc_saveToTemplate;	
 
-["uavsPortable", ["O_R_UAV_01_F"]]                                       call _fnc_saveToTemplate;                                              // unmanned aerial vehicle(drone), unarmed or armed(Western Sahara style), must be able to be disassembled
+["uavsAttack", ["RUS_VKS_forpostru"]] call _fnc_saveToTemplate;
+["uavsPortable", _portableUAVs] call _fnc_saveToTemplate;       // unmanned aerial vehicle(drone), unarmed or armed(Western Sahara style), must be able to be disassembled
 
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["Gas_tigr_sts_ua",     "Gas_tigr_m_ua"]]  call _fnc_saveToTemplate;                                              // same as "vehiclesLightArmed" but for milita forces
-[    "vehiclesMilitiaTrucks", ["RUS_MP_ural432031"]]                     call _fnc_saveToTemplate;                                              // same as "vehiclesTrucks" but for milita forces
-[      "vehiclesMilitiaCars", ["rhs_uaz_open_MSV_01", "RHS_UAZ_MSV_01"]] call _fnc_saveToTemplate;                                              // same as "vehiclesLightUnarmed" but for milita forces
+["vehiclesMilitiaLightArmed", _armedLightMilitiaVehicles]  call _fnc_saveToTemplate; // same as "vehiclesLightArmed" but for milita forces
+[    "vehiclesMilitiaTrucks", _transportMilitiaTrucks] call _fnc_saveToTemplate;     // same as "vehiclesTrucks" but for milita forces
+[      "vehiclesMilitiaCars", _unarmedMilitiaCars] call _fnc_saveToTemplate;         // same as "vehiclesLightUnarmed" but for milita forces
 
-["vehiclesMilitiaAPCs", ["FP_UAF_M113_HMG", "rhsgref_BRDM2_msv"]]        call _fnc_saveToTemplate;                                              // Militia APCs will be used at roadblocks and attacks at first 4 war levels
+["vehiclesMilitiaAPCs", _militiaAPCs] call _fnc_saveToTemplate; // Militia APCs will be used at roadblocks and attacks at first 4 war levels
 
-["vehiclesPolice", ["Gas_tigr_ua"]]                                      call _fnc_saveToTemplate;                                              // cars used by police forces
+["vehiclesPolice", _policeVehicles] call _fnc_saveToTemplate; // cars used by police forces
 
-[      "staticMGs", ["RHS_M2StaticMG_WD",   "rhs_KORD_high_VDV",      "rhs_KORD_high_VDV"]]                       call _fnc_saveToTemplate;     // static machine guns
-[       "staticAT", ["RHS_TOW_TriPod_WD",   "rhs_Kornet_9M133_2_vdv", "rhs_Kornet_9M133_2_vdv", "rhs_SPG9M_VDV"]] call _fnc_saveToTemplate;     // static anti-tank weapons 
-[       "staticAA", ["rhs_Igla_AA_pod_vdv", "rhs_Igla_AA_pod_vdv",    "RHS_ZU23_VDV"]]                            call _fnc_saveToTemplate;     // static anti-aircraft weapons
-[  "staticMortars", ["RUS_MSV_2b14"]]                                                                             call _fnc_saveToTemplate;     // static mortars
-["staticHowitzers", ["RUS_MSV_2a18m"]]                                                                            call _fnc_saveToTemplate;     // static howitzers
+[      "staticMGs", _staticMGs] call _fnc_saveToTemplate; // static machine guns
+[       "staticAT", _staticATs] call _fnc_saveToTemplate; // static anti-tank weapons 
+[       "staticAA", _staticAAs] call _fnc_saveToTemplate; // static anti-aircraft weapons
+[  "staticMortars", _mortars] call _fnc_saveToTemplate;   // static mortars
+["staticHowitzers", _howitzers] call _fnc_saveToTemplate; // static howitzers
 
 ["mortarMagazineHE", "rhs_mag_3vo18_10"]                                                                          call _fnc_saveToTemplate;     //this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
 ["mortarMagazineSmoke", "rhs_mag_d832du_10"]                                                                      call _fnc_saveToTemplate;     //this line determines smoke-shells for the static mortar - !needs to be compatible with the mortar! -- Example: ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] - ENTER ONLY ONE OPTION
@@ -103,92 +467,13 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["minefieldAT", ["ATMine"]]       call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
-//SLAT cages, camo nets, logs, doors etc
-["animations", [
-    ["Gas_tigr_ua",             [     "spare_hide", 0.40]],
-    ["Gas_tigr_sts_ua",         [     "spare_hide", 0.20]],
-    ["Gas_tigr_m_ua",           [     "spare_hide", 0.25]],
-    ["rhs_uaz_open_MSV_01",     [     "spare_hide", 0.65,              "light_hide", 0.75]],
-    ["RHS_UAZ_MSV_01",          [     "spare_hide", 0.65,              "light_hide", 0.75]],
-    ["O_R_Truck_02_cargo_F",    [ "hideSpareWheel", 0.25,              "hideBumper", 0.67,    "hideWindowProtector", 0.85]],
-    ["FP_UAF_M113_HMG",         ["IFF_Panels_Hide", 1.00, "Hide_Turret_Armor_Front", 0.15, "Hide_Turret_Armor_Side", 0.40]],
-    ["RSB_BRDM2_ZU23_r",        [            "ogr", 0.85,                  "shield", 0.85,             "maskirovka", 0.70,          "instr2", 0.80,             "box", 0.60]],
-    ["rhs_btr80a_msv",          ["crate_l1_unhide", 0.50,         "crate_l2_unhide", 0.50,        "crate_r1_unhide", 0.50, "crate_r2_unhide", 0.50,  "wheel_1_unhide", 0.65]],
-    ["rhs_t80a",                [ "kshield_unhide", 0.00,            "kdeck_unhide", 0.00,       "sideskirt_unhide", 0.00,  "fbskirt_unhide", 0.25,  "ftskirt_unhide", 1.00,      "log_unhide", 0.30,      "snorkel_unhide", 0.00]],
-    ["Aegis_O_R_Truck_02_aa_F", [    "shield_hide", 0.00,              "hideCrates", 0.05,         "hideSpareWheel", 0.20,    "hideRoofRack", 1.00,    "hideBeacon_1", 0.00,      "hideBumper", 0.10, "hideWindowProtector", 0.05]],
-    ["rhs_bmp2d_msv",           ["crate_l1_unhide", 0.40,         "crate_l2_unhide", 0.40,        "crate_l3_unhide", 0.40, "crate_r1_unhide", 0.40, "crate_r2_unhide", 0.40, "crate_r3_unhide", 0.40,       "wood_1_unhide", 0.35]],
-    ["rhs_bmp2_msv",            ["crate_l1_unhide", 0.40,         "crate_l2_unhide", 0.40,        "crate_l3_unhide", 0.40, "crate_r1_unhide", 0.40, "crate_r2_unhide", 0.40, "crate_r3_unhide", 0.40,       "wood_1_unhide", 0.35]],
-    ["rhs_bmp1p_msv",           ["crate_l1_unhide", 0.40,         "crate_l2_unhide", 0.40,        "crate_l3_unhide", 0.40, "crate_r1_unhide", 0.40, "crate_r2_unhide", 0.40, "crate_r3_unhide", 0.40,       "wood_1_unhide", 0.35]],
-    ["RUS_VDV_bmd2",            ["crate_l1_unhide", 0.40,         "crate_l2_unhide", 0.40,        "crate_l3_unhide", 0.40, "crate_r1_unhide", 0.40, "crate_r2_unhide", 0.40, "crate_r3_unhide", 0.40,       "wood_1_unhide", 0.60, "wood_2_unhide", 0.20, "antena2_hide", 0.95]],
-    ["RUS_MP_ural432031",       [     "maskirovka", 1.00,                    "tent", 0.00,         "znak_ludi_tent", 1.00,       "znak_60km", 1.00,    "znak_kolonna", 1.00,       "znak_ludi", 1.00,             "Door_LF", 0.00,       "Door_RF", 0.00,   "AddBenches", 1.00]],
-    ["mkk_t80_ue1_r",           [       "showRope", 0.80,                "showWood", 0.00,               "showOpvt", 1.00,        "showTent", 0.75,        "showUbka", 0.90,         "showBag", 0.40,            "showBox1", 0.40,      "showBox2", 0.40,     "showBox3", 0.40, "showBox4", 0.40, "showBox5", 0.40,"showLoker1", 1.00, "showLoker2", 1.00]]
-]] call _fnc_saveToTemplate;
-
-//vehicle skins
-["variants", [
-    ["Gas_tigr_m_ua",          ["Ukrain",   1]],
-    ["Gas_tigr_sts_ua",        ["Ukrain",   1]],
-    ["rhs_uaz_open_MSV_01",    ["Camo",     1]],
-    ["RHS_UAZ_MSV_01",         ["Camo",     1]],
-    ["rhsgref_BRDM2_HQ_msv",   ["3tone",    1]],
-    ["O_R_Truck_02_F",         ["Ardistan", 1]],
-    ["O_R_Truck_02_cargo_F",   ["Ardistan", 1]],
-    ["O_R_Truck_02_fuel_F",    ["Ardistan", 1]],
-    ["O_R_Truck_02_medical_F", ["Ardistan", 1]],
-    ["TSB_BRDM2_r",            ["Woodland", 1]],
-    ["leopard1_b",             ["Green",    1]],
-    ["TSB_BRDM2_ZU23_r",       ["Woodland", 1]],
-    ["rhsgref_BRDM2_msv",      ["3tone",    1]]
-]] call _fnc_saveToTemplate;
+#include "VehicleData\YULAK_YPG_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
 /////////////////////
-//Faces and Voices given to AI Factions.
 
-private _characters = [
-    "WhiteHead_02",
-    "WhiteHead_18",
-    "WhiteHead_04",
-    "WhiteHead_07",
-    "WhiteHead_08",
-    "Ivan",
-    "WhiteHead_16",
-    "WhiteHead_11",
-    "WhiteHead_22_l",
-    "WhiteHead_17",
-    "WhiteHead_21",
-    "WhiteHead_12",
-    "WhiteHead_14",
-    "WhiteHead_20",
-    "WhiteHead_33",
-    "RuHead_00",
-    "RuHead_02",
-    "RuHead_03",
-    "RuHead_04",
-    "RuHead_05",
-    "RuHead_06",
-    "RuHead_07",
-    "RuHead_08",
-    "RuHead_09",
-    "RuHead_11",
-    "RuHead_12",
-    "Vissim"
-];
-
-if (_hasWS) then {
-    _characters append ["lxWS_Gustavo_Head", "lxWS_Journalist_Head"];
-};
-if (_hasLawsOfWar) then {
-    _characters append ["WhiteHead_23"];
-};
-if (_hasContact) then {
-    _characters append ["WhiteHead_24", "RussianHead_4", "LivonianHead_5", "WhiteHead_25", "LivonianHead_2", "RussianHead_1", "WhiteHead_27", "WhiteHead_28", "LivonianHead_3", "RussianHead_3", "RussianHead_2", "LivonianHead_10", "WhiteHead_32", "WhiteHead_30", "LivonianHead_8", "LivonianHead_4", "LivonianHead_9"];
-};
-
-["faces", _characters] call _fnc_saveToTemplate;
-
-["voices", ["RHS_Male01CZ", "RHS_Male02CZ", "RHS_Male03CZ", "RHS_Male04CZ", "RHS_Male05CZ"]] call _fnc_saveToTemplate;
+#include "CharacterData\YULAK_Western_Identities.sqf"
 
 ["insignia", []] call _fnc_saveToTemplate;
 

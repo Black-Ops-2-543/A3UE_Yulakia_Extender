@@ -1,13 +1,5 @@
 class Templates 
 {
-    /*
-        A "Class" literally just stores things. It by itself does not do anything.
-
-        In the case of Antistasi, most of the scripts will grab all classes from the corresponding configs.
-
-        Say we have a function that grabs all factions and displays their name. These classes exist as storage and key-value pairs basically.
-    */
-
     class Vanilla_Base;
 
     class Yulak_Base : Vanilla_Base
@@ -17,7 +9,10 @@ class Templates
         climate[] = {"temperate"};                                                                      // The climate that the template can be selected on.
         logo = QPATHTOFOLDER(Pictures\a3ue_logo.paa);
     };
-    
+    /*
+    Climates: {"arid", "arctic", "temperate", "tropical"}
+    */
+
     class Yulakian_Provisional_Government : Yulak_Base
     {                                                 // The path to the folder the template is located in, this translates to "\x\A3AE\addons\templates\Templates\Vanilla"
         side = "Occ";                                                                                   // Inv, Occ, Reb, Riv, Civ
@@ -60,12 +55,6 @@ class Templates
         flagTexture = QPATHTOFOLDER(Pictures\flag_ypg_co.paa);                                 // Path to an icon to be displayed in the select menu.
         name = "Yulakians";
         file = "YULAK_Civilians";
-        description = "The civilians of Yulakia";
+        description = "Citizens of Yulakia.";
     };
-    
-
 };
-
-/*
-    Climates: {"arid", "arctic", "temperate", "tropical"}
-*/

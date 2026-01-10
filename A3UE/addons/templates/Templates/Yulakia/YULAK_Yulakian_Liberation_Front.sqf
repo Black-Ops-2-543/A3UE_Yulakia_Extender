@@ -21,6 +21,9 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ///////////////////////////
 
 ["name", "YLF"] call _fnc_saveToTemplate;
+["flag", "Flag_AAF_F"] call _fnc_saveToTemplate;
+["flagTexture", QPATHTOFOLDER(Pictures\flag_ylf_co.paa)] call _fnc_saveToTemplate;
+["flagMarkerType", "ylf_flag"] call _fnc_saveToTemplate;
 
 private _basicVehicles = [
     "B_G_Quadbike_01_F"
@@ -229,10 +232,6 @@ if (!_hasGM && !_hasCSLA) then {
     };
 };
 
-["flag", "Flag_AAF_F"] call _fnc_saveToTemplate;
-["flagTexture", QPATHTOFOLDER(Pictures\flag_ylf_co.paa)] call _fnc_saveToTemplate;
-["flagMarkerType", "ylf_flag"] call _fnc_saveToTemplate;
-
 ["vehiclesBasic", _basicVehicles] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", _lightUnarmedVehicles] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", _lightArmedVehicles] call _fnc_saveToTemplate;
@@ -265,7 +264,7 @@ if (!_hasGM && !_hasCSLA) then {
 ["breachingExplosivesAPC", ["SatchelCharge_Remote_Mag", "rhsusf_m112x4_mag", "rhsusf_m112_mag", "rhs_charge_M2tet_x2_mag", "rhssaf_tm500_mag", "rhs_ec400_sand_mag", "rhs_ec400_mag", "rhssaf_tm200_mag", "rhs_ec200_mag", "rhs_ec200_sand_mag"]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", ["SatchelCharge_Remote_Mag", "rhsusf_m112x4_mag", "rhsusf_m112_mag", "rhs_charge_M2tet_x2_mag", "rhssaf_tm500_mag", "rhs_ec400_sand_mag", "rhs_ec400_mag"]] call _fnc_saveToTemplate;
 
-#include "YULAK_Reb_Vehicle_Attributes.sqf"
+#include "VehicleData\YULAK_Reb_Vehicle_Attributes.sqf"
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -490,82 +489,7 @@ if (_hasLawsOfWar) then {
 ///  Identities   ///
 /////////////////////
 
-// Faces given to rebel AI
-private _characters = [
-    "WhiteHead_02",
-    "WhiteHead_18",
-    "WhiteHead_04",
-    "WhiteHead_07",
-    "WhiteHead_08",
-    "Ivan",
-    "WhiteHead_16",
-    "WhiteHead_11",
-    "WhiteHead_22_l",
-    "WhiteHead_17",
-    "WhiteHead_21",
-    "WhiteHead_12",
-    "WhiteHead_14",
-    "WhiteHead_20",
-    "WhiteHead_33",
-    "RuHead_00",
-    "RuHead_02",
-    "RuHead_03",
-    "RuHead_04",
-    "RuHead_05",
-    "RuHead_06",
-    "RuHead_07",
-    "RuHead_08",
-    "RuHead_09",
-    "RuHead_11",
-    "RuHead_12",
-    "Vissim"
-];
-
-// Voices given to rebel AI
-// Uses Czech as a 'Yulakian' language
-private _voices = [
-    "RHS_Male01CZ",
-    "RHS_Male02CZ",
-    "RHS_Male03CZ",
-    "RHS_Male04CZ",
-    "RHS_Male05CZ"
-];
-
-if (_hasWs) then {
-    _characters append [
-        "lxWS_Gustavo_Head",
-        "lxWS_Journalist_Head"
-    ];
-};
-if (_hasLawsOfWar) then {
-    _characters append [
-        "WhiteHead_23"
-    ];
-};
-if (_hasContact) then {
-    _characters append [
-        "WhiteHead_24",
-        "RussianHead_4",
-        "LivonianHead_5",
-        "WhiteHead_25",
-        "LivonianHead_2",
-        "RussianHead_1",
-        "WhiteHead_27",
-        "WhiteHead_28",
-        "LivonianHead_3",
-        "RussianHead_3",
-        "RussianHead_2",
-        "LivonianHead_10",
-        "WhiteHead_32",
-        "WhiteHead_30",
-        "LivonianHead_8",
-        "LivonianHead_4",
-        "LivonianHead_9"
-    ];
-};
-
-["faces",  _characters] call _fnc_saveToTemplate;
-["voices", _voices]     call _fnc_saveToTemplate;
+#include "CharacterData\YULAK_Western_Identities.sqf"
 
 //////////////////////////
 //       Loadouts       //
