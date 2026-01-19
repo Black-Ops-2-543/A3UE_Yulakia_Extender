@@ -22,14 +22,13 @@ This A3UE currently relies on the following mods and DLC:
 - [BMP2-M](https://steamcommunity.com/sharedfiles/filedetails/?id=3299277816)
 - [Russian Tank Series](https://steamcommunity.com/sharedfiles/filedetails/?id=3418145558)
 - [Aegis](https://steamcommunity.com/sharedfiles/filedetails/?id=949252631)
-- [Ukrainian Military Technics](https://steamcommunity.com/sharedfiles/filedetails/?id=3158623183)
 - [Leopard 1A5](https://steamcommunity.com/sharedfiles/filedetails/?id=3271647663&searchtext=leopard+1)
 - [RHS Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3299910335&searchtext=rhs+plsu)
 - [RACS SLA](https://steamcommunity.com/sharedfiles/filedetails/?id=2955691343&searchtext=racs+sla)
 - [Orion UAV](https://steamcommunity.com/sharedfiles/filedetails/?id=3093850989)
 - [Yulakia](https://steamcommunity.com/sharedfiles/filedetails/?id=2950257727&searchtext=yulakia)
 ### Compatability
-Additionally, I wish to include support for all the remaining Arma III DLC and the following mods, where applicable. This support would likely come in the form of Arms Dealer weapons, however I may find a way to also integrate them into the factions.
+Additionally, I wish to include support for the following mods, where applicable. This support would likely come in the form of Arms Dealer weapons, however I may find a way to also integrate them into the factions.
 - [NIArms](https://steamcommunity.com/sharedfiles/filedetails/?id=2595680138&searchtext=niarms)
 - JointCom Armory
   - [Infantry Arsenal](https://steamcommunity.com/sharedfiles/filedetails/?id=3333302397)

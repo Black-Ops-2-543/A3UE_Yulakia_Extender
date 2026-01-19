@@ -62,7 +62,7 @@ class CfgVehicles
         };
     };
 
-	class RU_FlagPole : FlagCarrier
+	class RUS_FlagPole : FlagCarrier
     {
         scope = 2;            // Eden
         scopeCurator = 2;     // Zeus

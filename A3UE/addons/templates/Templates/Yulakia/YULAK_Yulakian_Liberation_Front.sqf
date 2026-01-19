@@ -22,8 +22,8 @@ private _hasEF = "ef" in A3A_enabledDLC;
 
 ["name", "YLF"] call _fnc_saveToTemplate;
 ["flag", "Flag_AAF_F"] call _fnc_saveToTemplate;
-["flagTexture", QPATHTOFOLDER(Pictures\flag_ylf_co.paa)] call _fnc_saveToTemplate;
-["flagMarkerType", "ylf_flag"] call _fnc_saveToTemplate;
+["flagTexture", QPATHTOFOLDER(Pictures\YULAK_ylf_flag.paa)] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_YULAK_YLF"] call _fnc_saveToTemplate;
 
 private _basicVehicles = [
     "B_G_Quadbike_01_F"
@@ -263,7 +263,7 @@ if (!_hasGM && !_hasCSLA) then {
 ["breachingExplosivesAPC", ["SatchelCharge_Remote_Mag", "rhsusf_m112x4_mag", "rhsusf_m112_mag", "rhs_charge_M2tet_x2_mag", "rhssaf_tm500_mag", "rhs_ec400_sand_mag", "rhs_ec400_mag", "rhssaf_tm200_mag", "rhs_ec200_mag", "rhs_ec200_sand_mag"]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", ["SatchelCharge_Remote_Mag", "rhsusf_m112x4_mag", "rhsusf_m112_mag", "rhs_charge_M2tet_x2_mag", "rhssaf_tm500_mag", "rhs_ec400_sand_mag", "rhs_ec400_mag"]] call _fnc_saveToTemplate;
 
-#include "VehicleData\YULAK_Reb_Vehicle_Attributes.sqf"
+#include "VehicleData\YULAK_YLF_Vehicle_Attributes.sqf"
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -371,8 +371,8 @@ private _initialRebelEquipment = _initialPrimaryWeapons + _initialSecondaryWeapo
 private _rebUniforms = [
     "Civie_V1_Olv",
     "Civie_V1_Blk",
-    "Civic_V2_Blk",
-    "Civic_V2_Olv",
+    "Civie_V2_Blk",
+    "Civie_V2_Olv",
     "Civie_V3_Blk",
     "Civie_V3_Olv",
     "AAF_PMC_SOLDIER",
