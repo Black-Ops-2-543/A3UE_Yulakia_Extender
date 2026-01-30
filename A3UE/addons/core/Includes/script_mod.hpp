@@ -16,7 +16,7 @@
 #endif
 
 #ifndef AUTHOR
-    #define AUTHOR "Antistasi Dev Team"
+    #define AUTHOR "* Black Ops *"
 #endif
 #ifndef AUTHORS
 // sepperate authors with a comma
