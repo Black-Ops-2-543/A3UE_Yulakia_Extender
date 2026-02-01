@@ -1069,22 +1069,63 @@ _eliteLoadoutData set ["sidearms", [
 ///////////////////////////////////////
 
 _sfMuzzles = [
-
+    "rhs_acc_dtk1", 2,
+    "rhs_acc_dtk3", 3,
+    "rhs_acc_pbs1", 6,
+    "rhs_acc_dtk4long", 4
+    "", 2
 ];
 _sfAttachmentsBarrel = [
-
+    "rhs_acc_perst1ik", 20,
+    "rhs_acc_2dpZenit", 3
+    "", 1
 ];
 _sfAttachmentsRail = [
-
+    "rhs_acc_perst3", 11,
+    "rhs_acc_perst3_2dp_h", 6,
+    "rhs_acc_perst1ik_ris", 8,
+    "rhs_acc_2dpZenit_ris", 1,
+    "", 3
+];
+_sfOpticsDovetail_squadLeader = [
+    "rhs_acc_1p29", 3,
+    "rhs_acc_1p63", 5,
+    "rhs_acc_1p78", 3,
+    "rhs_acc_ekp8_02", 2,
+    "rhs_acc_pgo7v", 1,
+    "rhs_acc_pkas", 6
+];
+_sfOpticsRail_squadLeader = [
+    "Aegis_optic_1p87", 1,
+    "rhs_acc_rakursPM", 1,
+    "rhsusf_acc_ELCAN", 4,
+    "optic_ERCO_blk_F", 3,
+    "optic_MRCO", 3
 ];
 _sfOpticsDovetail = [
-
+    "rhs_acc_ekp1", 4,
+    "rhs_acc_ekp8_02", 7,
+    "rhs_acc_okp7_dovetail", 4,
+    "rhs_acc_pkas", 8,
+    "rhs_acc_1p63", 3,
+    "rhs_acc_pgo7v", 2,
+    "rhs_acc_nita", 1
 ];
 _sfOpticsRail = [
-
+    "rhs_acc_rakursPM", 2,
+    "Aegis_optic_1p87", 6,
+    "optic_ACO", 3,
+    "rhs_acc_ekp8_18", 4,
+    "Aegis_optic_ICO", 1,
+    "rhs_acc_okp7_picatinny", 5,
+    "rhsusf_acc_RX01", 1
 ];
 _sfUnderbarrels = [
-
+    "rhs_acc_grip_ffg2", 5,
+    "rhs_acc_grip_rk2", 2,
+    "rhs_acc_grip_rk6", 4,
+    "rhsusf_acc_rvg_blk", 2,
+    "", 4
 ];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
@@ -1095,43 +1136,29 @@ _sfLoadoutData set ["helmets", ["rhs_6b26", "rhs_6b26_ess", "rhs_6b7_1m_flora"]]
 _sfLoadoutData set ["binoculars", ["rhs_pdu4"]];
 
 _sfLoadoutData set ["rifles", [
-    ["rhs_weap_ak103", "rhs_acc_dtk4screws", "rhs_acc_2dpZenit", "rhs_acc_1p63", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""],
-    ["rhs_weap_ak103", "rhs_acc_pbs1",       "rhs_acc_2dpZenit", "rhs_ekp8_02",  ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""],
-    ["rhs_weap_ak103", "rhs_acc_dtk4screws", "rhs_acc_perst1ik", "rhs_acc_1p63", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""],
-    ["rhs_weap_ak103", "rhs_acc_pbs1",       "rhs_acc_perst1ik", "rhs_acc_pkas", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""],
+    ["rhs_weap_ak103", _sfMuzzles, _sfAttachmentsBarrel, _sfOpticsDovetail_squadLeader, ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""], 1,
+    ["rhs_weap_ak103", _sfMuzzles, _sfAttachmentsBarrel, _sfOpticsDovetail,             ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""], 3,
 
-    ["rhs_weap_ak103_npz", "rhs_acc_dtk4screws", "rhs_acc_2dpZenit", "Aegis_optic_1p87", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""],
-    ["rhs_weap_ak103_npz", "rhs_acc_pbs1",       "rhs_acc_2dpZenit", "Aegis_optic_ICO",  ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""],
-    ["rhs_weap_ak103_npz", "rhs_acc_pbs1",       "rhs_acc_perst1ik", "rhs_acc_ekp8_18",  ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""],
+    ["rhs_weap_ak103_npz", _sfMuzzles, _sfAttachmentsBarrel, _sfOpticsRail_squadLeader, ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""], 1,
+    ["rhs_weap_ak103_npz", _sfMuzzles, _sfAttachmentsBarrel, _sfOpticsRail,             ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""], 2,
 
-    ["rhs_weap_ak103_zenitco01", "rhs_acc_dtk4screws", "rhs_acc_2dpZenit_ris", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhs_acc_grip_ffg2" ],
-    ["rhs_weap_ak103_zenitco01", "rhs_acc_pbs1",       "rhs_acc_perst3_2dp_h", "rhs_acc_nita",          ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhs_acc_grip_rk2"  ],
-    ["rhs_weap_ak103_zenitco01", "rhs_acc_dtk4screws", "rhs_acc_perst3_2dp_h", "rhs_acc_ekp1",          ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhs_acc_grip_rk6"  ],
-    ["rhs_weap_ak103_zenitco01", "rhs_acc_pbs1",       "rhs_acc_perst3_2dp_h", "rhs_acc_1p78",          ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhsusf_acc_rvg_blk"],
+    ["rhs_weap_ak103_zenitco01", _sfMuzzles, _sfAttachmentsRail, _sfOpticsDovetail_squadLeader, ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], _sfUnderbarrels], 2,
+    ["rhs_weap_ak103_zenitco01", _sfMuzzles, _sfAttachmentsRail, _sfOpticsDovetail,             ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], _sfUnderbarrels], 5,
 
-    ["rhs_weap_ak103_zenitco01_b33", "rhs_acc_dtk4screws", "rhs_acc_2dpZenit_ris", "Aegis_optic_1p87",     ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhs_acc_grip_ffg2" ],
-    ["rhs_weap_ak103_zenitco01_b33", "rhs_acc_pbs1",       "rhs_acc_perst3_2dp_h", "optic_Yorris",         ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhs_acc_grip_rk2"  ],
-    ["rhs_weap_ak103_zenitco01_b33", "rhs_acc_dtk4screws", "rhs_acc_perst3_2dp_h", "rhs_acc_rakursPM",     ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhs_acc_grip_rk6"  ],
-    ["rhs_weap_ak103_zenitco01_b33", "rhs_acc_pbs1",       "rhs_acc_perst3_2dp_h", "optic_Aco",            ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhsusf_acc_rvg_blk"],
-    ["rhs_weap_ak103_zenitco01_b33", "rhs_acc_dtk4long",   "rhs_acc_2dpZenit_ris", "rhsusf_acc_RX01",      ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhsusf_acc_rvg_blk"],
-    ["rhs_weap_ak103_zenitco01_b33", "rhs_acc_pbs1",       "rhs_acc_perst3_2dp_h", "MMM_Acc_IT_1TWS_615A", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], "rhs_acc_grip_rk2"  ],
+    ["rhs_weap_ak103_zenitco01_b33", _sfMuzzles, _sfAttachmentsRail, _sfOpticsRail_squadLeader, ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], _sfUnderbarrels], 3,
+    ["rhs_weap_ak103_zenitco01_b33", _sfMuzzles, _sfAttachmentsRail, _sfOpticsRail,             ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], _sfUnderbarrels], 7,
 
-    ["rhs_weap_asval", "", "", "rhs_acc_1p63",    ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""],
-    ["rhs_weap_asval", "", "", "rhs_acc_ekp8_02", ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""],
-    ["rhs_weap_asval", "", "", "rhs_acc_pkas",    ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""],
+    ["rhs_weap_asval", "", "", _sfOpticsDovetail_squadLeader, ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""], 1,
+    ["rhs_weap_asval", "", "", _sfOpticsDovetail,             ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""], 2,
 
-    ["rhs_weap_asval_grip", "", "rhs_acc_perst1ik_ris", "rhs_acc_1p63",          ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], "rhs_grip_ffg2"],
-    ["rhs_weap_asval_grip", "", "rhs_acc_2dpZenit",     "rhs_acc_ekp8_02",       ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], "rhs_grip_ffg2"],
-    ["rhs_weap_asval_grip", "", "rhs_acc_2dpZenit",     "rhs_acc_pkas",          ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], "rhs_grip_rk6" ],
-    ["rhs_weap_asval_grip", "", "rhs_acc_perst1ik_ris", "rhs_acc_okp7_dovetail", ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], "rhs_grip_ffg2"],
-    ["rhs_weap_asval_grip", "", "rhs_acc_2dpZenit",     "",                      ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], "rhs_grip_rk6" ],
-    ["rhs_weap_asval_grip", "", "rhs_acc_perst1ik_ris", "rhs_acc_pso1m21",       ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""             ],
+    ["rhs_weap_asval_grip", "", ["rhs_acc_2dpZenit_ris", 1, "rhs_acc_perst1ik_ris", 2], _sfOpticsDovetail_squadLeader, ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], _sfUnderbarrels], 2,
+    ["rhs_weap_asval_grip", "", ["rhs_acc_2dpZenit_ris", 2, "rhs_acc_perst1ik_ris", 1], _sfOpticsDovetail,             ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], _sfUnderbarrels], 2,
 
-    ["rhs_weap_asval_grip_npz", "", "rhs_acc_2dpZenit",     "rhs_acc_ekp8_18",      ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], "rhs_grip_ffg2"],
-    ["rhs_weap_asval_grip_npz", "", "rhs_acc_perst1ik_ris", "MMM_Acc_IT_1TWS_615A", ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], "rhs_grip_rk6" ],
-    ["rhs_weap_asval_grip_npz", "", "rhs_acc_perst1ik_ris", "optic_Arco_blk_F",     ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""             ],
+    ["rhs_weap_asval_grip_npz", "", ["rhs_acc_2dpZenit_ris", 1, "rhs_acc_perst1ik_ris", 2], _sfOpticsRail_squadLeader, ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], _sfUnderbarrels], 2,
+    ["rhs_weap_asval_grip_npz", "", ["rhs_acc_2dpZenit_ris", 2, "rhs_acc_perst1ik_ris", 1], _sfOpticsRail ,            ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], _sfUnderbarrels], 4,
 
-    ["rhs_weap_asval_npz", "", "rhs_acc_2dpZenit", "optic_Arco_blk_F", ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""]
+    ["rhs_weap_asval_npz", "", "", _sfOpticsRail_squadLeader, ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""], 1,
+    ["rhs_weap_asval_npz", "", "", _sfOpticsRail,             ["rhs_20Rnd_9x39mm_SP5", "rhs_20Rnd_9x39mm_SP6"], [], ""], 1
 ]];
 _sfLoadoutData set ["carbines", [
     ["rhs_weap_ak104", "rhs_acc_dtk4long",   "rhs_acc_perst1ik", "rhs_acc_1p63",          ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""],
