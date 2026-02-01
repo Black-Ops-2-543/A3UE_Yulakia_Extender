@@ -615,9 +615,477 @@ _loadoutData set ["items_unarmed_extras",          _unarmedItems];
 
 //TODO - ACE overrides for misc essentials, medical and engineer gear
 
+///////////////////////////////
+//    Police Loadout Data    //
+///////////////////////////////
+
+_policeMuzzles = [
+
+];
+_policeAttachmentsBarrel = [
+
+];
+_policeAttachmentsRail = [
+
+];
+_policeOpticsDovetail = [
+
+];
+_policeOpticsRail = [
+
+];
+_policeUnderbarrels = [
+
+];
+
+private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+
+_policeLoadoutData set ["uniforms", ["ibr_yul_cop_uniform"]];
+_policeLoadoutData set ["vests", ["V_Chestrig_blk", "V_TacVest_blk", "V_TacVest_blk", "rhs_belt_holster"]];
+_policeLoadoutData set ["helmets", ["ibr_yul_cophelmet", "H_Beret_blk", "H_Beret_blk"]];
+
+_policeLoadoutData set ["SMGs", [
+    ["rhs_weap_ak74n_2", "",                "", "", ["rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N22_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK"], [], ""],
+    ["rhs_weap_aks74_2", "",                "", "", ["rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N22_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK"], [], ""],
+    ["rhs_weap_aks74_2", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N22_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK"], [], ""],
+    
+    ["rhs_weap_pp2000", "", "", "",                 ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
+    ["rhs_weap_pp2000", "", "", "Aegis_optic_1p87", ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""]
+]];
+_policeLoadoutData set ["sidearms", [
+    ["rhsusf_weap_m1911a1",    "", "", "", ["rhsusf_mag_7x45acp_MHP"], [], ""],
+    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""],
+    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""],
+    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""]
+]];
+
+////////////////////////////////
+//    Militia Loadout Data    //
+////////////////////////////////
+
+_militiaMuzzles = [
+
+];
+_militiaAttachmentsBarrel = [
+
+];
+_militiaAttachmentsRail = [
+
+];
+_militiaOpticsDovetail = [
+
+];
+_militiaOpticsRail = [
+
+];
+_militiaUnderbarrels = [
+
+];
+
+private _militiaUniforms = ["rhs_uniform_g3_rgr", "U_B_CombatUniform_sgg_tshirt", "rhsgref_uniform_woodland_olive"];
+if (_hasContact) then {
+    _militiaUniforms append ["U_I_L_Uniform_01_deserter_F"];
+};
+
+private _militiaBags = ["B_AssaultPack_khk","B_AssaultPack_rgr", "B_FieldPack_oli", "rhs_rd54_flora1", "rhs_rd54_flora2", "RUS_sidor"];
+if (_hasLawsOfWar) then {
+    _militiaBags append ["B_LegStrapBag_olive_F"];
+};
+if (_hasContact) then {
+    _militiaBags append ["B_FieldPack_green_F", "B_AssaultPack_wdl_F"];
+};
+
+private _militiaHelmets = ["H_Bandanna_sgg", "H_Bandanna_cbr", "H_Bandanna_gry", "H_Watchcap_camo", "H_Booniehat_oli", "rhs_6b47_bare", "rhs_ssh60"];
+if (_hasWs) then {
+    _militiaHelmets append ["lxWX_H_ssh40_green"];
+};
+
+private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+_militiaLoadoutData set ["uniforms", _militiaUniforms];
+_militiaLoadoutData set ["vests", ["V_TacVest_oli", "V_TacVest_oli", "V_BandollierB_oli", "rhs_6b23", "rhs_6sh92_headset", "min_rf_combat_belt_green"]];
+_militiaLoadoutData set ["backpacks", _militiaBags];
+_militiaLoadoutData set ["helmets", _militiaHelmets];
+
+_militiaLoadoutData set ["rifles", [
+    ["rhs_weap_akm",  "",               "",                 "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akm",  "",               "",                 "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akm",  "rhs_acc_dtkakm", "",                 "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akm",  "rhs_acc_dtk1l",  "",                 "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akm",  "",               "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akm",  "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akm",  "rhs_acc_dtk1l",  "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+
+    ["rhs_weap_akmn", "",               "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akmn", "",               "",                 "rhs_acc_1p78",          ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akmn", "rhs_acc_dtkakm", "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akmn", "rhs_acc_dtk1l",  "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akmn", "",               "rhs_acc_2dpZenit", "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akmn", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akmn", "rhs_acc_dtk1l",  "rhs_acc_2dpZenit", "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akmn", "",               "",                 "rhs_acc_ekp1",          ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akmn", "rhs_acc_dtkakm", "",                 "rhs_acc_ekp8_02",       ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akmn", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    
+    ["rhs_weap_akms", "",               "",                 "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akms", "rhs_acc_dtkakm", "",                 "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akms", "rhs_acc_dtk1l",  "",                 "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akms", "",               "rhs_acc_2dpZenit", "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akms", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
+    ["rhs_weap_akms", "rhs_acc_dtk1l",  "rhs_acc_2dpZenit", "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""]
+]];
+_militiaLoadoutData set ["carbines", [
+    ["rhs_weap_aks74u", "rhs_acc_uuk",  "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74u", "rhs_acc_uuk",  "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74u", "rhs_acc_dtk1", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74u", "rhs_acc_dtk1", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74u", "rhs_acc_dtk3", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""]
+]];
+_militiaLoadoutData set ["grenadeLaunchers", [
+    ["rhs_weap_akm_gp25",  "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akm_gp25",  "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akm_gp25",  "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akm_gp25",  "rhs_acc_dtk1l",  "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akm_gp25",  "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akm_gp25",  "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akm_gp25",  "rhs_acc_dtk1l",  "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+
+    ["rhs_weap_akmn_gp25", "",               "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akmn_gp25", "",               "",                 "rhs_acc_1p78",          ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akmn_gp25", "rhs_acc_dtk1l",  "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akmn_gp25", "",               "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akmn_gp25", "rhs_acc_dtk1l",  "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akmn_gp25", "",               "",                 "rhs_acc_ekp1",          ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "",                 "rhs_acc_ekp8_02",       ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "",                 "rhs_acc_okp7_dovetail", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    
+    ["rhs_weap_akms_gp25", "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akms_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akms_gp25", "rhs_acc_dtk1l",  "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akms_gp25", "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akms_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
+    ["rhs_weap_akms_gp25", "rhs_acc_dtk1l",  "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""]
+]];
+_militiaLoadoutData set ["SMGs", [
+    ["rhs_weap_pp2000", "", "", "",                       ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
+    ["rhs_weap_pp2000", "", "", "Aegis_optic_1p87",       ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
+    ["rhs_weap_pp2000", "", "", "optic_Yorris",           ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
+    ["rhs_weap_pp2000", "", "", "rhs_acc_okp7_picatinny", ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""]
+]];
+_militiaLoadoutData set ["machineGuns", [
+    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "",                 "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "",                 "rhs_acc_1p63",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "rhs_acc_nita",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "rhs_acc_ekp1",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "rhs_acc_2dpZenit", "rhs_acc_pkas",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "rhs_acc_2dpZenit", "rhs_acc_ekp8_02", ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "rhs_acc_2dpZenit", "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""]
+]];
+_militiaLoadoutData set ["marksmanRifles", [
+    ["rhs_weap_m38",      "", "", "",                 ["rhsgref_5Rnd_762x54_m38"], [], ""],
+    ["rhs_weap_m38_rail", "", "", "",                 ["rhsgref_5Rnd_762x54_m38"], [], ""],
+    ["rhs_weap_m38_rail", "", "", "Aegis_optic_1p87", ["rhsgref_5Rnd_762x54_m38"], [], ""],
+    ["rhs_weap_m38_rail", "", "", "rhs_acc_dh52056",  ["rhsgref_5Rnd_762x54_m38"], [], ""]
+]];
+_militiaLoadoutData set ["sniperRifles", [
+    ["Aegis_srifle_SVD_f", "", "", "",                 ["10Rnd_762x54_Mag"], [], ""],
+    ["Aegis_srifle_SVD_f", "", "", "",                 ["10Rnd_762x54_Mag"], [], ""],
+    ["Aegis_srifle_SVD_f", "", "", "optic_SOS",        ["10Rnd_762x54_Mag"], [], ""],
+    ["Aegis_srifle_SVD_f", "", "", "",                 ["10Rnd_762x54_Mag"], [], ""],
+    ["Aegis_srifle_SVD_f", "", "", "rhs_acc_dh520x56", ["10Rnd_762x54_Mag"], [], ""]
+]];
+_militiaLoadoutData set ["sidearms", [
+    ["rhsusf_weap_m1911a1",    "", "", "", ["rhsusf_mag_7x45acp_MHP"], [], ""],
+    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""],
+    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""],
+    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""]
+]];
+
+/////////////////////////////////
+//    Military Loadout Data    //
+/////////////////////////////////
+
+_militaryMuzzles = [
+
+];
+_militaryAttachmentsBarrel = [
+
+];
+_militaryAttachmentsRail = [
+
+];
+_militaryOpticsDovetail = [
+
+];
+_militaryOpticsRail = [
+
+];
+_militaryUnderbarrels = [
+
+];
+
+private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+_militaryLoadoutData set ["uniforms", ["ibr_U_B_yul_M88"]];
+_militaryLoadoutData set ["vests", ["ibr_yul_vest"]];
+_militaryLoadoutData set ["backpacks", ["B_AssaultPack_khk", "B_AssaultPack_rgr", "B_Carryall_oli", "B_FieldPack_oli", "B_Kitbag_rgr", "B_Kitbag_sgg", "B_TacticalPack_rgr", "B_TacticalPack_oli"]];
+_militaryLoadoutData set ["helmets", ["H_HelmetYu", "H_Booniehat_YU"]];
+_militaryLoadoutData set ["binoculars", ["Binocular"]];
+
+_militaryLoadoutData set ["rifles", [
+    ["rhs_weap_ak74", "rhs_acc_dtk1983", "",                 "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_ak74", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_ak74", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+
+    ["rhs_weap_ak74n", "rhs_acc_dtk1983", "",                 "",                ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_ak74n", "rhs_acc_dtk3",    "",                 "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_ak74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_1p63",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_ak74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    
+    ["rhs_weap_aks74", "rhs_acc_dtk1983", "",                 "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+
+    ["rhs_weap_aks74n", "rhs_acc_dtk1983", "",                 "",                      ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74n", "rhs_acc_dtk3",    "",                 "rhs_acc_ekp1",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+
+    ["rhs_weap_savz58v_ris", "",                  "",                 "",                 ["rhs_30Rnd_762x39mm_Savz58"], [], ""],
+    ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "",                 "Aegis_optic_1p87", ["rhs_30Rnd_762x39mm_Savz58"], [], ""],
+    ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhs_acc_2dpZenit", "rhs_acc_ekp8_18",  ["rhs_30Rnd_762x39mm_Savz58"], [], ""],
+    ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhs_acc_2dpZenit", "optic_Yorris",     ["rhs_30Rnd_762x39mm_Savz58"], [], ""]
+]];
+_militaryLoadoutData set ["carbines", [
+    ["rhs_weap_aks74u", "rhs_acc_uuk",  "",  "",                ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74u", "rhs_acc_dtk3", "",  "",                ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+
+    ["rhs_weap_aks74un", "rhs_acc_dtk1", "", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74un", "rhs_acc_uuk",  "", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74un", "rhs_acc_dtk1", "", "rhs_acc_ekp1",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+    ["rhs_weap_aks74un", "rhs_acc_dtk3", "", "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""]
+]];
+_militaryLoadoutData set ["grenadeLaunchers", [
+    ["rhs_weap_ak74_gp25", "",                "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+    ["rhs_weap_ak74_gp25", "rhs_acc_dtk3",    "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+    ["rhs_weap_ak74_gp25", "rhs_acc_dtk1983 ", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+
+    ["rhs_weap_ak74n_gp25", "",                "", "",                      ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+    ["rhs_weap_ak74n_gp25", "rhs_acc_dtk3",    "", "",                      ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+    ["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983 ", "", "rhs_acc_ekp1",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+    ["rhs_weap_ak74n_gp25", "",                "", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+    ["rhs_weap_ak74n_gp25", "rhs_acc_dtk3",    "", "rhs_acc_ok97_dovetail", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+    ["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983 ", "", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+
+    ["rhs_weap_aks74_gp25", "",                "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+    ["rhs_weap_aks74_gp25", "rhs_acc_dtk3",    "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
+    ["rhs_weap_aks74_gp25", "rhs_acc_dtk1983 ", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""]
+]];
+_militaryLoadoutData set ["SMGs", [
+    ["KA_PP19", "", "", "",              ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+    ["KA_PP19", "", "", "",              ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+    ["KA_PP19", "", "", "KA_kobra_PP19", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+
+    ["rhs_weap_pp2000", "", "", "",                       ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
+    ["rhs_weap_pp2000", "", "", "Aegis_optic_1p87",       ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
+    ["rhs_weap_pp2000", "", "", "optic_Yorris",           ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
+    ["rhs_weap_pp2000", "", "", "rhs_acc_okp7_picatinny", ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""]
+]];
+_militaryLoadoutData set ["machineGuns", [
+    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "",                 "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "",                 "rhs_acc_1p63",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "rhs_acc_pkas",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "rhs_acc_ekp1",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "rhs_acc_2dpZenit", "rhs_acc_pkas",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "rhs_acc_2dpZenit", "rhs_acc_ekp8_02", ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "rhs_acc_2dpZenit", "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
+
+    // probability to choose a pkm instead of an rpk is 2:1
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""]
+]];
+_militaryLoadoutData set ["marksmanRifles", [
+    ["Aegis_srifle_SVD_f", "", "", "",                 ["10Rnd_762x54_Mag"], [], ""],
+    ["Aegis_srifle_SVD_f", "", "", "rhs_acc_dh520x56", ["10Rnd_762x54_Mag"], [], ""],
+    ["Aegis_srifle_SVD_f", "", "", "optic_SOS",        ["10Rnd_762x54_Mag"], [], ""]
+]];
+_militaryLoadoutData set ["sniperRifles", [
+    ["rhs_weap_svds", "", "", "",                ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N14"], [], ""],
+    ["rhs_weap_svds", "", "", "rhs_acc_pso1m2",  ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N14"], [], ""],
+    ["rhs_weap_svds", "", "", "rhs_acc_pso1m21", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N14"], [], ""]
+]];
+_militaryLoadoutData set ["sidearms", [
+    ["rhs_weap_6p53", "", "", "", ["rhs_18rnd_9x21mm_7N28", "rhs_18rnd_9x21mm_7N29"], [], ""]
+]];
+
+//////////////////////////
+//  Elite Loadout Data  //
+//////////////////////////
+
+_eliteMuzzles = [
+
+];
+_eliteAttachmentsBarrel = [
+
+];
+_eliteAttachmentsRail = [
+
+];
+_eliteOpticsDovetail = [
+
+];
+_eliteOpticsRail = [
+
+];
+_eliteUnderbarrels = [
+
+];
+
+private _eliteLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+_eliteLoadoutData set ["uniforms", ["ibr_U_B_yul_M88"]];
+_eliteLoadoutData set ["vests", ["ibr_yul_vest"]];
+_eliteLoadoutData set ["backpacks", ["Aegis_B_patrolBackpack_grn_F", "Aegis_B_patrolBackpack_wdl_F", "Aegis_B_patrolBackpack_oli_F", "min_rf_backpack_green", "min_rf_backpack_green", "B_Carryall_oli", "B_Carryall_oli", "B_Carryall_oli", "B_Kitbag_wdl_F"]];
+_eliteLoadoutData set ["helmets", ["H_HelmetYu"]];
+_eliteLoadoutData set ["binoculars", ["rhs_pdu4"]];
+
+_eliteLoadoutData set ["rifles", [
+    ["rhs_weap_ak74m", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m", "rhs_acc_dtk1",    "rhs_acc_perst1ik", "rhs_acc_1p63",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m", "rhs_acc_uuk",     "rhs_acc_perst1ik", "rhs_acc_1pn93_2",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+
+    ["rhs_weap_ak74m_npz", "rhs_acc_uuk", "rhs_acc_2dpZenit", "Aegis_optic_ICO",      ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m_npz", "rhs_acc_dtk1983", "rhs_acc_perst1ik", "Aegis_optic_1p87", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m_npz", "rhs_acc_dtk3", "rhs_acc_2dpZenit", "rhs_acc_ekp8_18",     ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+
+    ["rhs_weap_ak74m_zenitco01", "rhs_acc_uuk", "rhs_acc_perst3_2dp_h", "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m_zenitco01", "rhs_acc_uuk", "rhs_acc_perst3_2dp_h", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    
+    ["rhs_weap_ak74m_zenitco01_b33", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_okp7_picatinny", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m_zenitco01_b33", "rhs_acc_dtk1", "rhs_acc_perst3_2dp_h", "optic_Yorris",           ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_ak74m_zenitco01_b33", "rhs_acc_uuk", "rhs_acc_perst3_2dp_h", "Aegis_optic_1p87",        ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""]
+]];
+_eliteLoadoutData set ["carbines", [
+    ["rhs_weap_aks74un", "rhs_acc_dtk1", "", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_aks74un", "rhs_acc_uuk",  "", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_aks74un", "rhs_acc_dtk1", "", "rhs_acc_1p63",    ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["rhs_weap_aks74un", "rhs_acc_dtk3", "", "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+
+    ["arifle_AKSM_F", "", "", "", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
+    ["arifle_AKSM_F", "", "", "", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""]
+]];
+_eliteLoadoutData set ["grenadeLaunchers", [
+    ["rhs_weap_ak74m_gp25", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
+    ["rhs_weap_ak74m_gp25", "rhs_acc_dtk1",    "rhs_acc_2dpZenit", "rhs_acc_1p63",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
+    ["rhs_weap_ak74m_gp25", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
+    ["rhs_weap_ak74m_gp25", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
+    ["rhs_weap_ak74m_gp25", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
+    ["rhs_weap_ak74m_gp25", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
+    ["rhs_weap_ak74m_gp25", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_1pn93_2",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
+
+    ["rhs_weap_ak74m_gp25_npz", "rhs_acc_uuk", "rhs_acc_2dpZenit", "Aegis_optic_ICO",  ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
+    ["rhs_weap_ak74m_gp25_npz", "rhs_acc_uuk", "rhs_acc_2dpZenit", "Aegis_optic_1p87", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
+    ["rhs_weap_ak74m_gp25_npz", "rhs_acc_uuk", "rhs_acc_2dpZenit", "rhs_acc_ekp8_18",  ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""]
+]];
+_eliteLoadoutData set ["SMGs", [
+    ["KA_PP19", "", "", "",              ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+    ["KA_PP19", "", "", "KA_kobra_PP19", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+    ["KA_PP19", "", "", "KA_kobra_PP19", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+    ["KA_PP19", "", "", "KA_kobra_PP19", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+
+    ["KA_PP19_MTK83", "", "", "optic_Yorris",     ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+    ["KA_PP19_MTK83", "", "", "Aegis_optic_1p87", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+    ["KA_PP19_MTK83", "", "", "rhs_acc_ekp8_18",  ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+    ["KA_PP19_MTK83", "", "", "rhs_acc_rakurspm", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
+
+    ["rhs_weap_pp2000", "", "", "optic_Yorris", ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""]
+]];
+_eliteLoadoutData set ["machineGuns", [
+   ["rhs_weap_pkp", "", "", "",                      ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkp", "", "", "rhs_acc_ekp8_02",       ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkp", "", "", "rhs_acc_pkas",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkp", "", "", "rhs_acc_okp7_dovetail", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkp", "", "", "rhs_acc_nita",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkp", "", "", "rhs_acc_1p63",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkp", "", "", "rhs_acc_1p29",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkp", "", "", "rhs_acc_1p78",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkp", "", "", "rhs_acc_pso1m21_pkp",   ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+
+    //chance to get a pkp instead of a pkm is 3:1
+   ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
+   ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""]
+]];
+_eliteLoadoutData set ["marksmanRifles", [
+    ["rhs_weap_vss", "", "", "rhs_acc_pso1m21", ["rhs_10Rnd_9x39mm_SP5"], [], ""],
+    ["rhs_weap_vss", "", "", "rhs_acc_1p29",    ["rhs_10Rnd_9x39mm_SP5"], [], ""],
+
+    ["rhs_weap_vss_grip", "", "rhs_acc_perst_1ik_ris", "rhs_acc_1pn93_1", ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_ffg2"],
+    ["rhs_weap_vss_grip", "", "rhs_acc_perst_1ik_ris", "rhs_acc_1pn34",   ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_rk2"],
+    ["rhs_weap_vss_grip", "", "",                  "rhs_acc_pso1m21", ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_ffg2"],
+    ["rhs_weap_vss_grip", "", "",                  "rhs_acc_1p29",    ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_rk2"],
+
+    ["rhs_weap_vss_grip_npz", "", "",                  "rhs_acc_dh520x56",     ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_rk2"],
+    ["rhs_weap_vss_grip_npz", "", "rhs_acc_perst_1ik_ris", "MMM_acc_IT_1TWS_615A", ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_ffg2"],
+    ["rhs_weap_vss_grip_npz", "", "",                  "rhs_acc_dh520x56",     ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_ffg2"]
+]];
+_eliteLoadoutData set ["sniperRifles", [
+    ["rhs_weap_svdp", "",              "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
+    ["rhs_weap_svdp", "",              "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
+    ["rhs_weap_svdp", "rhs_acc_tgpv2", "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
+    ["rhs_weap_svdp", "",              "", "rhs_acc_1pn34",  ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
+    ["rhs_weap_svdp", "rhs_acc_tgpv2", "", "rhs_acc_1pn34",  ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
+
+    ["rhs_weap_svdp_npz", "",              "", "rhs_acc_dh520x56",     ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
+    ["rhs_weap_svdp_npz", "",              "", "MMM_acc_IT_1TWS_615A", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
+    ["rhs_weap_svdp_npz", "rhs_acc_tgpv2", "", "rhs_acc_dh520x56",     ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""]
+]];
+_eliteLoadoutData set ["sidearms", [
+    ["rhs_weap_pya", "", "", "", ["rhs_mag_9x19_17", "rhs_mag_9x19_7n31_17"], [], ""],
+    ["rhs_weap_pya", "", "", "", ["rhs_mag_9x19_17", "rhs_mag_9x19_7n31_17"], [], ""],
+    ["rhs_weap_pya", "", "", "", ["rhs_mag_9x19_17", "rhs_mag_9x19_7n31_17"], [], ""],
+
+    ["rhs_weap_pp2000_folded", "", "", "Aegis_optic_1p87", ["rhs_mag_9x19mm_7n21_44", "rhs_mag_9x19mm_7n31_44"], [], ""]
+]];
+
 ///////////////////////////////////////
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
+
+_sfMuzzles = [
+
+];
+_sfAttachmentsBarrel = [
+
+];
+_sfAttachmentsRail = [
+
+];
+_sfOpticsDovetail = [
+
+];
+_sfOpticsRail = [
+
+];
+_sfUnderbarrels = [
+
+];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["rhs_uniform_flora_patchless"]];
@@ -625,7 +1093,6 @@ _sfLoadoutData set ["vests", ["rhs_6b23_6sh92", "rhs_6b23_6sh92_headset", "rhs_6
 _sfLoadoutData set ["backpacks", ["min_rf_backpack_green", "min_rf_backpack_green", "Aegis_B_patrolBackpack_wdl_F", "rhs_tortila_olive", "rhs_tortila_olive", "rhs_tortila_olive", "min_rf_torna_vsr", "B_Carryall_oli"]];
 _sfLoadoutData set ["helmets", ["rhs_6b26", "rhs_6b26_ess", "rhs_6b7_1m_flora"]];
 _sfLoadoutData set ["binoculars", ["rhs_pdu4"]];
-//["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["rifles", [
     ["rhs_weap_ak103", "rhs_acc_dtk4screws", "rhs_acc_2dpZenit", "rhs_acc_1p63", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_89"], [], ""],
@@ -755,379 +1222,6 @@ _sfLoadoutData set ["sidearms", [
     ["rhs_weap_pya", "", "", "", ["rhs_mag_9x19_17", "rhs_mag_9x19_7n31_17"], [], ""],
 
     ["rhs_weap_pp2000_folded", "", "", "Aegis_optic_1p87", ["rhs_mag_9x19mm_7n21_44", "rhs_mag_9x19mm_7n31_44"], [], ""],
-    ["rhs_weap_pp2000_folded", "", "", "Aegis_optic_1p87", ["rhs_mag_9x19mm_7n21_44", "rhs_mag_9x19mm_7n31_44"], [], ""]
-]];
-
-/////////////////////////////////
-//    Military Loadout Data    //
-/////////////////////////////////
-
-private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["ibr_U_B_yul_M88"]];
-_militaryLoadoutData set ["vests", ["ibr_yul_vest"]];
-_militaryLoadoutData set ["backpacks", ["B_AssaultPack_khk", "B_AssaultPack_rgr", "B_Carryall_oli", "B_FieldPack_oli", "B_Kitbag_rgr", "B_Kitbag_sgg", "B_TacticalPack_rgr", "B_TacticalPack_oli"]];
-_militaryLoadoutData set ["helmets", ["H_HelmetYu", "H_Booniehat_YU"]];
-_militaryLoadoutData set ["binoculars", ["Binocular"]];
-
-_militaryLoadoutData set ["rifles", [
-    ["rhs_weap_ak74", "rhs_acc_dtk1983", "",                 "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-
-    ["rhs_weap_ak74n", "rhs_acc_dtk1983", "",                 "",                ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74n", "rhs_acc_dtk3",    "",                 "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_1p63",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    
-    ["rhs_weap_aks74", "rhs_acc_dtk1983", "",                 "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-
-    ["rhs_weap_aks74n", "rhs_acc_dtk1983", "",                 "",                      ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74n", "rhs_acc_dtk3",    "",                 "rhs_acc_ekp1",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-
-    ["rhs_weap_savz58v_ris", "",                  "",                 "",                 ["rhs_30Rnd_762x39mm_Savz58"], [], ""],
-    ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "",                 "Aegis_optic_1p87", ["rhs_30Rnd_762x39mm_Savz58"], [], ""],
-    ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhs_acc_2dpZenit", "rhs_acc_ekp8_18",  ["rhs_30Rnd_762x39mm_Savz58"], [], ""],
-    ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhs_acc_2dpZenit", "optic_Yorris",     ["rhs_30Rnd_762x39mm_Savz58"], [], ""]
-]];
-_militaryLoadoutData set ["carbines", [
-    ["rhs_weap_aks74u", "rhs_acc_uuk",  "",  "",                ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74u", "rhs_acc_dtk3", "",  "",                ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-
-    ["rhs_weap_aks74un", "rhs_acc_dtk1", "", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74un", "rhs_acc_uuk",  "", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74un", "rhs_acc_dtk1", "", "rhs_acc_ekp1",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74un", "rhs_acc_dtk3", "", "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""]
-]];
-_militaryLoadoutData set ["grenadeLaunchers", [
-    ["rhs_weap_ak74_gp25", "",                "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-    ["rhs_weap_ak74_gp25", "rhs_acc_dtk3",    "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-    ["rhs_weap_ak74_gp25", "rhs_acc_dtk1983 ", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-
-    ["rhs_weap_ak74n_gp25", "",                "", "",                      ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-    ["rhs_weap_ak74n_gp25", "rhs_acc_dtk3",    "", "",                      ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-    ["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983 ", "", "rhs_acc_ekp1",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-    ["rhs_weap_ak74n_gp25", "",                "", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-    ["rhs_weap_ak74n_gp25", "rhs_acc_dtk3",    "", "rhs_acc_ok97_dovetail", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-    ["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983 ", "", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-
-    ["rhs_weap_aks74_gp25", "",                "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-    ["rhs_weap_aks74_gp25", "rhs_acc_dtk3",    "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""],
-    ["rhs_weap_aks74_gp25", "rhs_acc_dtk1983 ", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white"], ""]
-]];
-_militaryLoadoutData set ["SMGs", [
-    ["KA_PP19", "", "", "",              ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-    ["KA_PP19", "", "", "",              ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-    ["KA_PP19", "", "", "KA_kobra_PP19", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-
-    ["rhs_weap_pp2000", "", "", "",                       ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
-    ["rhs_weap_pp2000", "", "", "Aegis_optic_1p87",       ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
-    ["rhs_weap_pp2000", "", "", "optic_Yorris",           ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
-    ["rhs_weap_pp2000", "", "", "rhs_acc_okp7_picatinny", ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""]
-]];
-_militaryLoadoutData set ["machineGuns", [
-    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "",                 "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "",                 "rhs_acc_1p63",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "rhs_acc_pkas",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "rhs_acc_ekp1",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "rhs_acc_2dpZenit", "rhs_acc_pkas",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "rhs_acc_2dpZenit", "rhs_acc_ekp8_02", ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "rhs_acc_2dpZenit", "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-
-    // probability to choose a pkm instead of an rpk is 2:1
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""]
-]];
-_militaryLoadoutData set ["marksmanRifles", [
-    ["Aegis_srifle_SVD_f", "", "", "",                 ["10Rnd_762x54_Mag"], [], ""],
-    ["Aegis_srifle_SVD_f", "", "", "rhs_acc_dh520x56", ["10Rnd_762x54_Mag"], [], ""],
-    ["Aegis_srifle_SVD_f", "", "", "optic_SOS",        ["10Rnd_762x54_Mag"], [], ""]
-]];
-_militaryLoadoutData set ["sniperRifles", [
-    ["rhs_weap_svds", "", "", "",                ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N14"], [], ""],
-    ["rhs_weap_svds", "", "", "rhs_acc_pso1m2",  ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N14"], [], ""],
-    ["rhs_weap_svds", "", "", "rhs_acc_pso1m21", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N14"], [], ""]
-]];
-_militaryLoadoutData set ["sidearms", [
-    ["rhs_weap_6p53", "", "", "", ["rhs_18rnd_9x21mm_7N28", "rhs_18rnd_9x21mm_7N29"], [], ""]
-]];
-
-///////////////////////////////
-//    Police Loadout Data    //
-///////////////////////////////
-
-private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-
-_policeLoadoutData set ["uniforms", ["ibr_yul_cop_uniform"]];
-_policeLoadoutData set ["vests", ["V_Chestrig_blk", "V_TacVest_blk", "V_TacVest_blk", "rhs_belt_holster"]];
-_policeLoadoutData set ["helmets", ["ibr_yul_cophelmet", "H_Beret_blk", "H_Beret_blk"]];
-
-_policeLoadoutData set ["SMGs", [
-    ["rhs_weap_ak74n_2", "",                "", "", ["rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N22_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK"], [], ""],
-    ["rhs_weap_aks74_2", "",                "", "", ["rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N22_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK"], [], ""],
-    ["rhs_weap_aks74_2", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_7N22_plum_AK", "rhs_30Rnd_545x39_7N6M_plum_AK"], [], ""],
-    
-    ["rhs_weap_pp2000", "", "", "",                 ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
-    ["rhs_weap_pp2000", "", "", "Aegis_optic_1p87", ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""]
-]];
-_policeLoadoutData set ["sidearms", [
-    ["rhsusf_weap_m1911a1",    "", "", "", ["rhsusf_mag_7x45acp_MHP"], [], ""],
-    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""],
-    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""],
-    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""]
-]];
-
-////////////////////////////////
-//    Militia Loadout Data    //
-////////////////////////////////
-
-private _militiaUniforms = ["rhs_uniform_g3_rgr", "U_B_CombatUniform_sgg_tshirt", "rhsgref_uniform_woodland_olive"];
-if (_hasContact) then {
-    _militiaUniforms append ["U_I_L_Uniform_01_deserter_F"];
-};
-
-private _militiaBags = ["B_AssaultPack_khk","B_AssaultPack_rgr", "B_FieldPack_oli", "rhs_rd54_flora1", "rhs_rd54_flora2", "RUS_sidor"];
-if (_hasLawsOfWar) then {
-    _militiaBags append ["B_LegStrapBag_olive_F"];
-};
-if (_hasContact) then {
-    _militiaBags append ["B_FieldPack_green_F", "B_AssaultPack_wdl_F"];
-};
-
-private _militiaHelmets = ["H_Bandanna_sgg", "H_Bandanna_cbr", "H_Bandanna_gry", "H_Watchcap_camo", "H_Booniehat_oli", "rhs_6b47_bare", "rhs_ssh60"];
-if (_hasWs) then {
-    _militiaHelmets append ["lxWX_H_ssh40_green"];
-};
-
-private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", _militiaUniforms];
-_militiaLoadoutData set ["vests", ["V_TacVest_oli", "V_TacVest_oli", "V_BandollierB_oli", "rhs_6b23", "rhs_6sh92_headset", "min_rf_combat_belt_green"]];
-_militiaLoadoutData set ["backpacks", _militiaBags];
-_militiaLoadoutData set ["helmets", _militiaHelmets];
-
-_militiaLoadoutData set ["rifles", [
-    ["rhs_weap_akm",  "",               "",                 "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akm",  "",               "",                 "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akm",  "rhs_acc_dtkakm", "",                 "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akm",  "rhs_acc_dtk1l",  "",                 "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akm",  "",               "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akm",  "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akm",  "rhs_acc_dtk1l",  "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-
-    ["rhs_weap_akmn", "",               "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akmn", "",               "",                 "rhs_acc_1p78",          ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akmn", "rhs_acc_dtkakm", "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akmn", "rhs_acc_dtk1l",  "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akmn", "",               "rhs_acc_2dpZenit", "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akmn", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akmn", "rhs_acc_dtk1l",  "rhs_acc_2dpZenit", "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akmn", "",               "",                 "rhs_acc_ekp1",          ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akmn", "rhs_acc_dtkakm", "",                 "rhs_acc_ekp8_02",       ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akmn", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    
-    ["rhs_weap_akms", "",               "",                 "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akms", "rhs_acc_dtkakm", "",                 "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akms", "rhs_acc_dtk1l",  "",                 "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akms", "",               "rhs_acc_2dpZenit", "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akms", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""],
-    ["rhs_weap_akms", "rhs_acc_dtk1l",  "rhs_acc_2dpZenit", "",             ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], [], ""]
-]];
-_militiaLoadoutData set ["carbines", [
-    ["rhs_weap_aks74u", "rhs_acc_uuk",  "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74u", "rhs_acc_uuk",  "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74u", "rhs_acc_dtk1", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74u", "rhs_acc_dtk1", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74u", "rhs_acc_dtk3", "", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""]
-]];
-_militiaLoadoutData set ["grenadeLaunchers", [
-    ["rhs_weap_akm_gp25",  "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akm_gp25",  "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akm_gp25",  "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akm_gp25",  "rhs_acc_dtk1l",  "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akm_gp25",  "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akm_gp25",  "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akm_gp25",  "rhs_acc_dtk1l",  "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-
-    ["rhs_weap_akmn_gp25", "",               "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akmn_gp25", "",               "",                 "rhs_acc_1p78",          ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akmn_gp25", "rhs_acc_dtk1l",  "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akmn_gp25", "",               "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akmn_gp25", "rhs_acc_dtk1l",  "",                 "",                      ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akmn_gp25", "",               "",                 "rhs_acc_ekp1",          ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "",                 "rhs_acc_ekp8_02",       ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "",                 "rhs_acc_okp7_dovetail", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    
-    ["rhs_weap_akms_gp25", "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akms_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akms_gp25", "rhs_acc_dtk1l",  "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akms_gp25", "",               "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akms_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""],
-    ["rhs_weap_akms_gp25", "rhs_acc_dtk1l",  "", "", ["rhs_30Rnd_762x39mm_bakelite", "rhs_30Rnd_762x39mm_bakelite_89"], ["rhs_VOG25", "rhs_VG40MD"], ""]
-]];
-_militiaLoadoutData set ["SMGs", [
-    ["rhs_weap_pp2000", "", "", "",                       ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
-    ["rhs_weap_pp2000", "", "", "Aegis_optic_1p87",       ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
-    ["rhs_weap_pp2000", "", "", "optic_Yorris",           ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""],
-    ["rhs_weap_pp2000", "", "", "rhs_acc_okp7_picatinny", ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""]
-]];
-_militiaLoadoutData set ["machineGuns", [
-    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "",                 "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "",                 "rhs_acc_1p63",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "rhs_acc_nita",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "rhs_acc_ekp1",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "",                 "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtk2",   "rhs_acc_2dpZenit", "rhs_acc_pkas",    ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "rhs_acc_2dpZenit", "rhs_acc_ekp8_02", ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""],
-    ["rhs_weap_rpk74m", "rhs_acc_dtkrpk", "rhs_acc_2dpZenit", "",                ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N22_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6M_AK"], [], ""]
-]];
-_militiaLoadoutData set ["marksmanRifles", [
-    ["rhs_weap_m38",      "", "", "",                 ["rhsgref_5Rnd_762x54_m38"], [], ""],
-    ["rhs_weap_m38_rail", "", "", "",                 ["rhsgref_5Rnd_762x54_m38"], [], ""],
-    ["rhs_weap_m38_rail", "", "", "Aegis_optic_1p87", ["rhsgref_5Rnd_762x54_m38"], [], ""],
-    ["rhs_weap_m38_rail", "", "", "rhs_acc_dh52056",  ["rhsgref_5Rnd_762x54_m38"], [], ""]
-]];
-_militiaLoadoutData set ["sniperRifles", [
-    ["Aegis_srifle_SVD_f", "", "", "",                 ["10Rnd_762x54_Mag"], [], ""],
-    ["Aegis_srifle_SVD_f", "", "", "",                 ["10Rnd_762x54_Mag"], [], ""],
-    ["Aegis_srifle_SVD_f", "", "", "optic_SOS",        ["10Rnd_762x54_Mag"], [], ""],
-    ["Aegis_srifle_SVD_f", "", "", "",                 ["10Rnd_762x54_Mag"], [], ""],
-    ["Aegis_srifle_SVD_f", "", "", "rhs_acc_dh520x56", ["10Rnd_762x54_Mag"], [], ""]
-]];
-_militiaLoadoutData set ["sidearms", [
-    ["rhsusf_weap_m1911a1",    "", "", "", ["rhsusf_mag_7x45acp_MHP"], [], ""],
-    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""],
-    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""],
-    ["rhs_weap_makarov_pm", "", "", "", ["rhs_mag_9x18_8_57N181S"], [], ""]
-]];
-
-//////////////////////////
-//  Elite Loadout Data  //
-//////////////////////////
-
-private _eliteLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_eliteLoadoutData set ["uniforms", ["ibr_U_B_yul_M88"]];
-_eliteLoadoutData set ["vests", ["ibr_yul_vest"]];
-_eliteLoadoutData set ["backpacks", ["Aegis_B_patrolBackpack_grn_F", "Aegis_B_patrolBackpack_wdl_F", "Aegis_B_patrolBackpack_oli_F", "min_rf_backpack_green", "min_rf_backpack_green", "B_Carryall_oli", "B_Carryall_oli", "B_Carryall_oli", "B_Kitbag_wdl_F"]];
-_eliteLoadoutData set ["helmets", ["H_HelmetYu"]];
-_eliteLoadoutData set ["binoculars", ["rhs_pdu4"]];
-
-_eliteLoadoutData set ["rifles", [
-    ["rhs_weap_ak74m", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m", "rhs_acc_dtk1",    "rhs_acc_perst1ik", "rhs_acc_1p63",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m", "rhs_acc_uuk",     "rhs_acc_perst1ik", "rhs_acc_1pn93_2",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-
-    ["rhs_weap_ak74m_npz", "rhs_acc_uuk", "rhs_acc_2dpZenit", "Aegis_optic_ICO",      ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m_npz", "rhs_acc_dtk1983", "rhs_acc_perst1ik", "Aegis_optic_1p87", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m_npz", "rhs_acc_dtk3", "rhs_acc_2dpZenit", "rhs_acc_ekp8_18",     ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-
-    ["rhs_weap_ak74m_zenitco01", "rhs_acc_uuk", "rhs_acc_perst3_2dp_h", "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m_zenitco01", "rhs_acc_uuk", "rhs_acc_perst3_2dp_h", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    
-    ["rhs_weap_ak74m_zenitco01_b33", "rhs_acc_dtk3", "rhs_acc_perst3_2dp_h", "rhs_acc_okp7_picatinny", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m_zenitco01_b33", "rhs_acc_dtk1", "rhs_acc_perst3_2dp_h", "optic_Yorris",           ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_ak74m_zenitco01_b33", "rhs_acc_uuk", "rhs_acc_perst3_2dp_h", "Aegis_optic_1p87",        ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""]
-]];
-_eliteLoadoutData set ["carbines", [
-    ["rhs_weap_aks74un", "rhs_acc_dtk1", "", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_aks74un", "rhs_acc_uuk",  "", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_aks74un", "rhs_acc_dtk1", "", "rhs_acc_1p63",    ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["rhs_weap_aks74un", "rhs_acc_dtk3", "", "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-
-    ["arifle_AKSM_F", "", "", "", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""],
-    ["arifle_AKSM_F", "", "", "", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], [], ""]
-]];
-_eliteLoadoutData set ["grenadeLaunchers", [
-    ["rhs_weap_ak74m_gp25", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
-    ["rhs_weap_ak74m_gp25", "rhs_acc_dtk1",    "rhs_acc_2dpZenit", "rhs_acc_1p63",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
-    ["rhs_weap_ak74m_gp25", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
-    ["rhs_weap_ak74m_gp25", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
-    ["rhs_weap_ak74m_gp25", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
-    ["rhs_weap_ak74m_gp25", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_ekp8_02",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
-    ["rhs_weap_ak74m_gp25", "rhs_acc_uuk",     "rhs_acc_2dpZenit", "rhs_acc_1pn93_2",       ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
-
-    ["rhs_weap_ak74m_gp25_npz", "rhs_acc_uuk", "rhs_acc_2dpZenit", "Aegis_optic_ICO",  ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
-    ["rhs_weap_ak74m_gp25_npz", "rhs_acc_uuk", "rhs_acc_2dpZenit", "Aegis_optic_1p87", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""],
-    ["rhs_weap_ak74m_gp25_npz", "rhs_acc_uuk", "rhs_acc_2dpZenit", "rhs_acc_ekp8_18",  ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N22_AK", "rhs_30Rnd_545x39_7N10_2Mag_AK","rhs_60Rnd_545x39_7N10_AK", "rhs_60Rnd_545x39_7N22_AK"], ["rhs_VOG25P", "rhs_VG40MD", "rhs_VG40OP_white", "rhs_GDM40", "rhs_VG40TB"], ""]
-]];
-_eliteLoadoutData set ["SMGs", [
-    ["KA_PP19", "", "", "",              ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-    ["KA_PP19", "", "", "KA_kobra_PP19", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-    ["KA_PP19", "", "", "KA_kobra_PP19", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-    ["KA_PP19", "", "", "KA_kobra_PP19", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-
-    ["KA_PP19_MTK83", "", "", "optic_Yorris",     ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-    ["KA_PP19_MTK83", "", "", "Aegis_optic_1p87", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-    ["KA_PP19_MTK83", "", "", "rhs_acc_ekp8_18",  ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-    ["KA_PP19_MTK83", "", "", "rhs_acc_rakurspm", ["KA_64Rnd_9x18_PMM_FMJ_mag "], [], ""],
-
-    ["rhs_weap_pp2000", "", "", "optic_Yorris", ["rhs_mag_9x19mm_7n31_20", "rhs_mag_9x19mm_7n21_20"], [], ""]
-]];
-_eliteLoadoutData set ["machineGuns", [
-   ["rhs_weap_pkp", "", "", "",                      ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkp", "", "", "rhs_acc_ekp8_02",       ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkp", "", "", "rhs_acc_pkas",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkp", "", "", "rhs_acc_okp7_dovetail", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkp", "", "", "rhs_acc_nita",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkp", "", "", "rhs_acc_1p63",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkp", "", "", "rhs_acc_1p29",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkp", "", "", "rhs_acc_1p78",          ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkp", "", "", "rhs_acc_pso1m21_pkp",   ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-
-    //chance to get a pkp instead of a pkm is 3:1
-   ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-   ["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""]
-]];
-_eliteLoadoutData set ["marksmanRifles", [
-    ["rhs_weap_vss", "", "", "rhs_acc_pso1m21", ["rhs_10Rnd_9x39mm_SP5"], [], ""],
-    ["rhs_weap_vss", "", "", "rhs_acc_1p29",    ["rhs_10Rnd_9x39mm_SP5"], [], ""],
-
-    ["rhs_weap_vss_grip", "", "rhs_acc_perst_1ik_ris", "rhs_acc_1pn93_1", ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_ffg2"],
-    ["rhs_weap_vss_grip", "", "rhs_acc_perst_1ik_ris", "rhs_acc_1pn34",   ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_rk2"],
-    ["rhs_weap_vss_grip", "", "",                  "rhs_acc_pso1m21", ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_ffg2"],
-    ["rhs_weap_vss_grip", "", "",                  "rhs_acc_1p29",    ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_rk2"],
-
-    ["rhs_weap_vss_grip_npz", "", "",                  "rhs_acc_dh520x56",     ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_rk2"],
-    ["rhs_weap_vss_grip_npz", "", "rhs_acc_perst_1ik_ris", "MMM_acc_IT_1TWS_615A", ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_ffg2"],
-    ["rhs_weap_vss_grip_npz", "", "",                  "rhs_acc_dh520x56",     ["rhs_10Rnd_9x39mm_SP5"], [], "rhs_acc_grip_ffg2"]
-]];
-_eliteLoadoutData set ["sniperRifles", [
-    ["rhs_weap_svdp", "",              "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
-    ["rhs_weap_svdp", "",              "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
-    ["rhs_weap_svdp", "rhs_acc_tgpv2", "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
-    ["rhs_weap_svdp", "",              "", "rhs_acc_1pn34",  ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
-    ["rhs_weap_svdp", "rhs_acc_tgpv2", "", "rhs_acc_1pn34",  ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
-
-    ["rhs_weap_svdp_npz", "",              "", "rhs_acc_dh520x56",     ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
-    ["rhs_weap_svdp_npz", "",              "", "MMM_acc_IT_1TWS_615A", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""],
-    ["rhs_weap_svdp_npz", "rhs_acc_tgpv2", "", "rhs_acc_dh520x56",     ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmr_7N14"], [], ""]
-]];
-_eliteLoadoutData set ["sidearms", [
-    ["rhs_weap_pya", "", "", "", ["rhs_mag_9x19_17", "rhs_mag_9x19_7n31_17"], [], ""],
-    ["rhs_weap_pya", "", "", "", ["rhs_mag_9x19_17", "rhs_mag_9x19_7n31_17"], [], ""],
-    ["rhs_weap_pya", "", "", "", ["rhs_mag_9x19_17", "rhs_mag_9x19_7n31_17"], [], ""],
-
     ["rhs_weap_pp2000_folded", "", "", "Aegis_optic_1p87", ["rhs_mag_9x19mm_7n21_44", "rhs_mag_9x19mm_7n31_44"], [], ""]
 ]];
 
