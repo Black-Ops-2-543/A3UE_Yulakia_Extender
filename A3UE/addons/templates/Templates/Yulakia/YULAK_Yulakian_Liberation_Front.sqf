@@ -468,10 +468,10 @@ if (_hasRF) then {
 };
 if (_hasWs) then {
     _rebUniforms append [
-        "U_lxWS_ION_Casual_4"
+        "U_lxWS_ION_Casual4"
     ];
     _civUniforms append [
-        "U_lxWS_ION_Casual_3"
+        "U_lxWS_ION_Casual3"
     ];
 };
 if (_hasLawsOfWar) then {

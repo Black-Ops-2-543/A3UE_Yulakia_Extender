@@ -1072,12 +1072,12 @@ _sfMuzzles = [
     "rhs_acc_dtk1", 2,
     "rhs_acc_dtk3", 3,
     "rhs_acc_pbs1", 6,
-    "rhs_acc_dtk4long", 4
+    "rhs_acc_dtk4long", 4,
     "", 2
 ];
 _sfAttachmentsBarrel = [
     "rhs_acc_perst1ik", 20,
-    "rhs_acc_2dpZenit", 3
+    "rhs_acc_2dpZenit", 3,
     "", 1
 ];
 _sfAttachmentsRail = [
