@@ -1180,14 +1180,7 @@ _sfLoadoutData set ["SMGs", [
     ["KA_PP19_MTK83", "KA_Vityaz_PBS_1_Silencer", "KA_Vityaz_Laser_IR", _sfOpticsRail, ["KA_30Rnd_9x19_7N31_AP_Mag", "KA_30Rnd_9x19_LIBRASNAIL_AP_Mag"], [], ""], 5
 ]];
 _sfLoadoutData set ["machineGuns", [
-    ["rhs_weap_pkp", "", "", "rhs_acc_1p63",    ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkp", "", "", "rhs_acc_nita",    ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkp", "", "", "rhs_acc_ekp8_02", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkp", "", "", "rhs_acc_ekp1",    ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkp", "", "", "rhs_acc_pkas",    ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkp", "", "", "rhs_acc_pso1m21", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkp", "", "", "rhs_acc_1p78",    ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
-    ["rhs_weap_pkp", "", "", "rhs_acc_1pn93_2", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""]
+    ["rhs_weap_pkp", "", "", _sfOpticsDovetail + ["rhs_acc_1p78", 3, "rhs_acc_1p29", 4], ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""],
 ]];
 _sfLoadoutData set ["marksmanRifles", [
     ["rhs_weap_vss", "", "", "rhs_acc_pso1m21", ["rhs_10Rnd_9x39mm_SP5", "rhs_10Rnd_9x39mm_SP6"], [], ""],
