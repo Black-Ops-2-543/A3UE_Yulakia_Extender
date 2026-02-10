@@ -37,6 +37,7 @@ Additionally, I wish to include support for the following mods, where applicable
 - [Tier One Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2268351256)
 - [Modern Combat Carbines](https://steamcommunity.com/workshop/filedetails/?id=3596671735)
 - [Project M](https://steamcommunity.com/sharedfiles/filedetails/?id=3615039550)
+  - Particularly its four submods.
 - [Dagger](https://steamcommunity.com/sharedfiles/filedetails/?id=1105446708)
 - [Shotguns (Repack)](https://steamcommunity.com/sharedfiles/filedetails/?id=1527031418)
 ### Concerns
