@@ -35,9 +35,11 @@ Additionally, I wish to include support for the following mods, where applicable
   - [Infantry Equipment](https://steamcommunity.com/sharedfiles/filedetails/?id=3473383676)
 - [Specialist Military Arms](https://steamcommunity.com/sharedfiles/filedetails/?id=699630614)
 - [Tier One Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2268351256)
-- [Modern Combat Carbines](https://steamcommunity.com/workshop/filedetails/?id=3596671735)
 - [Project M](https://steamcommunity.com/sharedfiles/filedetails/?id=3615039550)
-  - Particularly its four submods.
+  - [Modern Combat Carbines](https://steamcommunity.com/sharedfiles/filedetails/?id=3614460136)
+  - [Modern Sniper Systems](https://steamcommunity.com/sharedfiles/filedetails/?id=3564392635)
+  - [Modular Handgun System](https://steamcommunity.com/sharedfiles/filedetails/?id=3308808194)
+  - [Modern Pistol Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=3157163173)
 - [Dagger](https://steamcommunity.com/sharedfiles/filedetails/?id=1105446708)
 - [Shotguns (Repack)](https://steamcommunity.com/sharedfiles/filedetails/?id=1527031418)
 ### Concerns
@@ -55,11 +57,11 @@ After the complete control of the YPG is cemented in every town, peace is finall
 
 # Factions
 ## Occupiers: The Yulakian Provisional Government
-The YPG have been the ruling government of Yulakia for over five years. In that five years, they have modernized their military equipment and prepared themselves for the conflict to come.
+The YPG have been the ruling government of Yulakia for over five years. In that five years, they have attempted to grow their military and undertake further preparations for the conflict to come.
 ### Motives
 The motives of the YPG are simple—protect their nation. The dictatorship officially formed on Liberation Day must stay in power, and the YPG must continue to protect its interests from Russian aggression.
 ### Forces
-The military of the YPG is composed of primarily older equipment of the Russian Federation. As a puppet state, their military was propped up nearly-entirely by old equipment. For armor, the YPG primarily uses T-72s and T-80s, with a sparse few T-90s in their stockpiles. It is expected to face many BMPs and BTRs as their primary armored implement. The dictatorship has enlisted a vast quantity of fighting-aged men to fight their battles, so many conscripts may be seen on the field.
+The military of the YPG is composed of primarily older equipment of the Russian Federation and USSR. As a puppet state, their military was propped up nearly-entirely by old equipment. For armor, the YPG primarily uses T-72s and T-80s, with a sparse few T-90s in their stockpiles. It is expected to face many BMPs and BTRs as their primary armored implement. The dictatorship has enlisted a vast quantity of fighting-aged men to fight their battles, so many under-equipped conscripts may be seen on the field.
 
 ## Invaders: The Russian Federation
 Russia is a major power in the world; while they may not be contributing their whole force to the invasion of Yulakia, their equipment is still significant and powerful.
