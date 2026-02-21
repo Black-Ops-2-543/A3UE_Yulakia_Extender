@@ -59,8 +59,8 @@ if (_hasEF) then {
 ["vehiclesLightAPCs", ["red_k16_r", "RUS_MSV_btr82a"]]                                                                             call _fnc_saveToTemplate; // Armored cars; lightly-armed APCs
 ["vehiclesAPCs", ["red_k18_r", "red_k17_r", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]]                                   call _fnc_saveToTemplate; // Moderate armament and decent passenger cap
 ["vehiclesAirborne", ["RUS_VDV_bmd4m"]]                                                                                            call _fnc_saveToTemplate; // Parachute-deployable armored vehicles
-["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "O_BMPT", "RUS_MSV_bmp3m", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m"]]    call _fnc_saveToTemplate; // Heavier armament with infantry capacity
-["vehiclesTanks", ["rhs_t14_tv", "RUS_MSV_t90m", "rhs_t90sab_tv", "rhs_t90saa_tv", "rhs_tv_t80bvm", "RUS_MSV_t72b3m"]]             call _fnc_saveToTemplate; // Tanks
+["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "rts_bmpt_r", "RUS_MP_bmp3m", "mkk_BMP_2M"]]    call _fnc_saveToTemplate; // Heavier armament with infantry capacity
+["vehiclesTanks", ["rhs_t14_tv", "RUS_MSV_t90m", "rhs_t90sab_tv", "rhs_tv_t80bvm", "RUS_MSV_t72b3m"]]             call _fnc_saveToTemplate; // Tanks
 ["vehiclesLightTanks", ["O_R_APC_Wheeled_04_cannon_v2_F"]]                                                                         call _fnc_saveToTemplate; // Lesser armament and/or less armor
 ["vehiclesAA", ["mkk_sa22m_pantsir_r", "mkk_2s6m_tunguska"]]                                                                       call _fnc_saveToTemplate; // SPAA
 
@@ -140,7 +140,7 @@ _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
-_loadoutData set ["lightATLaunchers", [["rhs_weap_rpg26", "", "", "", ["RPG26_F"], [], ""]]];
+_loadoutData set ["lightATLaunchers", [["rhs_weap_rpg26", "", "", "", ["rhs_rpg26_mag"], [], ""]]];
 _loadoutData set ["ATLaunchers", [["launch_min_rf_RPG32", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""]]];
 _loadoutData set ["missileATLaunchers", [["launch_min_rf_RPG32", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""]]];
 _loadoutData set ["AALaunchers", [["Verba_9k333", "", "", "", ["9m336"], [], ""]]];
@@ -436,10 +436,10 @@ _militiaLoadoutData set ["machineGuns", [
     ["rhs_weap_pkp", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_7BZ3", "rhs_100Rnd_762x54mmR_7N13", "rhs_100Rnd_762x54mmR_7N26"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
-    ["rhs_weap_svdm", "", "", "rhs_acc_pso1m21_svd", ["rhs_10Rnd,762x54mmR_7N1", "rhs_10Rnd,762x54mmR_7N14"], [], ""]
+    ["rhs_weap_svdp", "", "", "rhs_acc_pso1m21_svd", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N14"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-    ["rhs_weap_svdm", "", "", "rhs_acc_pso1m21_svd", ["rhs_10Rnd,762x54mmR_7N1", "rhs_10Rnd,762x54mmR_7N14"], [], ""]
+    ["rhs_weap_svdp", "", "", "rhs_acc_pso1m21_svd", ["rhs_10Rnd_762x54mmR_7N1", "rhs_10Rnd_762x54mmR_7N14"], [], ""]
 ]];
 _militiaLoadoutData set ["sidearms", [
     ["rhs_weap_pya", "", "", "", ["rhs_mag_9x19_17", "rhs_mag_9x19_7n31_17"], [], ""]
