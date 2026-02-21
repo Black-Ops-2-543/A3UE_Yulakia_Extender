@@ -48,7 +48,7 @@ private _lightAPCs                 = ["rhs_btr80_msv"];
 private _APCs                      = ["rhs_btr80a_msv"];
 private _airborneVehicles          = ["rhs_bmd2", "rhs_sprut_vdv"];
 private _IFVs                      = ["RUS_MSV_bmp3", "rhs_bmp2d_msv", "rhs_bmp2_msv"];
-private _tanks                     = ["rhs_t90_tv", "mkk_t80bv_r", "rhs_t80a", "rhs_t72bc_tv", "rhs_t72bb_tv"];
+private _tanks                     = ["rhs_t90_tv", "rts_t80bv_r", "rhs_t80a", "rhs_t72bc_tv", "rhs_t72bb_tv"];
 private _lightTanks                = ["rhs_sprut_vdv"];
 private _SPAA                      = ["mkk_zsu_23_4m4", "TSB_BRDM2_ZU23_r", "Aegis_O_R_Truck_02_aa_F"];
 private _transportBoats            = ["O_R_Boat_Transport_01_ard_F"];
@@ -942,6 +942,12 @@ _eliteAttachmentsBarrel = [
 
 ];
 _eliteAttachmentsRail = [
+
+];
+_eliteOpticsDovetail_squadLeader = [
+
+];
+_eliteOpticsRail_squadLeader = [
 
 ];
 _eliteOpticsDovetail = [
