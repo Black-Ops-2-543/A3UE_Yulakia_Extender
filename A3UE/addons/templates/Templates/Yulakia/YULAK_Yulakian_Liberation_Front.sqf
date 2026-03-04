@@ -547,11 +547,11 @@ if(A3A_hasACE) then {
     Squad Lead Medical: 6 Bandages, 2 Tourniquets
     Doctor Medical:     9 Bandages, 4 Tourniquets, 1 Splint, 2 Morphine
     */
-    _loadoutData set ["items_medical_basic",    ["ACE_fieldDressing", "ACE_fieldDressing"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_standard", ["ACE_fieldDressing", "ACE_fieldDressing", "ACE_fieldDressing", "ACE_tourniquet"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_leader",   ["ACE_fieldDressing", "ACE_fieldDressing", "ACE_fieldDressing", "ACE_fieldDressing", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_medic",    ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_splint", "ACE_morphine", "ACE_morphine"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_miscEssentials",   [] call A3A_fnc_itemset_miscEssentials];
+    _loadoutData set ["items_medical_basic",    ["ACE_fieldDressing", "ACE_fieldDressing"]];
+    _loadoutData set ["items_medical_standard", ["ACE_fieldDressing", "ACE_fieldDressing", "ACE_fieldDressing", "ACE_tourniquet"]];
+    _loadoutData set ["items_medical_leader",   ["ACE_fieldDressing", "ACE_fieldDressing", "ACE_fieldDressing", "ACE_fieldDressing", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet"]];
+    _loadoutData set ["items_medical_medic",    ["ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_packingBandage", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_tourniquet", "ACE_splint", "ACE_morphine"]];
+    _loadoutData set ["items_miscEssentials",   []];
 } else {
     /*
     Basic Medical:      1 FAK
@@ -559,11 +559,11 @@ if(A3A_hasACE) then {
     Squad Lead Medical: 3 FAKs
     Doctor Medical:     1 Medikit
     */
-    _loadoutData set ["items_medical_basic",    ["FirstAidKit"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_standard", ["FirstAidKit", "FirstAidKit"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_leader",   ["FirstAidKit", "FirstAidKit", "FirstAidKit"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_medical_medic",    ["Medikit"] call A3A_fnc_itemset_medicalSupplies];
-    _loadoutData set ["items_miscEssentials",   [] call A3A_fnc_itemset_miscEssentials];
+    _loadoutData set ["items_medical_basic",    ["FirstAidKit"]];
+    _loadoutData set ["items_medical_standard", ["FirstAidKit", "FirstAidKit"]];
+    _loadoutData set ["items_medical_leader",   ["FirstAidKit", "FirstAidKit", "FirstAidKit"]];
+    _loadoutData set ["items_medical_medic",    ["Medikit"]];
+    _loadoutData set ["items_miscEssentials",   []];
 };
 
 ////////////////////////
