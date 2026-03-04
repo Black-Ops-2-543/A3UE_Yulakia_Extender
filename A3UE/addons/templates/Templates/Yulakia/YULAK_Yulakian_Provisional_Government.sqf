@@ -164,7 +164,7 @@ switch (true) do {
         _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw"];
         _staticATs                 append [];
         _staticAAs                 append [];
-        _mortars                   append [];
+        _mortars                   append ["RUS_MSV_2b14"];
         _howitzers                 append [];
     };
     case (!_hasGM && _hasCSLA && !_hasSOG): { // CSLA only
@@ -204,7 +204,7 @@ switch (true) do {
         _staticMGs                 append ["CSLA_DShKM_h_Stat"];
         _staticATs                 append [];
         _staticAAs                 append ["CSLA_PLdvK59_Stat"];
-        _mortars                   append [];
+        _mortars                   append ["RUS_MSV_2b14"];
         _howitzers                 append [];
     };
     case (!_hasGM && !_hasCSLA && _hasSOG): { // SOG only
@@ -244,7 +244,7 @@ switch (true) do {
         _staticMGs                 append [];
         _staticATs                 append [];
         _staticAAs                 append [];
-        _mortars                   append [];
+        _mortars                   append ["RUS_MSV_2b14"];
         _howitzers                 append [];
     };
     case (_hasGM && _hasCSLA && !_hasSOG): { // GM + CSLA
@@ -284,7 +284,7 @@ switch (true) do {
         _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw", "CSLA_DShKM_h_Stat"];
         _staticATs                 append [];
         _staticAAs                 append ["CSLA_PLdvK59_Stat"];
-        _mortars                   append [];
+        _mortars                   append ["RUS_MSV_2b14"];
         _howitzers                 append [];        
     };
     case (_hasGM && !_hasCSLA && _hasSOG): { // GM + SOG
@@ -324,7 +324,7 @@ switch (true) do {
         _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw"];
         _staticATs                 append [];
         _staticAAs                 append [];
-        _mortars                   append [];
+        _mortars                   append ["RUS_MSV_2b14"];
         _howitzers                 append [];        
     };
     case (!_hasGM && _hasCSLA && _hasSOG): { // CSLA + SOG
@@ -364,7 +364,7 @@ switch (true) do {
         _staticMGs                 append ["CSLA_DShKM_h_Stat"];
         _staticATs                 append [];
         _staticAAs                 append ["CSLA_PLdvK59_Stat"];
-        _mortars                   append [];
+        _mortars                   append ["RUS_MSV_2b14"];
         _howitzers                 append [];        
     };
     case (_hasGM && _hasCSLA && _hasSOG): { // GM + CSLA + SOG
@@ -404,7 +404,7 @@ switch (true) do {
         _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw", "CSLA_DShKM_h_Stat"];
         _staticATs                 append [];
         _staticAAs                 append ["CSLA_PLdvK59_Stat"];
-        _mortars                   append [];
+        _mortars                   append ["RUS_MSV_2b14"];
         _howitzers                 append [];        
     };
 };
@@ -863,7 +863,11 @@ private _militiaHelmets = [
     "H_Cap_oli",
     "H_Cap_red",
     "rhs_headband",
-    "Aegis_H_Milcap_mohs_grn_F"
+    "Aegis_H_Milcap_mohs_grn_F",
+    "",
+    "",
+    "",
+    ""
 ];
 private _militiaHeavyHelmets = [
     "rhsgref_helmet_M1_erdl",
@@ -909,6 +913,9 @@ if(_hasCSLA) then {
     _militiaHelmets append [
         "FIA_capGn",
         "FIA_Hairs_Brown",
+        "FIA_Hairs_Brown",
+        "FIA_Hairs_Brown",
+        "FIA_Hairs_Brown",
         "FIA_Budajka"
     ];
 };
@@ -951,7 +958,14 @@ if(_hasSOG) then {
         "vn_b_boonie_05_04",
         "vn_b_boonie_01_06",
         "vn_b_boonie_01_01",
-        "vn_b_boonie_01_09"
+        "vn_b_boonie_01_09",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ];
     _militiaHeavyHelmets append [
         "vn_b_helmet_m1_01_01",
@@ -1066,10 +1080,13 @@ private _militiaCarbineMagazines = [
 ];
 private _militiaGrenadeMagazines = [
     "rhs_VOG25",
+    "rhs_VOG25",
+    "rhs_VOG25",
     "rhs_VG40MD"
 ];
 
 // make attachment additions
+
 if(_hasJCAArsenal) then {
     _militiaOpticsRail append [
         "JCA_optic_MRO_black", 1
@@ -1106,7 +1123,7 @@ private _militiaRifles = [
 ];
 private _militiaCarbines = [
     ["rhs_weap_aks74u",  _militiaCarbineMuzzles, "", "",             _militiaCarbineMagazines, [], ""], 5,
-    ["rhs_weap_aks74un", _militiaCarbineMuzzles, "", _militiaOptics, _militiaCarbineMagazines, [], ""], 1
+    ["rhs_weap_aks74un", _militiaCarbineMuzzles, "", _militiaOptics, _militiaCarbineMagazines, [], ""], 7
 ];
 private _militiaGrenadeLaunchers = [
     ["rhs_weap_akm_gp25",      _militiaRifleMuzzles, _militiaAttachments, "",                 _militiaRifleMagazines, _militiaGrenadeMagazines, ""], 4,
@@ -1198,58 +1215,250 @@ _militiaLoadoutData set ["sidearms", _militiaSidearms];
 //    Military Loadout Data    //
 /////////////////////////////////
 
-_militaryMuzzles = [
-
-];
-_militaryAttachmentsBarrel = [
-
-];
-_militaryAttachmentsRail = [
-
-];
-_militaryOpticsDovetail = [
-
-];
-_militaryOpticsRail = [
-
-];
-_militaryUnderbarrels = [
-
-];
-
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+
+// define baseline equipment
+
+private _militaryBags = [
+    "B_AssaultPackSpec_blk",
+    "B_AssaultPackSpec_blk",
+    "B_AssaultPackSpc_rgr",
+    "B_AssaultPackSpc_rgr",
+    "B_AssaultPack_rgr",
+    "B_AssaultPack_khk",
+    "B_FieldPack_oli",
+    "B_FieldPack_khk",
+    "rhs_rd54",
+    "B_TacticalPack_blk",
+    "B_TacticalPack_rgr",
+    "B_TacticalPack_oli",
+    "B_TacticalPack_sgg",
+    "UMBTS_Olive"
+];
+private _militaryLargeBags = [
+    "UMBTS_Olive",
+    "RUS_sidor",
+    "B_ViperLightHarness_khk_F",
+    "B_ViperLightHarness_oli_F",
+    "B_Kitbag_eaf_F",
+    "B_Kitbag_rgr",
+    "B_Kitbag_khk",
+    "B_Kitbag_sgg"
+];
+private _militaryLeaderBags = [
+    "B_TacticalPack_blk",
+    "B_TacticalPack_rgr",
+    "B_TacticalPack_oli",
+    "B_TacticalPack_sgg",
+    "UMBTS_Olive"
+];
+
+// make equipment additions
+
+if(_hasContact) then {
+    _militaryBags append [
+        "B_AssaultPack_eaf_F",
+        "B_FieldPack_green_F"
+    ];
+};
+if(_hasArtOfWar) then {
+    _militaryLeaderBags append [
+        "B_CivilianBackpack_01_Everyday_Black_F"
+    ];
+};
+if(_hasSOG) then {
+    _militaryLeaderBags append [
+        "vn_b_pack_03_02",
+        "vn_b_pack_03"
+    ];
+    _militaryLargeBags append [
+        "vn_b_pack_p44_01",
+        "vn_b_pack_trp_03_02",
+        "vn_b_pack_trp_03"
+    ];
+};
+if(_hasGM) then {
+    _militaryLargeBags append [
+        "gm_dk_army_backpack_73_oli",
+        "gm_ge_army_backpack_80_oli",
+        "gm_pl_army_backpack_at_80_empty_gry"
+    ];
+};
+
+// set final equipment
+
 _militaryLoadoutData set ["uniforms", ["ibr_U_B_yul_M88"]];
 _militaryLoadoutData set ["vests", ["ibr_yul_vest"]];
-_militaryLoadoutData set ["backpacks", ["B_AssaultPack_khk", "B_AssaultPack_rgr", "B_Carryall_oli", "B_FieldPack_oli", "B_Kitbag_rgr", "B_Kitbag_sgg", "B_TacticalPack_rgr", "B_TacticalPack_oli"]];
-_militaryLoadoutData set ["largeBackpacks", []];
-_militaryLoadoutData set ["slBackpacks", []];
+_militaryLoadoutData set ["heavyVests", ["ibr_yul_vest"]];
+_militaryLoadoutData set ["backpacks", _militaryBags];
+_militaryLoadoutData set ["largeBackpacks", _militaryLargeBags];
+_militaryLoadoutData set ["slBackpacks", _militaryLeaderBags];
 _militaryLoadoutData set ["helmets", ["H_HelmetYu", "H_Booniehat_YU"]];
+_militaryLoadoutData set ["heavyHelmets", ["H_HelmetYu"]];
 _militaryLoadoutData set ["binoculars", ["Binocular"]];
 
-_militaryLoadoutData set ["rifles", [
-    ["rhs_weap_ak74", "rhs_acc_dtk1983", "",                 "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+// define baseline attachments
 
-    ["rhs_weap_ak74n", "rhs_acc_dtk1983", "",                 "",                ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74n", "rhs_acc_dtk3",    "",                 "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_1p63",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_ak74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",    ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    
-    ["rhs_weap_aks74", "rhs_acc_dtk1983", "",                 "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74", "rhs_acc_dtk3",    "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+private _militaryRifleMuzzles = [
+    "rhs_acc_dtk3", 2,
+    "rhs_acc_dtk2", 1,
+    "rhs_acc_dtk1983", 3,
+    "", 2
+];
+private _militaryCarbineMuzzles =[
+    "rhs_acc_uuk", 8,
+    "rhs_acc_dtk2", 2,
+    "", 1
+];
+private _militaryAttachments = [
+    "rhs_acc_2dpZenit", 5,
+    "", 2
+];
+private _militaryAttachmentsRail = [
+    "rhs_acc_2dpZenit_ris", 6,
+    "rhs_acc_perst1ik_ris", 1,
+    "", 3
+];
+private _militaryOptics = [
+    "rhs_acc_pkas", 2,
+    "rhs_acc_okp7_dovetail", 4,
+    "rhs_acc_nita", 1,
+    "rhs_acc_1p93_2", 1,
+    "rhs_acc_1p63", 2,
+    "rhs_acc_ekp1", 5,
+    "rhs_acc_ekp8_02", 3,
+    "", 6
+];
+private _militaryOpticsRail = [
+    "Aegis_optic_1p87", 5,
+    "Aegis_optic_ICO", 2,
+    "optic_Yorris", 2,
+    "optic_Aco", 3,
+    "rhs_acc_ekp8_18", 6,
+    "rhs_acc_rakursPM", 4,
+    "rhs_acc_okp7_picatinny", 4,
+    "rhsusf_acc_RX01", 2,
+    "", 4
+];
+private _militaryOptics_leader = [
+    "rhs_acc_1p29", 3,
+    "rhs_acc_1p63", 5,
+    "rhs_acc_1pn93_1", 2,
+    "rhs_acc_1pn93_2", 1,
+    "rhs_acc_ekp1", 2,
+    "rhs_acc_ekp8_02", 3,
+    "rhs_acc_ekp7_dovetail", 2,
+    "rhs_acc_pkas", 5,
+    "", 3
+];
+private _militaryOpticsRail_leader = [
+    "Aegis_optic_1p87", 5,
+    "Aegis_optic_ICO", 3,
+    "optic_Aco", 1,
+    "optic_MRCO", 7,
+    "rhs_acc_ekp8_18", 4,
+    "rhs_acc_okp7_picatinny", 2,
+    "", 6
+];
+private _militaryUnderbarrels = [
+    "rhs_acc_grip_ffg2", 1,
+    "rhs_acc_grip_rk2", 3,
+    "rhs_acc_grip_rk6", 1,
+    "", 2
+];
+private _militaryRifleMagazines = [
+    "rhs_30Rnd_545x39_7N22_AK",
+    "rhs_30Rnd_545x39_7N10_AK"
+];
+private _militaryGrenadeMagazines = [
+    "rhs_VOG25P",
+    "rhs_VOG25P",
+    "rhs_VOG25P",
+    "rhs_VOG25P",
+    "rhs_VG40MD",
+    "rhs_VG40MD",
+    "rhs_GDM40"
+];
 
-    ["rhs_weap_aks74n", "rhs_acc_dtk1983", "",                 "",                      ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74n", "rhs_acc_dtk3",    "",                 "rhs_acc_ekp1",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
-    ["rhs_weap_aks74n", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "rhs_acc_pkas",          ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
+// make attachment additions
 
-    ["rhs_weap_savz58v_ris", "",                  "",                 "",                 ["rhs_30Rnd_762x39mm_Savz58"], [], ""],
-    ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "",                 "Aegis_optic_1p87", ["rhs_30Rnd_762x39mm_Savz58"], [], ""],
-    ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhs_acc_2dpZenit", "rhs_acc_ekp8_18",  ["rhs_30Rnd_762x39mm_Savz58"], [], ""],
-    ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhs_acc_2dpZenit", "optic_Yorris",     ["rhs_30Rnd_762x39mm_Savz58"], [], ""]
-]];
+if(_hasNIArms) then {
+    _militaryOpticsRail append [
+        "HLC_optic_Aimpoint3000", 3,
+        "HLC_optic_Aimpoint5000", 1
+    ];
+    _militaryOpticsRail_leader append [
+        "HLC_optic_Aimpoint3000", 2,
+        "HLC_optic_Aimpoint3000_Magnifier", 3,
+        "HLC_optic_Aimpoint5000", 2,
+        "HLC_optic_Aimpoint5000_Magnifier", 1,
+        "hlc_optic_HensoldtZO_Lo", 2,
+        "hlc_optic_HensoldtZO_lo_Docter", 1,
+        "hlc_optic_VOMZ3d", 4,
+        "", 10
+    ];
+};
+if(_hasRF) then {
+    _militaryOpticsRail_leader append [
+        "optic_VRCO_RF", 4
+    ];
+};
+if(_hasGM) then {
+    _militaryOpticsRail_leader append [
+        "gm_blits_ris_blk", 4,
+        "gm_c79a1_blk", 2
+    ];
+    _militaryOpticsRail append [
+        "gm_rv_ris_blk", 2
+    ];
+} else {
+    _militaryOpticsRail_leader append [
+        "rhsusf_acc_ELCAN", 4
+    ];
+};
+
+// define baseline weapons
+
+private _militarySlRifles = [
+    ["rhs_weap_ak74m",              _militaryRifleMuzzles, _militaryAttachments,     _militaryOptics_leader,     _militaryRifleMagazines,           [], ""                   ], 10,
+    ["rhs_weap_ak74m_fullplum",     _militaryRifleMuzzles, _militaryAttachments,     _militaryOptics_leader,     _militaryRifleMagazines,           [], ""                   ], 2,
+    ["rhs_weap_ak74m_camo",         _militaryRifleMuzzles, _militaryAttachments,     _militaryOptics_leader,     ["rhs_30Rnd_545x39_7N22_camo_AK"], [], ""                   ], 3,
+    ["rhs_weap_ak74m_npz",          _militaryRifleMuzzles, _militaryAttachments,     _militaryOpticsRail_leader, _militaryRifleMagazines,           [], ""                   ], 6,
+    ["rhs_weap_ak74m_fullplum_npz", _militaryRifleMuzzles, _militaryAttachments,     _militaryOpticsRail_leader, _militaryRifleMagazines,           [], ""                   ], 2,
+    ["rhs_weap_ak74m_camo_npz",     _militaryRifleMuzzles, _militaryAttachments,     _militaryOpticsRail_leader, ["rhs_30Rnd_545x39_7N22_camo_AK"], [], ""                   ], 3,
+    ["rhs_weap_ak74m_zenitco01",    _militaryRifleMuzzles, _militaryAttachmentsRail, _militaryOptics_leader,     _militaryRifleMagazines,           [], _militaryUnderbarrels], 6
+];
+private _militaryRifles = [
+    ["rhs_weap_ak74m",              _militaryRifleMuzzles, _militaryAttachments, _militaryOptics,     _militaryRifleMagazines,           [], ""], 6,
+    ["rhs_weap_ak74m_fullplum",     _militaryRifleMuzzles, _militaryAttachments, _militaryOptics,     _militaryRifleMagazines,           [], ""], 2,
+    ["rhs_weap_ak74m_camo",         _militaryRifleMuzzles, _militaryAttachments, _militaryOptics,     ["rhs_30Rnd_545x39_7N22_camo_AK"], [], ""], 1,
+    ["rhs_weap_ak74m_npz",          _militaryRifleMuzzles, _militaryAttachments, _militaryOpticsRail, _militaryRifleMagazines,           [], ""], 3,
+    ["rhs_weap_ak74m_fullplum_npz", _militaryRifleMuzzles, _militaryAttachments, _militaryOpticsRail, _militaryRifleMagazines,           [], ""], 1,
+    ["rhs_weap_ak74m_camo_npz",     _militaryRifleMuzzles, _militaryAttachments, _militaryOpticsRail, ["rhs_30Rnd_545x39_7N22_camo_AK"], [], ""], 1,
+
+    ["rhs_weap_ak74n",       _militaryRifleMuzzles, _militaryAttachments, _militaryOptics,     _militaryRifleMagazines, [], ""], 6,
+    ["rhs_weap_ak74n_2",     _militaryRifleMuzzles, _militaryAttachments, _militaryOptics,     _militaryRifleMagazines, [], ""], 2,
+    ["rhs_weap_ak74n_npz",   _militaryRifleMuzzles, _militaryAttachments, _militaryOpticsRail, _militaryRifleMagazines, [], ""], 2,
+    ["rhs_weap_ak74n_2_npz", _militaryRifleMuzzles, _militaryAttachments, _militaryOpticsRail, _militaryRifleMagazines, [], ""], 1
+];
+private _militaryCarbines = [
+    ["rhs_weap_aks74un", _militaryCarbineMuzzles, "", _militaryOptics, _militaryRifleMagazines, [], ""], 11
+];
+
+// make weapon additions
+
+if(_hasGM) then {
+    _militaryCarbines append [
+        ["gm_mpiaks74nk_brn", "", ["", 85, "gm_flashlightp2_wht_akkhandguard_blu"], _militaryOptics, _militaryRifleMagazines, [], ""], 2,
+        ["gm_mpiaks74nk_blk", "", ["", 85, "gm_flashlightp2_wht_akkhandguard_blu"], _militaryOptics, _militaryRifleMagazines, [], ""], 3,
+        ["gm_mpiaks74nk_prp", "", ["", 85, "gm_flashlightp2_wht_akkhandguard_blu"], _militaryOptics, _militaryRifleMagazines, [], ""], 1
+    ];
+};
+
+// set final weapons
+
+_militaryLoadoutData set ["slRifles", _militarySlRifles];
+_militaryLoadoutData set ["rifles", _militaryRifles];
 _militaryLoadoutData set ["carbines", [
     ["rhs_weap_aks74u", "rhs_acc_uuk",  "",  "",                ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
     ["rhs_weap_aks74u", "rhs_acc_dtk3", "",  "",                ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK"], [], ""],
@@ -1356,10 +1565,12 @@ _eliteUnderbarrels = [
 private _eliteLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _eliteLoadoutData set ["uniforms", ["ibr_U_B_yul_M88"]];
 _eliteLoadoutData set ["vests", ["ibr_yul_vest"]];
+_eliteLoadoutData set ["heavyVests", ["ibr_yul_vest"]];
 _eliteLoadoutData set ["backpacks", ["Aegis_B_patrolBackpack_grn_F", "Aegis_B_patrolBackpack_wdl_F", "Aegis_B_patrolBackpack_oli_F", "min_rf_backpack_green", "min_rf_backpack_green", "B_Carryall_oli", "B_Carryall_oli", "B_Carryall_oli", "B_Kitbag_wdl_F"]];
-_eliteLoadoutData set ["slBackpacks", []];
-_eliteLoadoutData set ["largeBackpacks", []];
+_eliteLoadoutData set ["slBackpacks", ["Aegis_B_patrolBackpack_grn_F", "Aegis_B_patrolBackpack_wdl_F", "Aegis_B_patrolBackpack_oli_F", "min_rf_backpack_green", "min_rf_backpack_green", "B_Carryall_oli", "B_Carryall_oli", "B_Carryall_oli", "B_Kitbag_wdl_F"]];
+_eliteLoadoutData set ["largeBackpacks", ["Aegis_B_patrolBackpack_grn_F", "Aegis_B_patrolBackpack_wdl_F", "Aegis_B_patrolBackpack_oli_F", "min_rf_backpack_green", "min_rf_backpack_green", "B_Carryall_oli", "B_Carryall_oli", "B_Carryall_oli", "B_Kitbag_wdl_F"]];
 _eliteLoadoutData set ["helmets", ["H_HelmetYu"]];
+_eliteLoadoutData set ["heavyHelmets", ["H_HelmetYu"]];
 _eliteLoadoutData set ["binoculars", ["rhs_pdu4"]];
 
 _eliteLoadoutData set ["rifles", [
@@ -1584,10 +1795,12 @@ private _sfSidearms = [
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["rhs_uniform_flora_patchless"]];
 _sfLoadoutData set ["vests", ["rhs_6b23_6sh92", "rhs_6b23_6sh92_headset", "rhs_6b23_6sh92_radio", "rhs_6b23_6sh92_vog", "rhs_6b23_6sh92_vog_headset", "rhs_6b23_engineer", "rhs_6b23_medic", "rhs_6b23_rifleman", "rhs_6b23_sniper", "rhs_6b23_vydra_3m", "rhs_6b23_6sh116_flora", "rhs_6b23_6sh116_vog_flora"]];
+_sfLoadoutData set ["heavyVests", ["rhs_6b23_6sh92", "rhs_6b23_6sh92_headset", "rhs_6b23_6sh92_radio", "rhs_6b23_6sh92_vog", "rhs_6b23_6sh92_vog_headset", "rhs_6b23_engineer", "rhs_6b23_medic", "rhs_6b23_rifleman", "rhs_6b23_sniper", "rhs_6b23_vydra_3m", "rhs_6b23_6sh116_flora", "rhs_6b23_6sh116_vog_flora"]];
 _sfLoadoutData set ["backpacks", ["min_rf_backpack_green", "min_rf_backpack_green", "Aegis_B_patrolBackpack_wdl_F", "rhs_tortila_olive", "rhs_tortila_olive", "rhs_tortila_olive", "min_rf_torna_vsr", "B_Carryall_oli"]];
-_sfLoadoutData set ["largeBackpacks", []];
-_sfLoadoutData set ["slBackpacks", []];
+_sfLoadoutData set ["largeBackpacks", ["min_rf_backpack_green", "min_rf_backpack_green", "Aegis_B_patrolBackpack_wdl_F", "rhs_tortila_olive", "rhs_tortila_olive", "rhs_tortila_olive", "min_rf_torna_vsr", "B_Carryall_oli"]];
+_sfLoadoutData set ["slBackpacks", ["min_rf_backpack_green", "min_rf_backpack_green", "Aegis_B_patrolBackpack_wdl_F", "rhs_tortila_olive", "rhs_tortila_olive", "rhs_tortila_olive", "min_rf_torna_vsr", "B_Carryall_oli"]];
 _sfLoadoutData set ["helmets", ["rhs_6b26", "rhs_6b26_ess", "rhs_6b7_1m_flora"]];
+_sfLoadoutData set ["heavyHelmets", ["rhs_6b26", "rhs_6b26_ess", "rhs_6b7_1m_flora"]];
 _sfLoadoutData set ["binoculars", ["rhs_pdu4"]];
 
 _sfLoadoutData set ["slRifles", _sfSlRifles];
