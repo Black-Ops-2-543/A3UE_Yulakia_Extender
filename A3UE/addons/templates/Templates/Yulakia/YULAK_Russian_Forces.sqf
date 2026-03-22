@@ -56,9 +56,9 @@ if (_hasEF) then {
 ["vehiclesRepairTrucks", ["O_R_Truck_03_repair_F"]]                                                                                call _fnc_saveToTemplate; // Repair trucks
 ["vehiclesFuelTrucks", ["O_R_Truck_03_fuel_F"]]                                                                                    call _fnc_saveToTemplate; // Fuel trucks
 ["vehiclesMedical", ["O_R_Truck_03_medical_F"]]                                                                                    call _fnc_saveToTemplate; // Medical trucks
-["vehiclesLightAPCs", ["red_k16_r", "RUS_MSV_btr82a"]]                                                                             call _fnc_saveToTemplate; // Armored cars; lightly-armed APCs
-["vehiclesAPCs", ["red_k18_r", "red_k17_r", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]]                                   call _fnc_saveToTemplate; // Moderate armament and decent passenger cap
-["vehiclesAirborne", ["RUS_VDV_bmd4m"]]                                                                                            call _fnc_saveToTemplate; // Parachute-deployable armored vehicles
+["vehiclesLightAPCs", ["rts_k16_r", "RUS_MSV_btr82a"]]                                                                             call _fnc_saveToTemplate; // Armored cars; lightly-armed APCs
+["vehiclesAPCs", ["rts_k18_r", "rts_k17_r", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]]                                   call _fnc_saveToTemplate; // Moderate armament and decent passenger cap
+["vehiclesAirborne", ["rts_bmd4m_r"]]                                                                                            call _fnc_saveToTemplate; // Parachute-deployable armored vehicles
 ["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "rts_bmpt_r", "RUS_MP_bmp3m", "mkk_BMP_2M"]]    call _fnc_saveToTemplate; // Heavier armament with infantry capacity
 ["vehiclesTanks", ["rhs_t14_tv", "RUS_MSV_t90m", "rhs_t90sab_tv", "rhs_tv_t80bvm", "RUS_MSV_t72b3m"]]             call _fnc_saveToTemplate; // Tanks
 ["vehiclesLightTanks", ["O_R_APC_Wheeled_04_cannon_v2_F"]]                                                                         call _fnc_saveToTemplate; // Lesser armament and/or less armor
@@ -68,18 +68,18 @@ if (_hasEF) then {
 ["vehiclesGunBoats", _boats]       call _fnc_saveToTemplate; // Armed boats
 ["vehiclesAmphibious", ["RUS_MSV_bmp3m", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m", "RUS_MSV_btr82a"]]                call _fnc_saveToTemplate; // APC, IFV, etc. with amphibious capabilities
 
-["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]]                   call _fnc_saveToTemplate; // Planes focused on anti-ground roles
-["vehiclesPlanesAA", ["RUS_VKS_mig29smt", "RUS_VKS_su57"]]   call _fnc_saveToTemplate; // Planes focused on air superiority
-["vehiclesPlanesTransport", ["RHS_Mi8mt_Cargo_vvs"]]        call _fnc_saveToTemplate; // Planes available to paradrop infantry
+["vehiclesPlanesCAS", ["RHS_Su25SM_vvs", "RUS_VKS_su24_m", "min_rf_su_34"]]                   call _fnc_saveToTemplate; // Planes focused on anti-ground roles
+["vehiclesPlanesAA", ["RUS_VKS_su57","RUS_VKS_mig29smt", "RUS_VKS_mig29smt", "pook_SU30M_OPFOR","pook_SU30M_OPFOR","pook_SU30_OPFOR","pook_SU27_OPFOR","pook_SU27_OPFOR"]]   call _fnc_saveToTemplate; // Planes focused on air superiority
+["vehiclesPlanesTransport", ["pook_IL76_OPFOR"]]        call _fnc_saveToTemplate; // Planes available to paradrop infantry
 
 ["vehiclesHelisLight", ["RHS_Mi8mt_vvs"]]                  call _fnc_saveToTemplate; // Helicopters with little-to-no armament
 ["vehiclesHelisTransport", ["RHS_Mi8mt_vvs"]]              call _fnc_saveToTemplate; // Helicopters to transport infantry
 ["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate; // Helicopters with light armament
-["vehiclesHelisAttack", ["LS_Ka52_F", "rhs_mi28n_vvs", "RHS_Mi24V_vvs"]]   call _fnc_saveToTemplate; // Helicopters designed to engage hostiles
+["vehiclesHelisAttack", ["LS_Ka52_F", "rhs_mi28n_vvs", "rhsgref_mi24g_CAS"]]   call _fnc_saveToTemplate; // Helicopters designed to engage hostiles
 
-["vehiclesArtillery", ["red_2s19_r", "RUS_MSV_2b26"]] call _fnc_saveToTemplate; // Self-propelled artillery pieces
+["vehiclesArtillery", ["rts_2s19adv_r", "RUS_MSV_2b26"]] call _fnc_saveToTemplate; // Self-propelled artillery pieces
 ["magazines", createHashMapFromArray [
-    ["red_2s19_r", ["rhs_mag_HE_2a33"]],
+    ["rts_2s19adv_r", ["rhs_mag_HE_2a33"]],
     ["RUS_MSV_2b26", ["VTN_9M522_40"]]
 ]] call _fnc_saveToTemplate; // All ammo that can be used by the above artillery
 

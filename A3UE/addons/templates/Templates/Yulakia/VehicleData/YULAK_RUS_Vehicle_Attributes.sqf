@@ -17,8 +17,19 @@
 
 ]] call _fnc_saveToTemplate;
 
+_veh = createVehicle ["pook_SU27_OPFOR",position player,[],0,"NONE"];
+[
+	_veh,
+	["pook_SU27_TEX_GREY",1], 
+	true
+] call BIS_fnc_initVehicle;
+
 
 ["variants", [
+    ["pook_SU27_OPFOR", ["pook_SU27_TEX_GREY", 1]],
+    ["pook_SU30_OPFOR", ["pook_SU27_TEX_GREY", 1]],
+    ["pook_SU30M_OPFOR", ["pook_SU27_TEX_GREY", 1]],
+    ["pook_IL76_OPFOR", ["RuAF01", 1, "vvs", 1]],
     ["O_R_LSV_02_unarmed_F", ["Green",1]],
     ["RUS_VDV_kamaz4386", ["Green_Dirt",0.5,"Green",0.5]],
     ["rhs_tigr_m_vmf", ["standard",1]],

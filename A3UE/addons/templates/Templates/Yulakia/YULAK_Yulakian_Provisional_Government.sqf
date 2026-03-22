@@ -62,7 +62,7 @@ private _airborneVehicles          = ["rhs_bmd2", "rhs_sprut_vdv"];
 private _IFVs                      = ["RUS_MSV_bmp3", "rhs_bmp2d_msv", "rhs_bmp2_msv"];
 private _tanks                     = ["rhs_t90_tv", "rts_t80bv_r", "rhs_t80a", "rhs_t72bc_tv", "rhs_t72bb_tv"];
 private _lightTanks                = ["rhs_sprut_vdv"];
-private _SPAA                      = ["mkk_zsu_23_4m4", "TSB_BRDM2_ZU23_r", "Aegis_O_R_Truck_02_aa_F"];
+private _SPAA                      = ["rts_zsu_23_4m4_r", "TSB_BRDM2_ZU23_r", "Aegis_O_R_Truck_02_aa_F"];
 private _transportBoats            = ["O_R_Boat_Transport_01_ard_F"];
 private _armedBoats                = [];
 private _amphibiousVehicles        = ["rhs_bmp2_msv", "rhs_btr80_msv"];
@@ -101,7 +101,7 @@ switch (true) do {
         _APCs                      append [];
         _airborneVehicles          append ["rhsusf_m113_usarmy_M2_90"];
         _IFVs                      append ["rhs_bmp1p_msv"];
-        _tanks                     append ["leopard1_b"];
+        _tanks                     append [];
         _lightTanks                append [];
         _SPAA                      append [];
         _transportBoats            append [];
@@ -161,7 +161,7 @@ switch (true) do {
         _unarmedMilitiaCars        append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_gc_army_uaz469_cargo_noinsignia"];
         _militiaAPCs               append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_gc_army_btr60pa_dshkm_noinsignia"];
         _policeVehicles            append ["gm_ge_bgs_w123_cargo", "gm_ge_army_typ253_cargo"];
-        _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw"];
+        _staticMGs                 append ["gm_ge_army_mg3_aatripod"];
         _staticATs                 append [];
         _staticAAs                 append [];
         _mortars                   append ["RUS_MSV_2b14"];
@@ -181,7 +181,7 @@ switch (true) do {
         _APCs                      append [];
         _airborneVehicles          append ["US85_M113"];
         _IFVs                      append ["rhs_bmp1p_msv"];
-        _tanks                     append ["leopard1_b", "CSLA_T72M1_noinsignia"];
+        _tanks                     append [, "CSLA_T72M1_noinsignia"];
         _lightTanks                append ["US85_M113A1_TOW"];
         _SPAA                      append ["CSLA_PLdvK59V3S_noinsignia"];
         _transportBoats            append [];
@@ -221,7 +221,7 @@ switch (true) do {
         _APCs                      append ["vn_b_armor_m113_acav_06"];
         _airborneVehicles          append ["vn_b_armor_m113_01_noinsignia"];
         _IFVs                      append ["rhs_bmp1p_msv"];
-        _tanks                     append ["leopard1_b"];
+        _tanks                     append [];
         _lightTanks                append ["vn_o_armor_pt76a_01_nva65"];
         _SPAA                      append [];
         _transportBoats            append ["vn_b_boat_10_01"];
@@ -281,7 +281,7 @@ switch (true) do {
         _unarmedMilitiaCars        append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_gc_army_uaz469_cargo_noinsignia"];
         _militiaAPCs               append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_gc_army_btr60pa_dshkm_noinsignia", "CSLA_OT62_noinsignia"];
         _policeVehicles            append ["gm_ge_bgs_w123_cargo", "gm_ge_army_typ253_cargo"];
-        _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw", "CSLA_DShKM_h_Stat"];
+        _staticMGs                 append ["gm_ge_army_mg3_aatripod", "CSLA_DShKM_h_Stat"];
         _staticATs                 append [];
         _staticAAs                 append ["CSLA_PLdvK59_Stat"];
         _mortars                   append ["RUS_MSV_2b14"];
@@ -321,7 +321,7 @@ switch (true) do {
         _unarmedMilitiaCars        append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_gc_army_uaz469_cargo_noinsignia"];
         _militiaAPCs               append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_gc_army_btr60pa_dshkm_noinsignia"];
         _policeVehicles            append ["gm_ge_bgs_w123_cargo", "gm_ge_army_typ253_cargo"];
-        _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw"];
+        _staticMGs                 append ["gm_ge_army_mg3_aatripod"];
         _staticATs                 append [];
         _staticAAs                 append [];
         _mortars                   append ["RUS_MSV_2b14"];
@@ -341,7 +341,7 @@ switch (true) do {
         _APCs                      append ["vn_b_armor_m113_acav_06"];
         _airborneVehicles          append ["US85_M113"];
         _IFVs                      append ["rhs_bmp1p_msv"];
-        _tanks                     append ["leopard1_b", "CSLA_T72M1_noinsignia"];
+        _tanks                     append [, "CSLA_T72M1_noinsignia"];
         _lightTanks                append ["US85_M113A1_TOW", "vn_o_armor_pt76a_01_nva65"];
         _SPAA                      append ["CSLA_PLdvK59V3S_noinsignia"];
         _transportBoats            append ["vn_b_boat_10_01"];
@@ -401,7 +401,7 @@ switch (true) do {
         _unarmedMilitiaCars        append ["gm_gc_bgs_uaz469_cargo_noinsignia", "gm_gc_army_uaz469_cargo_noinsignia"];
         _militiaAPCs               append ["gm_dk_army_m113a1dk_apc_noinsignia", "gm_ge_army_m113a1g_apc_noinsignia", "gm_gc_army_btr60pa_dshkm_noinsignia", "CSLA_OT62_noinsignia"];
         _policeVehicles            append ["gm_ge_bgs_w123_cargo", "gm_ge_army_typ253_cargo"];
-        _staticMGs                 append ["gm_ge_army_mg3_aatripod_csw", "CSLA_DShKM_h_Stat"];
+        _staticMGs                 append ["gm_ge_army_mg3_aatripod", "CSLA_DShKM_h_Stat"];
         _staticATs                 append [];
         _staticAAs                 append ["CSLA_PLdvK59_Stat"];
         _mortars                   append ["RUS_MSV_2b14"];
