@@ -101,6 +101,11 @@
 //vehicle skins
 // ["vehicle class name", ["skin name", weight]]
 ["variants", [
+    ["pook_Mig27_OPFOR",                            ["TAK1",1]],
+    ["pook_AN12BP_OPFOR",                           ["pook_AN12_TEX_GREY",1]],
+    ["pook_MIG21_OPFOR",                            ["tak",1]],
+    ["pook_Mig23_OPFOR",                            ["TAK1",1]],
+    ["pook_Su22_OPFOR",                             ["DES1",1]],
     ["gm_ge_army_kat1_451_refuel",                  ["gm_ge_oli",1]],
     ["US85_M113_DTP",                               ["NATOg",1]],
     ["gm_dk_army_m113a1dk_apc_noinsignia",          ["gm_merdc_grn",1]],
