@@ -1,36 +1,9 @@
-private _hasWs = "ws" in A3A_enabledDLC;
-private _hasMarksman = "mark" in A3A_enabledDLC;
-private _hasTanks = "tank" in A3A_enabledDLC;
-private _hasApex = "expansion" in A3A_enabledDLC;
-private _hasHelicopters = "heli" in A3A_enabledDLC;
-private _hasLawsOfWar = "orange" in A3A_enabledDLC;
-private _hasContact = "enoch" in A3A_enabledDLC;
-private _hasJets = "jets" in A3A_enabledDLC;
-private _hasArtOfWar = "aow" in A3A_enabledDLC;
-private _hasGM = "gm" in A3A_enabledDLC;
-private _hasCSLA = "csla" in A3A_enabledDLC;
-private _hasRF = "rf" in A3A_enabledDLC;
-private _hasSOG = "vn" in A3A_enabledDLC;
-private _hasSPE = "spe" in A3A_enabledDLC;
-private _hasEF = "ef" in A3A_enabledDLC;
-
-private _hasJCAArsenal = isClass(configfile >> "CfgPatches" >> "Weapons_F_JCA_IA") && isClass(configfile >> "CfgPatches" >> "Data_F_JCA_IA");
-private _hasJCAEquipment = isClass(configfile >> "CfgPatches" >> "Uniforms_F_JCA_IE") && isClass(configfile >> "CfgPatches" >> "Headwear_F_JCA_IE") && isClass(configfile >> "CfgPatches" >> "Facewear_F_JCA_IE") && isClass(configfile >> "CfgPatches" >> "vests_f_JCA_IE");
-private _hasMCC = isClass(configfile >> "CfgPatches" >> "MCC_Core");
-private _hasMPP = isClass(configfile >> "CfgPatches" >> "MPP_CORE");
-private _hasMHS = isClass(configfile >> "CfgPatches" >> "MHS_Pistols");
-private _hasMSS = isClass(configfile >> "CfgPatches" >> "MSS_Core");
-private _hasDGR = isClass(configfile >> "CfgPatches" >> "a3_dgr_weapons");
-private _hasTierOne = isClass(configfile >> "CfgPatches" >> "Tier1_Weapons_cfg");
-private _hasNiArms = isClass(configfile >> "CfgPatches" >> "niarms_416") && isClass(configfile >> "CfgPatches" >> "niaweapons_226") && isClass(configfile >> "CfgPatches" >> "niaweapons_C96");
-private _hasSMA = isClass(configfile >> "CfgPatches" >> "SMA_Weapons") && isClass(configfile >> "CfgPatches" >> "SMA_Weapons_A3");
-
+#include "YULAK_Addon_Checks.sqf"
+#include "..\..\script_component.hpp" // TAKE NOTE OF THIS. WITHOUT THIS, YOU CAN'T USE MACROS LIKE QPATHTOFOLDER.
 
 //////////////////////////
 //   Side Information   //
 //////////////////////////
-
-#include "..\..\script_component.hpp" // TAKE NOTE OF THIS. WITHOUT THIS, YOU CAN'T USE MACROS LIKE QPATHTOFOLDER.
 
 ["name", "YPG"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "Yulakian Support Corridor"] call _fnc_saveToTemplate;
@@ -85,6 +58,12 @@ private _staticATs                 = ["RHS_TOW_TriPod_WD", "rhs_Kornet_9M133_2_v
 private _staticAAs                 = ["rhs_Igla_AA_pod_msv", "rhs_ZU23_VDV", "rhs_Igla_AA_pod_msv"];
 private _mortars                   = [];
 private _howitzers                 = [];
+
+if (_hasMTLB) then {
+    _militiaAPCs append [
+        "tbd_mtlb_6ma2_tkn4g"
+    ];
+}
 
 switch (true) do {
     case (!_hasGM && !_hasCSLA && !_hasSOG): { // Neither GM, CSLA, nor SOG

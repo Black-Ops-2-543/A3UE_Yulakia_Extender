@@ -1,19 +1,4 @@
-private _hasWs = "ws" in A3A_enabledDLC;
-private _hasMarksman = "mark" in A3A_enabledDLC;
-private _hasTanks = "tank" in A3A_enabledDLC;
-private _hasApex = "expansion" in A3A_enabledDLC;
-private _hasHelicopters = "heli" in A3A_enabledDLC;
-private _hasLawsOfWar = "orange" in A3A_enabledDLC;
-private _hasContact = "enoch" in A3A_enabledDLC;
-private _hasJets = "jets" in A3A_enabledDLC;
-private _hasArtOfWar = "aow" in A3A_enabledDLC;
-private _hasGM = "gm" in A3A_enabledDLC;
-private _hasCSLA = "csla" in A3A_enabledDLC;
-private _hasRF = "rf" in A3A_enabledDLC;
-private _hasSOG = "vn" in A3A_enabledDLC;
-private _hasSPE = "spe" in A3A_enabledDLC;
-private _hasEF = "ef" in A3A_enabledDLC;
-
+#include "YULAK_Addon_Checks.sqf"
 #include "..\..\script_component.hpp" // TAKE NOTE OF THIS. WITHOUT THIS, YOU CAN'T USE MACROS LIKE QPATHTOFOLDER.
 
 //////////////////////////
@@ -36,7 +21,28 @@ private _hasEF = "ef" in A3A_enabledDLC;
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate;                                              //Changeing this from default will require you to define logistics attachement offset for the box type
 
 private _boats = [];
+private _SPAA = [
+    "rts_sa22m_pantsir_r",
+    "rts_sa22m_pantsir_r",
+    "rts_buk_r",
+    "mkk_2s6m_tunguska",
+    "mkk_2s6m_tunguska",
+    "mkk_2s6m_tunguska",
+    "rts_tor_r"
+];
+private _militiaAPCs = [
+    "rhs_btr80a_vv"
+];
 
+if (_hasMTLB) then {
+    _SPAA append [
+        "tbd_mtlb_strela_m4"
+    ];
+    _militiaAPCs append [
+        "tbd_mtlb_6mb_tkn4g",
+        "tbd_mtlb_6mb_tkn4g"
+    ];
+};
 if (_hasEF) then {
     _boats append [
         "EF_B_CombatBoat_HMG_NATO"
@@ -62,7 +68,7 @@ if (_hasEF) then {
 ["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "rts_bmpt_r", "RUS_MP_bmp3m", "mkk_BMP_2M"]]    call _fnc_saveToTemplate; // Heavier armament with infantry capacity
 ["vehiclesTanks", ["rhs_t14_tv", "RUS_MSV_t90m", "rhs_t90sab_tv", "rhs_tv_t80bvm", "RUS_MSV_t72b3m"]]             call _fnc_saveToTemplate; // Tanks
 ["vehiclesLightTanks", ["O_R_APC_Wheeled_04_cannon_v2_F"]]                                                                         call _fnc_saveToTemplate; // Lesser armament and/or less armor
-["vehiclesAA", ["mkk_sa22m_pantsir_r", "mkk_2s6m_tunguska"]]                                                                       call _fnc_saveToTemplate; // SPAA
+["vehiclesAA", ["rts_sa22m_pantsir_r", "rts_sa22m_pantsir_r", "rts_buk_r", "mkk_2s6m_tunguska", "mkk_2s6m_tunguska", "mkk_2s6m_tunguska", "rts_tor_r"]]                                                                       call _fnc_saveToTemplate; // SPAA
 
 ["vehiclesTransportBoats", ["O_R_Boat_Transport_01_ard_F"]] call _fnc_saveToTemplate; // Little-to-no armament
 ["vehiclesGunBoats", _boats]       call _fnc_saveToTemplate; // Armed boats
@@ -90,7 +96,7 @@ if (_hasEF) then {
 ["vehiclesMilitiaLightArmed", ["rhs_tigr_sts_vv"]] call _fnc_saveToTemplate; // Vehicles with minimal armor and light weapons
 ["vehiclesMilitiaTrucks", ["rhs_kamaz5350_vv"]]    call _fnc_saveToTemplate; // Infantry transport trucks
 ["vehiclesMilitiaCars", ["O_R_LSV_02_unarmed_F"]]  call _fnc_saveToTemplate; // Vehicles with minimal armor and no weapons
-["vehiclesMilitiaAPCs", ["rhs_btr80_vv"]]          call _fnc_saveToTemplate; // Light-moderate armament and passenger capacity
+["vehiclesMilitiaAPCs", _militiaAPCs]          call _fnc_saveToTemplate; // Light-moderate armament and passenger capacity
 
 ["vehiclesPolice", ["rhs_tigr_vv"]] call _fnc_saveToTemplate; // Vehicles with minimal armor and no weapons for use by police
 

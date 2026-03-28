@@ -1,0 +1,27 @@
+_hasWs = "ws" in A3A_enabledDLC;
+_hasMarksman = "mark" in A3A_enabledDLC;
+_hasTanks = "tank" in A3A_enabledDLC;
+_hasApex = "expansion" in A3A_enabledDLC;
+_hasHelicopters = "heli" in A3A_enabledDLC;
+_hasLawsOfWar = "orange" in A3A_enabledDLC;
+_hasContact = "enoch" in A3A_enabledDLC;
+_hasJets = "jets" in A3A_enabledDLC;
+_hasArtOfWar = "aow" in A3A_enabledDLC;
+_hasGM = "gm" in A3A_enabledDLC;
+_hasCSLA = "csla" in A3A_enabledDLC;
+_hasRF = "rf" in A3A_enabledDLC;
+_hasSOG = "vn" in A3A_enabledDLC;
+_hasSPE = "spe" in A3A_enabledDLC;
+_hasEF = "ef" in A3A_enabledDLC;
+
+_hasJCAArsenal = [["Weapons_F_JCA_IA", "Data_F_JCA_IA"]] call A3U_fnc_hasAddon;
+_hasJCAEquipment = [["Uniforms_F_JCA_IE", "Headwear_F_JCA_IE", "Facewear_F_JCA_IE", "vests_f_JCA_IE"]] call A3U_fnc_hasAddon;
+_hasMCC = ["MCC_Core"] call A3U_fnc_hasAddon;
+_hasMPP = ["MPP_CORE"] call A3U_fnc_hasAddon;
+_hasMHS = ["MHS_Pistols"] call A3U_fnc_hasAddon;
+_hasMSS = ["MSS_Core"] call A3U_fnc_hasAddon;
+_hasDGR = ["a3_dgr_weapons"] call A3U_fnc_hasAddon;
+_hasTierOne = ["Tier1_Weapons_cfg"] call A3U_fnc_hasAddon;
+_hasNiArms = [["niarms_416", "niaweapons_226", "niaweapons_C96"]] call A3U_fnc_hasAddon;
+_hasSMA = [["SMA_Weapons", "SMA_Weapons_A3"]] call A3U_fnc_hasAddon;
+_hasMTLB = ["tbd_mtlb_main"] call A3U_fnc_hasAddon;
