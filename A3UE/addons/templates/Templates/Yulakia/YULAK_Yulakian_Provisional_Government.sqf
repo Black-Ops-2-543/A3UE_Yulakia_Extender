@@ -63,7 +63,7 @@ if (_hasMTLB) then {
     _militiaAPCs append [
         "tbd_mtlb_6ma2_tkn4g"
     ];
-}
+};
 
 switch (true) do {
     case (!_hasGM && !_hasCSLA && !_hasSOG): { // Neither GM, CSLA, nor SOG
@@ -160,7 +160,7 @@ switch (true) do {
         _APCs                      append [];
         _airborneVehicles          append ["US85_M113"];
         _IFVs                      append ["rhs_bmp1p_msv"];
-        _tanks                     append [, "CSLA_T72M1_noinsignia"];
+        _tanks                     append ["CSLA_T72M1_noinsignia"];
         _lightTanks                append ["US85_M113A1_TOW"];
         _SPAA                      append ["CSLA_PLdvK59V3S_noinsignia"];
         _transportBoats            append [];
@@ -320,7 +320,7 @@ switch (true) do {
         _APCs                      append ["vn_b_armor_m113_acav_06"];
         _airborneVehicles          append ["US85_M113"];
         _IFVs                      append ["rhs_bmp1p_msv"];
-        _tanks                     append [, "CSLA_T72M1_noinsignia"];
+        _tanks                     append ["CSLA_T72M1_noinsignia"];
         _lightTanks                append ["US85_M113A1_TOW", "vn_o_armor_pt76a_01_nva65"];
         _SPAA                      append ["CSLA_PLdvK59V3S_noinsignia"];
         _transportBoats            append ["vn_b_boat_10_01"];

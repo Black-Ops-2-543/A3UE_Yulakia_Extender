@@ -66,7 +66,7 @@ if (_hasEF) then {
 ["vehiclesAPCs", ["rts_k18_r", "rts_k17_r", "TV_kgn25_NSVT", "O_R_APC_Wheeled_04_cannon_ard_F"]]                                   call _fnc_saveToTemplate; // Moderate armament and decent passenger cap
 ["vehiclesAirborne", ["rts_bmd4m_r"]]                                                                                            call _fnc_saveToTemplate; // Parachute-deployable armored vehicles
 ["vehiclesIFVs", ["TV_kgn25_2A92", "rhs_t15_tv", "TV_kgn25_2A42", "rts_bmpt_r", "RUS_MP_bmp3m", "mkk_BMP_2M"]]    call _fnc_saveToTemplate; // Heavier armament with infantry capacity
-["vehiclesTanks", ["rhs_t14_tv", "RUS_MSV_t90m", "rhs_t90sab_tv", "rhs_tv_t80bvm", "RUS_MSV_t72b3m"]]             call _fnc_saveToTemplate; // Tanks
+["vehiclesTanks", ["rhs_t14_tv", "RUS_MSV_t90m", "rhs_t90sab_tv", "rts_t80bvm_r", "RUS_MSV_t72b3m"]]             call _fnc_saveToTemplate; // Tanks
 ["vehiclesLightTanks", ["O_R_APC_Wheeled_04_cannon_v2_F"]]                                                                         call _fnc_saveToTemplate; // Lesser armament and/or less armor
 ["vehiclesAA", ["rts_sa22m_pantsir_r", "rts_sa22m_pantsir_r", "rts_buk_r", "mkk_2s6m_tunguska", "mkk_2s6m_tunguska", "mkk_2s6m_tunguska", "rts_tor_r"]]                                                                       call _fnc_saveToTemplate; // SPAA
 
@@ -74,7 +74,7 @@ if (_hasEF) then {
 ["vehiclesGunBoats", _boats]       call _fnc_saveToTemplate; // Armed boats
 ["vehiclesAmphibious", ["RUS_MSV_bmp3m", "RUS_MSV_bmp2m", "RUS_VDV_bmd4m", "RUS_MSV_btr82a"]]                call _fnc_saveToTemplate; // APC, IFV, etc. with amphibious capabilities
 
-["vehiclesPlanesCAS", ["RHS_Su25SM_vvs", "RUS_VKS_su24_m", "min_rf_su_34"]]                   call _fnc_saveToTemplate; // Planes focused on anti-ground roles
+["vehiclesPlanesCAS", ["RHS_Su25SM_vvs", "RUS_VKS_su24m", "min_rf_su_34"]]                   call _fnc_saveToTemplate; // Planes focused on anti-ground roles
 ["vehiclesPlanesAA", ["RUS_VKS_su57","RUS_VKS_mig29smt", "RUS_VKS_mig29smt", "pook_SU30M_OPFOR","pook_SU30M_OPFOR","pook_SU30_OPFOR","pook_SU27_OPFOR","pook_SU27_OPFOR"]]   call _fnc_saveToTemplate; // Planes focused on air superiority
 ["vehiclesPlanesTransport", ["pook_IL76_OPFOR"]]        call _fnc_saveToTemplate; // Planes available to paradrop infantry
 
