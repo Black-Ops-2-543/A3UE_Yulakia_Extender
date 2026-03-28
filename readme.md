@@ -20,11 +20,10 @@ This A3UE currently relies on the following mods and DLC:
 - [2035: Russian Armed Forces](https://steamcommunity.com/sharedfiles/filedetails/?id=543460260)
 - [Modern Armed Forces of Russian Federation](https://steamcommunity.com/sharedfiles/filedetails/?id=3352497264)
 - [BMP2-M](https://steamcommunity.com/sharedfiles/filedetails/?id=3299277816)
-- [Russian Tank Series](https://steamcommunity.com/sharedfiles/filedetails/?id=3418145558)
+- [Russian Tank Series](https://steamcommunity.com/sharedfiles/filedetails/?id=3688574664)
+- [RHS Vehicle Expansion Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=3630125093)
 - [Aegis](https://steamcommunity.com/sharedfiles/filedetails/?id=949252631)
-- [Leopard 1A5](https://steamcommunity.com/sharedfiles/filedetails/?id=3271647663&searchtext=leopard+1)
 - [RHS Plus](https://steamcommunity.com/sharedfiles/filedetails/?id=3299910335&searchtext=rhs+plsu)
-- [RACS SLA](https://steamcommunity.com/sharedfiles/filedetails/?id=2955691343&searchtext=racs+sla)
 - [Orion UAV](https://steamcommunity.com/sharedfiles/filedetails/?id=3093850989)
 - [Yulakia](https://steamcommunity.com/sharedfiles/filedetails/?id=2950257727&searchtext=yulakia)
 ### Compatability
@@ -42,8 +41,6 @@ Additionally, I wish to include support for the following mods, where applicable
   - [Modern Pistol Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=3157163173)
 - [Dagger](https://steamcommunity.com/sharedfiles/filedetails/?id=1105446708)
 - [Shotguns (Repack)](https://steamcommunity.com/sharedfiles/filedetails/?id=1527031418)
-### Concerns
-The mod `RHS Vehicle Expansion Pack` has been repeatedly removed from the Steam Workshop and Nexus Mods. I currently possess a file that I am working from, but it seems untenable to keep its assets in this A3UE. I will likely have to remove it and its vehicles unless I can safely integrate them directly into this A3UE. Removing its data would be a significant let-down for me, as I have really enjoyed the T-80BVM and three Kurganets IFVs it adds to Arma. If anybody has any information on the mod or can find another mod that contains similar vehicles, I will be extremely thankful. Feel free to fork this to add it if I do not reply.
 
 # Worldbuilding
 ## Russian Cornerstone
